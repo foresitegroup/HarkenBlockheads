@@ -23,7 +23,7 @@
       $(document).ready(function() {
         $("a[href^='http'], a[href$='.pdf']").not("[href*='" + window.location.host + "']").attr('target','_blank');
 
-        $(".menu").waypoint(function(direction) {
+        $(".menu-spacer").waypoint(function(direction) {
           $(".menu").toggleClass("sticky", direction == "down");
           $(".menu-spacer").toggleClass("sticky", direction == "down");
         });
@@ -51,6 +51,8 @@
         </div>
       </div>
     </div>
+    
+    <div class="menu-spacer"></div>
 
     <div class="menu">
       <div class="site-width">
@@ -66,9 +68,7 @@
         </ul>
       </div>
     </div>
-
-    <div class="menu-spacer"></div>
-
+    
     <div class="home-posts">
       <a href="https://twitter.com/hashtag/harkenblockheads" class="header">#HARKENBLOCKHEADS</a>
 
@@ -106,7 +106,8 @@
     </div>
 
     <div class="home-poll">
-      POLL GOES HERE
+      POLL GOES HERE<br>
+      I need excruciating details on how this will work.
     </div>
 
     <div class="home-event">
@@ -134,13 +135,112 @@
       </div>
     </div>
 
+    <div class="home-social-header">
+      <div class="site-width">
+        <div class="home-social-header-left">
+          <a href="https://twitter.com/hashtag/harkenblockheads">#HARKENBLOCKHEADS</a>
+          <a href="https://twitter.com/hashtag/harken">#HARKEN</a>
+        </div>
 
-    SOCIAL STUFF GOES HERE
+        <div class="home-social-header-right">
+          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <?php
+    require_once("inc/instafeed.php");
+    require_once("inc/TweetPHP/stuff.php");
+    ?>
+    
+    <div class="home-social instagram" id="instafeed-1"></div>
+    
+    <div class="home-social twitter">
+      <div class="content">
+        <?php echo $TweetPHP->autolink($tweet_array[0]['text']); ?>
+      </div>
+
+      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[0]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
+    </div>
+
+    <div class="home-social instagram" id="instafeed-2"></div>
+
+    <div class="home-social twitter">
+      <div class="content">
+        <?php echo $TweetPHP->autolink($tweet_array[1]['text']); ?>
+      </div>
+
+      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[1]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
+    </div>
+
+    <div class="home-social instagram" id="instafeed-3"></div>
+
+    <div class="home-social twitter">
+      <div class="content">
+        <?php echo $TweetPHP->autolink($tweet_array[2]['text']); ?>
+      </div>
+
+      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[2]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
+    </div>
+
+    <div class="home-social instagram" id="instafeed-4"></div>
+
+    <div class="home-social twitter">
+      <div class="content">
+        <?php echo $TweetPHP->autolink($tweet_array[3]['text']); ?>
+      </div>
+
+      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[3]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
+    </div>
+
+    <div class="home-social instagram" id="instafeed-5"></div>
+
+    <div class="home-social twitter">
+      <div class="content">
+        <?php echo $TweetPHP->autolink($tweet_array[4]['text']); ?>
+      </div>
+
+      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[4]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
+    </div>
+
+    <div style="clear: both;"></div>
+
+    <div class="home-contact">
+      <a href="#">CONTACT</a>
+    </div>
+
+    <div class="home-prefooter">
+      <div class="site-width">
+        <img src="images/logo-prefooter.png" alt=""><br>
+        <br>
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+
+    <div class="bh-footer">
+      <div class="site-width">
+        <div class="bh-footer-left">
+          <a href="#">JOIN</a>
+          <a href="#">CONTACT</a>
+          <a href="#">TERMS</a>
+        </div>
+
+        <div class="bh-footer-right">
+          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        </div>
+
+        <div style="clear: both;"></div>
+
+        &copy; <?php echo date("Y"); ?> All rights reserved, Harken Inc.
+      </div>
+    </div>
 
   </body>
 </html>
