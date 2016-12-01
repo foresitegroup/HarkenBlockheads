@@ -1,0 +1,235 @@
+.admin {
+  padding: 4em 0;
+}
+
+INPUT[type="text"].startdate,
+INPUT[type="text"].enddate {
+  float: left;
+  width: 45%;
+  margin-right: 10%;
+}
+
+INPUT[type="text"].enddate {
+  margin-right: 0;
+}
+
+.controls {
+  float: left;
+  width: 3.3em;
+  font-size: 25px;
+}
+
+.controls .fa {
+  margin-right: 0.6em;
+}
+
+.controls A:link .fa-pencil,
+.controls A:visited .fa-pencil {
+  color: yellow;
+}
+
+.controls A:link .fa-trash,
+.controls A:visited .fa-trash {
+  color: #BBBBBB;
+}
+
+.controls A:hover .fa-pencil,
+.controls A:active .fa-pencil,
+.controls A:hover .fa-trash,
+.controls A:active .fa-trash {
+  color: #EC1B23;
+}
+
+.one-half.edit {
+  float: none;
+  margin: 0 auto;
+}
+
+/*----------------------------
+    The file upload form
+-----------------------------*/
+#upload {
+  padding: 30px;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+#drop {
+  background-color: #DBF9FC;
+  padding: 40px 50px;
+  margin-bottom: 30px;
+  border: 3px dashed #646C7F;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  color: #646C7F;
+}
+
+#drop a {
+  background-color: #007a96;
+  padding: 12px 26px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 12px;
+  line-height: 1;
+}
+
+#drop a:hover {
+  background-color: #0986a3;
+}
+
+#drop input {
+  display: none;
+}
+
+#upload ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#upload ul li {
+  border-top: 1px solid #646C7F;
+  border-bottom: 1px solid #646C7F;
+  padding: 15px 0;
+}
+
+#upload ul li canvas {
+  float: left;
+  width: 48px;
+  height: 48px;
+}
+
+#upload ul li input {
+  display: none;
+}
+
+#upload ul li p {
+  float: left;
+  width: calc(100% - 82px);
+  height: 48px;
+  margin: 0 7px 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #646C7F;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+}
+
+#upload ul li.working p A:link,
+#upload ul li.working p A:visited {
+  display: none;
+}
+
+#upload ul li p A:link,
+#upload ul li p A:visited {
+  color: #007A96;
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+#upload ul li p A:hover,
+#upload ul li p A:active {
+  color: #0986A3;
+}
+
+#upload ul li i {
+  font-weight: normal;
+  font-style: normal;
+  color: #7f7f7f;
+  display: block;
+}
+
+#upload ul li span {
+  float: left;
+  width: 16px;
+  height: 48px;
+  cursor: pointer;
+  position: relative;
+}
+
+#upload ul li span:after {
+  font-family: "FontAwesome";
+  content: '\f00c';
+  color: green;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#upload ul li.working span:after,
+#upload ul li.error span:after {
+  font-family: "FontAwesome";
+  content: '\f00d';
+  color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#upload ul li.error p {
+  color: red;
+}
+
+#upload ul li .errormessage {
+  display: none;
+  padding-top: 0.5em;
+  text-align: center;
+  color: red;
+}
+
+#upload ul li.error .errormessage {
+  display: block;
+}
+
+.mm-image-header {
+  padding: 1em 1% 0.5em;
+}
+
+.mm-image {
+  width: 17.6%;
+  display: inline-block;
+  background-position: center center;
+  background-size: cover;
+  margin: 1%;
+}
+
+.mm-image:after {
+  padding-top: 100%;
+  display: block;
+  content: '';
+}
+
+#image {
+  background-position: right center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+.ui-widget-overlay {
+  opacity: 0.9;
+}
+
+.ui-dialog .ui-dialog-content {
+  padding: 0;
+}
+
+.ui-tabs .ui-tabs-nav li,
+.ui-tabs .ui-tabs-nav li a {
+  outline: 0;
+}
+
+.ui-tabs .ui-tabs-panel {
+  padding: 0;
+}

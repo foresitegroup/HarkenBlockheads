@@ -1,2 +1,5 @@
+admin/login.php
+inc/dbconfig.php
 inc/instafeed.php
 inc/TweetPHP
+feed/

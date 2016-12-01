@@ -1,3 +1,4 @@
+<? $PageTitle = ""; ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,7 +34,13 @@
   <body>
 
     <div class="home-banner">
-      <div class="image" style="background-image: url(images/blog1.jpg);"></div>
+      <?php
+      require('feed/wp-blog-header.php');
+      $posts = get_posts('posts_per_page=1&order=DESC&orderby=date');
+      foreach ($posts as $post) :
+        setup_postdata($post);
+      ?>
+      <div class="image"<?php if (get_post_thumbnail_id() != "") echo "style=\"background-image: url(" . wp_get_attachment_url(get_post_thumbnail_id()) . ");\""; ?>></div>
 
       <div class="site-width">
         <div class="home-banner-left">
@@ -43,13 +50,14 @@
         <div class="home-banner-right">
           <h3>LATEST:</h3>
 
-          <h1>Orange Bowl Regatta</h1>
+          <h1><?php the_title(); ?></h1>
 
-          <a href="#" class="button">READ</a>
+          <a href="<?php the_permalink(); ?>" class="button">READ</a>
 
-          <a href="#">SEE MORE <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+          <a href="feed">SEE MORE <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
         </div>
       </div>
+      <?php endforeach; ?>
     </div>
     
     <div class="menu-spacer"></div>
@@ -63,7 +71,7 @@
 
         <ul>
           <li><a href="#">JOIN.</a></li>
-          <li><a href="#">FEED.</a></li>
+          <li><a href="feed">FEED.</a></li>
           <li><a href="#">EVENTS.</a></li>
         </ul>
       </div>
@@ -71,38 +79,39 @@
     
     <div class="home-posts">
       <a href="https://twitter.com/hashtag/harkenblockheads" class="header">#HARKENBLOCKHEADS</a>
+      
+      <?php
+      $posts = get_posts('posts_per_page=3&offset=1&order=DESC&orderby=date');
+      foreach ($posts as $post) :
+        setup_postdata( $post );
+        ?>
+        <div class="post">
+          <div class="image"<?php if (get_post_thumbnail_id() != "") echo ' style="background-image: url(' . wp_get_attachment_url(get_post_thumbnail_id()) . ');"'; ?>></div>
 
-      <div class="post">
-        <div class="image" style="background-image: url(images/blog2.jpg);"></div>
+          <h3>
+            <?php
+            $i = 0;
+            foreach((get_the_category()) as $category) {
+              if ($i > 0) echo ", ";
+              echo $category->cat_name;
+              $i++;
+            }
+            ?>
+          </h3>
 
-        <h3>Media</h3>
+          <h2><?php the_title(); ?></h2>
 
-        <h2>Orange Bowl Regatta Weekend Recap</h2>
+          <?php
+          $excerpt = explode(' ', get_the_excerpt(), 19);
+          if (count($excerpt)>=19) array_pop($excerpt);
+          $excerpt = implode(" ",$excerpt);
+          $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+          echo $excerpt;
+          ?>
+        </div>
+      <?php endforeach; ?>
 
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </div>
-
-      <div class="post">
-        <div class="image" style="background-image: url(images/blog3.jpg);"></div>
-
-        <h3>Film</h3>
-
-        <h2>Dodo's Delight a Short Sailing Film</h2>
-
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </div>
-
-      <div class="post">
-        <div class="image" style="background-image: url(images/blog4.jpg);"></div>
-
-        <h3>Photo</h3>
-
-        <h2>Blockhead Adventure #02</h2>
-
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </div>
-
-      <a href="#" class="button">MORE</a>
+      <a href="feed" class="button">MORE</a>
     </div>
 
     <div class="home-poll">
@@ -111,21 +120,48 @@
     </div>
 
     <div class="home-event">
-      <div class="image" style="background-image: url(images/event1.jpg);"></div>
+      <?php
+      include_once "inc/dbconfig.php";
+
+      $now = time();
+
+      $result = $mysqli->query("SELECT * FROM events WHERE enddate+86400 >= $now ORDER BY startdate ASC LIMIT 1");
+
+      // If there are no upcoming events just display the last event
+      if (mysqli_num_rows($result) == 0) $result = $mysqli->query("SELECT * FROM events ORDER BY enddate DESC LIMIT 1");
+
+      $row = $result->fetch_array(MYSQLI_ASSOC);
+      
+      $TheDate = '<div class="event-month">' . date("F", $row['startdate']) . '</div>';
+      $TheDate .= '<div class="event-date">' . date("j", $row['startdate']);
+
+      if ($row['startdate'] != $row['enddate']) {
+        $TheDate .= "-";
+
+        if (date("F", $row['startdate']) != date("F", $row['enddate'])) {
+          $TheDate .= '</div>';
+          $TheDate .= '<div class="event-month">' . date("F", $row['enddate']) . '</div>';
+          $TheDate .= '<div class="event-date">';
+        }
+
+        $TheDate .= date("j", $row['enddate']);
+      }
+      $TheDate .= '</div>';
+      ?>
+      <div class="image"<?php if ($row['image'] != "") echo "style=\"background-image: url(images/events/" . $row['image'] . ");\""; ?>></div>
 
       <div class="site-width">
         <div class="header">NEXT EVENT</div>
 
         <div class="event">
           <div class="event-left">
-            <div class="event-month">December</div>
-            <div class="event-date">26-28</div>
+            <?php echo $TheDate; ?>
 
-            <a href="#" class="button">VIEW EVENT</a>
+            <a href="event.php?<?php echo $row['id']; ?>" class="button">VIEW EVENT</a>
           </div>
 
           <div class="event-right">
-            Orange Bowl Regatta
+            <?php echo $row['title']; ?>
           </div>
 
           <div style="clear: both;"></div>

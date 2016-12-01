@@ -46,6 +46,86 @@ H2 {
   font-size: 1.5em;
 }
 
+INPUT[type="text"],
+INPUT[type="email"],
+INPUT[type="password"],
+TEXTAREA {
+  border: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.3em 1em;
+  background: #EBEBEB;
+  color: #EC1B23;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  -webkit-appearance: none; /* I prefer my styles, Steve Jobs */
+  border-radius: 5px;
+  outline: 0;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  overflow: auto; /* Good ol' IE */
+  margin-bottom: 2em;
+}
+
+TEXTAREA {
+  padding: 0.9em 1em;
+  height: 14em;
+}
+
+INPUT[type="text"]:focus,
+INPUT[type="email"]:focus,
+INPUT[type="password"]:focus,
+TEXTAREA:focus {
+  background: #FFFFFF;
+}
+
+INPUT::-webkit-input-placeholder { color: #EC1B23; opacity: 1; }
+INPUT:-moz-placeholder { color: #EC1B23; opacity: 1; } /* FF 4-18 */
+INPUT::-moz-placeholder { color: #EC1B23; opacity: 1; } /* FF 19+ */
+INPUT:-ms-input-placeholder { color: #EC1B23; opacity: 1; } /* IE 10+ */
+TEXTAREA::-webkit-input-placeholder { color: #EC1B23; opacity: 1; }
+TEXTAREA:-moz-placeholder { color: #EC1B23; opacity: 1; } /* FF 4-18 */
+TEXTAREA::-moz-placeholder { color: #EC1B23; opacity: 1; } /* FF 19+ */
+TEXTAREA:-ms-input-placeholder { color: #EC1B23; opacity: 1; } /* IE 10+ */
+
+INPUT:focus::-webkit-input-placeholder { color: transparent; }
+INPUT:focus:-moz-placeholder { color: transparent; } /* FF 4-18 */
+INPUT:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
+INPUT:focus:-ms-input-placeholder { color: transparent; } /* IE 10+ */
+TEXTAREA:focus::-webkit-input-placeholder { color: transparent; }
+TEXTAREA:focus:-moz-placeholder { color: transparent; } /* FF 4-18 */
+TEXTAREA:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
+TEXTAREA:focus:-ms-input-placeholder { color: transparent; } /* IE 10+ */
+
+INPUT[type="submit"] {
+  border: 0;
+  box-sizing: border-box;
+  padding: 0.7em 2em;
+  border-radius: 5px;
+  background: #EC1B23;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1em;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-appearance: none; /* I prefer my styles, Steve Jobs */
+}
+
+INPUT[type="submit"]:hover {
+  background: #EBEBEB;
+  color: #000000;
+}
+
+INPUT[type="submit"]:focus {
+  outline: none;
+}
+
 .site-width {
   width: 1000px;
   margin: 0 auto;
@@ -56,6 +136,16 @@ H2 {
   content: "";
   display: table;
   clear: both;
+}
+
+.one-half {
+  float: left;
+  width: 45%;
+  margin-right: 10%;
+}
+
+.one-half.last {
+  margin-right: 0;
 }
 
 .home-banner {
@@ -71,6 +161,7 @@ H2 {
   z-index: -1;
   height: calc(100vh - 84px);
   width: 56.5%;
+  background-image: url(../images/featured-image-generic.jpg);
   background-position: center center;
   background-size: cover;
 }
@@ -273,6 +364,7 @@ H2 {
 }
 
 .home-posts .post .image {
+  background-image: url(../images/featured-image-generic.jpg);
   background-position: center center;
   background-size: cover;
   margin-bottom: 2em;
@@ -344,6 +436,7 @@ H2 {
   right: 0;
   height: 100%;
   width: 60%;
+  background-image: url(../images/featured-image-generic.jpg);
   background-position: center center;
   background-size: cover;
 }
@@ -379,14 +472,16 @@ H2 {
 }
 
 .home-event .event .event-left .event-month {
+  line-height: 1em;
   text-transform: uppercase;
   letter-spacing: 0.4em;
-  margin-bottom: 1.5em;
+  margin-bottom: 8px;
 }
 
 .home-event .event .event-left .event-date {
   font-size: 80px;
-  margin-bottom: 1em;
+  line-height: 1em;
+  margin-bottom: 10px;
 }
 
 .home-event .event .event-left A.button:link,
@@ -399,6 +494,7 @@ H2 {
   letter-spacing: 0.3em;
   padding: 0.9em 1.2em 0.9em 1.5em;
   display: inline-block;
+  margin-top: 4em;
 }
 
 .home-event .event .event-left A.button:hover,
