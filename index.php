@@ -48,13 +48,15 @@
         </div>
 
         <div class="home-banner-right">
-          <h3>LATEST:</h3>
+          <div>
+            <h3>LATEST:</h3>
 
-          <h1><?php the_title(); ?></h1>
+            <h1><?php the_title(); ?></h1>
 
-          <a href="<?php the_permalink(); ?>" class="button">READ</a>
+            <a href="<?php the_permalink(); ?>" class="button">READ</a>
 
-          <a href="feed">SEE MORE <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+            <a href="feed" class="more">SEE MORE <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
       <?php endforeach; ?>
@@ -68,11 +70,19 @@
           <a href="."><img src="images/logo-menu.png" alt=""></a>
           <a href="https://twitter.com/hashtag/harkenblockheads">#HARKENBLOCKHEADS</a>
         </div>
-
+        
+        <input type="checkbox" id="show-menu" role="button">
+        <label for="show-menu" id="menu-toggle"></label>
         <ul>
           <li><a href="#">JOIN.</a></li>
           <li><a href="feed">FEED.</a></li>
           <li><a href="#">EVENTS.</a></li>
+          <li class="social">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+          </li>
         </ul>
       </div>
     </div>
@@ -192,57 +202,57 @@
     require_once("inc/TweetPHP/stuff.php");
     ?>
     
-    <div class="home-social instagram" id="instafeed-1"></div>
-    
-    <div class="home-social twitter">
-      <div class="content">
-        <?php echo $TweetPHP->autolink($tweet_array[0]['text']); ?>
+    <div class="home-social-tiles cf">
+      <div class="home-social instagram" id="instafeed-1"></div>
+      
+      <div class="home-social twitter">
+        <div class="content">
+          <?php echo $TweetPHP->autolink($tweet_array[0]['text']); ?>
+        </div>
+
+        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[0]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
       </div>
 
-      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[0]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-    </div>
+      <div class="home-social instagram" id="instafeed-2"></div>
 
-    <div class="home-social instagram" id="instafeed-2"></div>
+      <div class="home-social twitter">
+        <div class="content">
+          <?php echo $TweetPHP->autolink($tweet_array[1]['text']); ?>
+        </div>
 
-    <div class="home-social twitter">
-      <div class="content">
-        <?php echo $TweetPHP->autolink($tweet_array[1]['text']); ?>
+        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[1]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
       </div>
 
-      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[1]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-    </div>
+      <div class="home-social instagram" id="instafeed-3"></div>
 
-    <div class="home-social instagram" id="instafeed-3"></div>
+      <div class="home-social twitter">
+        <div class="content">
+          <?php echo $TweetPHP->autolink($tweet_array[2]['text']); ?>
+        </div>
 
-    <div class="home-social twitter">
-      <div class="content">
-        <?php echo $TweetPHP->autolink($tweet_array[2]['text']); ?>
+        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[2]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
       </div>
 
-      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[2]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-    </div>
+      <div class="home-social instagram" id="instafeed-4"></div>
 
-    <div class="home-social instagram" id="instafeed-4"></div>
+      <div class="home-social twitter">
+        <div class="content">
+          <?php echo $TweetPHP->autolink($tweet_array[3]['text']); ?>
+        </div>
 
-    <div class="home-social twitter">
-      <div class="content">
-        <?php echo $TweetPHP->autolink($tweet_array[3]['text']); ?>
+        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[3]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
       </div>
 
-      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[3]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-    </div>
+      <div class="home-social instagram" id="instafeed-5"></div>
 
-    <div class="home-social instagram" id="instafeed-5"></div>
+      <div class="home-social twitter">
+        <div class="content">
+          <?php echo $TweetPHP->autolink($tweet_array[4]['text']); ?>
+        </div>
 
-    <div class="home-social twitter">
-      <div class="content">
-        <?php echo $TweetPHP->autolink($tweet_array[4]['text']); ?>
+        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[4]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
       </div>
-
-      <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[4]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
     </div>
-
-    <div style="clear: both;"></div>
 
     <div class="home-contact">
       <a href="#">CONTACT</a>
