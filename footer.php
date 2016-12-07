@@ -17,13 +17,13 @@
     </div>
 
     <?php
-    require_once($TopDir . "inc/instafeed.php");
-    require_once($TopDir . "inc/TweetPHP/stuff.php");
+    require_once("inc/instafeed.php");
+    require_once("inc/TweetPHP/stuff.php");
     ?>
-    
+
     <div class="social-tiles cf">
       <div class="social instagram" id="instafeed-1"></div>
-      
+
       <div class="social twitter">
         <div class="content">
           <?php echo $TweetPHP->autolink($tweet_array[0]['text']); ?>
@@ -83,7 +83,7 @@
         <img src="<?php echo $TopDir; ?>images/logo-prefooter.png" alt=""><br>
         <br>
 
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        What exactly is a Blockhead? If you are totally obsessed with how to rig and sail your boat, you might already be one! Join the community of Blockheads to learn more about the sport, engage with others and share sailing experiences. This site serves as the hub for Blockheads globally, where you can discover how to join, media, tips and tricks, contests, and events. This program is all about YOU and we want to hear from everyone! Not seeing something? Your feedback is crucial, feel free to shoot us a comment or message.
       </div>
     </div>
 

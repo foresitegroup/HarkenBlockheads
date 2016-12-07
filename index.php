@@ -10,9 +10,10 @@ include "header.php";
   $posts = get_posts('posts_per_page=3&offset=1&order=DESC&orderby=date');
   foreach ($posts as $post) :
     setup_postdata( $post );
+    $TheImage = VidOrImg();
     ?>
-    <div class="post">
-      <div class="image"<?php if (get_post_thumbnail_id() != "") echo ' style="background-image: url(' . wp_get_attachment_url(get_post_thumbnail_id()) . ');"'; ?>></div>
+    <a href="<?php the_permalink(); ?>" class="post">
+      <div class="image"<?php if ($TheImage != "") echo ' style="background-image: url(' . $TheImage . ');"'; ?>></div>
 
       <h3>
         <?php
@@ -28,7 +29,7 @@ include "header.php";
       <h2><?php the_title(); ?></h2>
 
       <?php echo get_the_excerpt(); ?>
-    </div>
+    </a>
   <?php endforeach; ?>
 
   <a href="feed" class="button">MORE</a>

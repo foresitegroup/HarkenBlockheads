@@ -136,6 +136,24 @@ INPUT[type="submit"]:focus {
   outline: none;
 }
 
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+ 
+.video iframe,
+.video object,
+.video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .site-width {
   width: 1000px;
   margin: 0 auto;
@@ -375,11 +393,23 @@ INPUT[type="submit"]:focus {
   display: inline-block;
   vertical-align: top;
   width: 31%;
-  margin: 0.5em 0.7375% 3em;
+  padding: 0.5em 0.7375% 3em;
   text-align: left;
   font-weight: bold;
   font-size: 14px;
   line-height: 1.8em;
+}
+
+.home-posts A.post:link,
+.home-posts A.post:visited {
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.home-posts A.post:hover,
+.home-posts A.post:active {
+  background: #222222;
+  color: #FFFFFF;
 }
 
 .home-posts .post .image {
@@ -675,6 +705,10 @@ INPUT[type="submit"]:focus {
   text-align: center;
 }
 
+.footer-contact.dark {
+  background: #000000;
+}
+
 .footer-contact A:link,
 .footer-contact A:visited {
   color: #000000;
@@ -684,10 +718,22 @@ INPUT[type="submit"]:focus {
   display: inline-block;
 }
 
+.footer-contact.dark A:link,
+.footer-contact.dark A:visited {
+  color: #FFFFFF;
+  border: 5px solid #FFFFFF;
+}
+
 .footer-contact A:hover,
 .footer-contact A:active {
   color: #660000;
   border: 5px solid #660000;
+}
+
+.footer-contact.dark A:hover,
+.footer-contact.dark A:active {
+  color: #AAAAAA;
+  border: 5px solid #AAAAAA;
 }
 
 .prefooter {
@@ -827,6 +873,41 @@ INPUT[type="submit"]:focus {
   background-size: cover;
 }
 
+.feed-video {
+  position: relative;
+  cursor: pointer;
+}
+
+.feed-video IMG {
+  max-width: 100%;
+  height: auto;
+}
+
+.feed-video:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.feed-video:after {
+  color: #DCDDDE;
+  font-family: "FontAwesome";
+  font-size: 15vw;
+  content: "\f01d";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.feed-video:hover:after {
+  color: #ED1B35;
+}
+
 .post-single {
   text-align: left;
   font-weight: bold;
@@ -904,6 +985,122 @@ INPUT[type="submit"]:focus {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+A#loadmore:link,
+A#loadmore:visited {
+  color: #EC1B23;
+  border: 5px solid #EC1B23;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.3em;
+  padding: 0.7em 0.8em 0.7em 1.1em;
+  display: inline-block;
+  margin: 4em 0 8em;
+}
+
+A#loadmore:hover,
+A#loadmore:active {
+  color: #E8E7E7;
+  border: 5px solid #E8E7E7;
+}
+
+.ssba {
+  color: #ED1B35;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5em;
+  margin: 5em 0 1em;
+}
+
+.ssba IMG {
+  display: none;
+}
+
+.ssba A:link,
+.ssba A:visited {
+  color: #DCDDDE;
+  display: inline-block;
+  width: 31px;
+  height: 24px;
+  font-size: 24px;
+  line-height: 1em;
+  font-family: "FontAwesome";
+  margin: 1.9em 0.5em 0;
+}
+
+.ssba A:hover,
+.ssba A:active {
+  color: #FFFFFF;
+}
+
+.ssba .ssba_facebook_share:after { content: "\f09a"; }
+.ssba .ssba_twitter_share:after { content: "\f099"; }
+.ssba .ssba_google_share:after { content: "\f0d5"; }
+.ssba .ssba_email_share:after { content: "\f003"; }
+
+.post-rec {
+  background: #EBEBEB;
+  color: #333132;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5.5em 0 9em;
+  position: relative;
+}
+
+.post-rec:before {
+  content: "#HARKENBLOCKHEADS";
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #E1E2E2;
+  line-height: 1em;
+  font-weight: 800;
+  font-size: 8vw;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.post-rec H4 {
+  margin: 0 0 4em;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1em;
+  letter-spacing: 0.3em;
+  text-align: center;
+  color: #ED1B35;
+  position: relative;
+  z-index: 1;
+}
+
+.post-rec .post {
+  width: 23%;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.post-rec A.post:link,
+.post-rec A.post:visited {
+  color: #333132;
+  cursor: pointer;
+}
+
+.post-rec A.post:hover,
+.post-rec A.post:active {
+  background: #E1E2E2;
+  color: #333132;
+}
+
+.post-rec .post H3 {
+  font-size: 10px;
+  color: #333132;
+}
+
+.post-rec .post H2 {
+  font-size: 28px;
 }
 
 .join {
