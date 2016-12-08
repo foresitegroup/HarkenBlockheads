@@ -83,7 +83,7 @@
           <li><a href="<?php echo $TopDir; ?>join.php">JOIN.</a></li>
           <li><a href="<?php echo $TopDir; ?>feed">FEED.</a></li>
           <li><a href="<?php echo $TopDir; ?>events.php">EVENTS.</a></li>
-          <li class="social">
+          <li class="menu-social">
             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a>
