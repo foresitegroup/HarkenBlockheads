@@ -1,8 +1,28 @@
 <?php
 include("../inc/dbconfig.php");
 
-$startdate = (isset($_POST['startdate'])) ? strtotime($_POST['startdate']) : time();
-$enddate = (!empty($_POST['enddate'])) ? strtotime($_POST['enddate']) : $startdate;
+// $startdate = (isset($_POST['startdate'])) ? strtotime($_POST['startdate']) : time();
+// $enddate = (!empty($_POST['enddate'])) ? strtotime($_POST['enddate']) : $startdate;
+
+if (!empty($_POST['startdate'])) {
+  if (!empty($_POST['starttime'])) {
+    $startdate = strtotime($_POST['startdate'] . " " . $_POST['starttime']);
+  } else {
+    $startdate = strtotime($_POST['startdate']);
+  }
+} else {
+  $startdate = time();
+}
+
+if (!empty($_POST['enddate'])) {
+  if (!empty($_POST['endtime'])) {
+    $enddate = strtotime($_POST['enddate'] . " " . $_POST['endtime']);
+  } else {
+    $enddate = strtotime($_POST['enddate']);
+  }
+} else {
+  $enddate = $startdate;
+}
 
 switch ($_GET['a']) {
   case "add":
@@ -10,16 +30,16 @@ switch ($_GET['a']) {
                   startdate,
                   enddate,
                   title,
+                  location,
                   details,
-                  image,
-                  videolink
+                  image
                   ) VALUES(
                   '" . $startdate . "',
                   '" . $enddate . "',
                   '" . $mysqli->real_escape_string($_POST['title']) . "',
+                  '" . $mysqli->real_escape_string($_POST['location']) . "',
                   '" . $mysqli->real_escape_string($_POST['details']) . "',
-                  '" . $mysqli->real_escape_string($_POST['image']) . "',
-                  '" . $mysqli->real_escape_string($_POST['videolink']) . "'
+                  '" . $mysqli->real_escape_string($_POST['image']) . "'
                   )");
     break;
   case "edit":
@@ -27,9 +47,9 @@ switch ($_GET['a']) {
                   startdate = '" . $startdate . "',
                   enddate = '" . $enddate . "',
                   title = '" . $mysqli->real_escape_string($_POST['title']) . "',
+                  location = '" . $mysqli->real_escape_string($_POST['location']) . "',
                   details = '" . $mysqli->real_escape_string($_POST['details']) . "',
-                  image = '" . $mysqli->real_escape_string($_POST['image']) . "',
-                  videolink = '" . $mysqli->real_escape_string($_POST['videolink']) . "'
+                  image = '" . $mysqli->real_escape_string($_POST['image']) . "'
                   WHERE id = '" . $_POST['id'] . "'");
     break;
   case "delete":

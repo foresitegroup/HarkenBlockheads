@@ -3,13 +3,16 @@
 }
 
 INPUT[type="text"].startdate,
-INPUT[type="text"].enddate {
+INPUT[type="text"].enddate,
+INPUT[type="text"].starttime,
+INPUT[type="text"].endtime {
   float: left;
   width: 45%;
   margin-right: 10%;
 }
 
-INPUT[type="text"].enddate {
+INPUT[type="text"].enddate,
+INPUT[type="text"].endtime {
   margin-right: 0;
 }
 

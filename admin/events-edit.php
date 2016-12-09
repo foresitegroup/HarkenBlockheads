@@ -19,16 +19,24 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
 
         <div style="clear: both;"></div>
 
+        <input type="text" name="starttime" class="starttime" placeholder="Start Time (optional)" value="<?php if (date("g:ia", $row['startdate']) != "12:00am") echo date("g:ia", $row['startdate']); ?>">
+
+        <input type="text" name="endtime" class="endtime" placeholder="End Time (optional)" value="<?php if ($row['enddate'] != $row['startdate'] && date("g:ia", $row['enddate']) != "12:00am") echo date("g:ia", $row['enddate']); ?>">
+
+        <div style="clear: both;"></div>
+
         <input type="text" name="title" placeholder="Title"<?php if ($row['title'] != "") echo "value=\"" . $row['title'] . "\""; ?>>
+
+        <input type="text" name="location" placeholder="Location"<?php if ($row['location'] != "") echo "value=\"" . $row['location'] . "\""; ?>>
 
         <textarea name="details" placeholder="Details"><?php if ($row['details'] != "") echo $row['details']; ?></textarea>
         
         <input type="text" name="image" placeholder="Image" id="image"<?php if ($row['image'] != "") echo "value=\"" . $row['image'] . "\" style=\"background-image: url(../images/events/" . $row['image'] . ");\""; ?>>
 
-        <input type="text" name="videolink" placeholder="Video Link"<?php if ($row['videolink'] != "") echo "value=\"" . $row['videolink'] . "\""; ?> style="margin-bottom: 0;"><br>
+        <!-- <input type="text" name="videolink" placeholder="Video Link"<?php //if ($row['videolink'] != "") echo "value=\"" . $row['videolink'] . "\""; ?> style="margin-bottom: 0;"><br>
         <span style="font-size: 80%;">Example: "<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style="color: #FFFFFF;">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>"</span><br>
         <br>
-        <br>
+        <br> -->
 
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 

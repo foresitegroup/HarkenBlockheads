@@ -1117,17 +1117,22 @@ A#loadmore:active {
   font-size: 11.5vw;
 }
 
-.events {
-  padding: 80px 0 160px;
+.events-header {
+  padding: 80px 0 0;
 }
 
-.events:before {
+.events {
+  padding: 0 0 160px;
+}
+
+.events-header:after {
   content: "#HARKENBLOCKHEADS";
   position: absolute;
   top: 8%;
   left: 0;
+  z-index: -1;
   width: 100%;
-  height: 92%;
+  height: 1em;
   color: rgba(237,255,244,0.1);
   line-height: 1em;
   font-weight: 800;
@@ -1136,12 +1141,150 @@ A#loadmore:active {
   text-transform: uppercase;
 }
 
-.events H1.pagetitle {
+.events-header H1.pagetitle {
   font-family: 'Work Sans', sans-serif;
   font-weight: 900;
   font-size: 10vw;
   letter-spacing: 0.4em;
   margin-bottom: 0.4em;
+}
+
+.events-featured {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.events-featured-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 50%;
+  height: 100%;
+  border: 12px solid #ED1B35;
+  box-sizing: border-box;
+}
+
+.events-featured-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(../images/featured-image-generic.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+.events-featured-content {
+  float: left;
+  width: 45%;
+  padding: 5em 0;
+  font-weight: 800;
+}
+
+.events-featured-content H4 {
+  margin: 0;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1em;
+  letter-spacing: 0.3em;
+  text-decoration: underline;
+}
+
+.events-featured-content .events-featured-date {
+  font-size: 40px;
+  line-height: 1em;
+  color: #ED1B35;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1.2em 0;
+}
+
+.events-featured-content .events-featured-title {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+  font-size: 65px;
+  line-height: 1.2em;
+  text-decoration: underline;
+  margin-bottom: 2em;
+}
+
+.events-featured-content A.button:link,
+.events-featured-content A.button:visited {
+  color: #FFFFFF;
+  border: 5px solid #ED1B35;
+  font-size: 14px;
+  letter-spacing: 0.4em;
+  padding: 0.7em 1.4em 0.7em 2em;
+  display: inline-block;
+}
+
+.events-featured-content A.button:hover,
+.events-featured-content A.button:active {
+  color: #FFFFFF;
+  border: 5px solid #FFFFFF;
+}
+
+.events H3 {
+  margin: 0.2em 0 1.5em;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1em;
+  letter-spacing: 0.3em;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.events-list {
+  width: 100%;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.events-list TD {
+  padding: 20px 0;
+}
+
+.events-list TD.events-year {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 60px;
+  line-height: 1em;
+  color: #2C292A;
+  letter-spacing: 0.3em;
+  padding: 0.5em 0;
+}
+
+.events-list TD.events-date {
+  width: 18%;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #ED1B35;
+}
+
+.events-list TD.events-title {
+  width: 52%;
+}
+
+.events-list TD.events-location {
+  width: 20%;
+}
+
+.events-list TD.events-details {
+  width: 10%;
+  font-size: 16px;
+  text-align: right;
+}
+
+.events-list TD.events-details A:link,
+.events-list TD.events-details A:visited {
+  color: #ED1B35;
+}
+
+.events-list TD.events-details A:hover,
+.events-list TD.events-details A:active {
+  color: #FFFFFF;
 }
 
 .contact {
