@@ -24,16 +24,13 @@ include "header.php";
 
         <input type="text" name="title" placeholder="Title">
 
-         <input type="text" name="location" placeholder="Location">
+        <input type="text" name="location" placeholder="Location">
+
+        <input type="text" name="image" placeholder="Image" id="image">
 
         <textarea name="details" placeholder="Details"></textarea>
         
-        <input type="text" name="image" placeholder="Image" id="image">
-
-        <!-- <input type="text" name="videolink" placeholder="Video Link" style="margin-bottom: 0;"><br>
-        <span style="font-size: 80%;">Example: "<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style="color: #FFFFFF;">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>"</span><br>
-        <br>
-        <br> -->
+        <input type="text" name="eventlink" placeholder="Event Link">
 
         <input type="submit" name="submit" value="SUBMIT" id="submit">
 

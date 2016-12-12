@@ -35,10 +35,10 @@ include "header.php";
   <a href="feed" class="button">MORE</a>
 </div>
 
-<div class="home-poll">
+<!-- <div class="home-poll">
   POLL GOES HERE<br>
   I need excruciating details on how this will work.
-</div>
+</div> -->
 
 <div class="home-event">
   <?php

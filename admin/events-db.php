@@ -1,9 +1,6 @@
 <?php
 include("../inc/dbconfig.php");
 
-// $startdate = (isset($_POST['startdate'])) ? strtotime($_POST['startdate']) : time();
-// $enddate = (!empty($_POST['enddate'])) ? strtotime($_POST['enddate']) : $startdate;
-
 if (!empty($_POST['startdate'])) {
   if (!empty($_POST['starttime'])) {
     $startdate = strtotime($_POST['startdate'] . " " . $_POST['starttime']);
@@ -32,14 +29,16 @@ switch ($_GET['a']) {
                   title,
                   location,
                   details,
-                  image
+                  image,
+                  eventlink
                   ) VALUES(
                   '" . $startdate . "',
                   '" . $enddate . "',
                   '" . $mysqli->real_escape_string($_POST['title']) . "',
                   '" . $mysqli->real_escape_string($_POST['location']) . "',
                   '" . $mysqli->real_escape_string($_POST['details']) . "',
-                  '" . $mysqli->real_escape_string($_POST['image']) . "'
+                  '" . $mysqli->real_escape_string($_POST['image']) . "',
+                  '" . $mysqli->real_escape_string($_POST['eventlink']) . "'
                   )");
     break;
   case "edit":
@@ -49,7 +48,8 @@ switch ($_GET['a']) {
                   title = '" . $mysqli->real_escape_string($_POST['title']) . "',
                   location = '" . $mysqli->real_escape_string($_POST['location']) . "',
                   details = '" . $mysqli->real_escape_string($_POST['details']) . "',
-                  image = '" . $mysqli->real_escape_string($_POST['image']) . "'
+                  image = '" . $mysqli->real_escape_string($_POST['image']) . "',
+                  eventlink = '" . $mysqli->real_escape_string($_POST['eventlink']) . "'
                   WHERE id = '" . $_POST['id'] . "'");
     break;
   case "delete":

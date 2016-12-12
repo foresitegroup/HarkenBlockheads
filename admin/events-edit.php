@@ -29,14 +29,11 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
 
         <input type="text" name="location" placeholder="Location"<?php if ($row['location'] != "") echo "value=\"" . $row['location'] . "\""; ?>>
 
-        <textarea name="details" placeholder="Details"><?php if ($row['details'] != "") echo $row['details']; ?></textarea>
-        
         <input type="text" name="image" placeholder="Image" id="image"<?php if ($row['image'] != "") echo "value=\"" . $row['image'] . "\" style=\"background-image: url(../images/events/" . $row['image'] . ");\""; ?>>
 
-        <!-- <input type="text" name="videolink" placeholder="Video Link"<?php //if ($row['videolink'] != "") echo "value=\"" . $row['videolink'] . "\""; ?> style="margin-bottom: 0;"><br>
-        <span style="font-size: 80%;">Example: "<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style="color: #FFFFFF;">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>"</span><br>
-        <br>
-        <br> -->
+        <textarea name="details" placeholder="Details"><?php if ($row['details'] != "") echo $row['details']; ?></textarea>
+        
+        <input type="text" name="eventlink" placeholder="Event Link"<?php if ($row['eventlink'] != "") echo "value=\"" . $row['eventlink'] . "\""; ?>>
 
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 

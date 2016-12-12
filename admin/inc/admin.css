@@ -16,6 +16,10 @@ INPUT[type="text"].endtime {
   margin-right: 0;
 }
 
+TEXTAREA {
+  margin: 1em 0 2em;
+}
+
 .controls {
   float: left;
   width: 3.3em;
