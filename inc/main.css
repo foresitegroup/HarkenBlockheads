@@ -422,7 +422,7 @@ FORM input[type=radio]:checked + label:after {
 }
 
 .home-posts {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .home-posts A.header:link,
@@ -445,9 +445,13 @@ FORM input[type=radio]:checked + label:after {
 
 .home-posts .post {
   display: inline-block;
+/*  display: block;
+  float: left;*/
   vertical-align: top;
   width: 31%;
-  padding: 0.5em 0.7375% 3em;
+  /*padding: 0.5em 0.7375% 3em;*/
+  padding: 1em 1.16%;
+  margin: 0 -2px 3em -2px;
   text-align: left;
   font-weight: bold;
   font-size: 14px;
@@ -1092,6 +1096,7 @@ A#loadmore:active {
 .ssba A:link,
 .ssba A:visited {
   color: #DCDDDE;
+  text-decoration: none;
   display: inline-block;
   width: 31px;
   height: 24px;
@@ -1104,6 +1109,7 @@ A#loadmore:active {
 .ssba A:hover,
 .ssba A:active {
   color: #FFFFFF;
+  text-decoration: none;
 }
 
 .ssba .ssba_facebook_share:after { content: "\f09a"; }
@@ -1112,6 +1118,7 @@ A#loadmore:active {
 .ssba .ssba_email_share:after { content: "\f003"; }
 
 .post-rec {
+  text-align: center;
   background: #EBEBEB;
   color: #333132;
   font-weight: bold;

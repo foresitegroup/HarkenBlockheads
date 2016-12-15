@@ -31,8 +31,10 @@ include "header.php";
       <?php echo get_the_excerpt(); ?>
     </a>
   <?php endforeach; ?>
-
-  <a href="feed" class="button">MORE</a>
+  
+  <div class="centered">
+    <a href="feed" class="button">MORE</a>
+  </div>
 </div>
 
 <!-- <div class="home-poll">
