@@ -5,11 +5,15 @@
 BODY {
   margin: 0;
   padding: 0;
-  background: #111111 url(../images/background.jpg) center top;
+  background: url(../images/background.jpg) center top;
   color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1.4em;
+}
+
+BODY.line {
+  background: #111111 url(../images/background-line.jpg) center top;
 }
 
 IMG {
@@ -25,6 +29,9 @@ HR {
 A:link, A:visited {
   color: #ED1B35;
   text-decoration: underline;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 A:hover, A:active {
@@ -405,15 +412,8 @@ FORM input[type=radio]:checked + label:after {
   margin-right: 1em;
 }
 
-.menu-logo A:link,
-.menu-logo A:visited {
+.menu-logo A {
   color: #660000;
-  text-decoration: none;
-}
-
-.menu-logo A:hover,
-.menu-logo A:active {
-  color: #FFFFFF;
   text-decoration: none;
 }
 
@@ -463,9 +463,9 @@ FORM input[type=radio]:checked + label:after {
 
 .home-posts A.post:hover,
 .home-posts A.post:active {
-  background: #444444;
-  color: #FFFFFF;
-  text-decoration: none;
+  /*background: #444444;*/
+  color: #EC1B23;
+  text-decoration: underline;
 }
 
 .home-posts .post .image {
@@ -489,6 +489,10 @@ FORM input[type=radio]:checked + label:after {
   line-height: 1em;
   text-transform: uppercase;
   color: #6A6264;
+}
+
+.home-posts A.post:hover H3 {
+  color: #EC1B23;
 }
 
 .home-posts .post H2 {
@@ -793,15 +797,11 @@ FORM input[type=radio]:checked + label:after {
 }
 
 .footer-contact A:hover,
-.footer-contact A:active {
-  color: #660000;
-  border: 5px solid #660000;
-}
-
+.footer-contact A:active,
 .footer-contact.dark A:hover,
 .footer-contact.dark A:active {
-  color: #AAAAAA;
-  border: 5px solid #AAAAAA;
+  color: #ED1B35;
+  border: 5px solid #ED1B35;
 }
 
 .prefooter {
@@ -1162,8 +1162,8 @@ A#loadmore:active {
 
 .post-rec A.post:hover,
 .post-rec A.post:active {
-  background: #E1E2E2;
-  color: #333132;
+  /*background: #E1E2E2;*/
+  color: #EC1B23;
 }
 
 .post-rec .post H3 {
@@ -1585,9 +1585,45 @@ A#loadmore:active {
   text-transform: uppercase;
 }
 
-
-
-
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2)
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+}
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    -ms-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2)
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+}
+.pulse {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: pulse;
+  animation-name: pulse
+}
 
 
 @media only screen and (max-width: 1024px) {
@@ -1738,12 +1774,13 @@ A#loadmore:active {
     display: inline-block;
     cursor: pointer;
     color: #FFFFFF;
-    font-size: 50px;
+    font-size: 40px;
     height: auto;
     line-height: 1em;
     position: absolute;
-    top: 10px;
     right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .menu.sticky #menu-toggle:after {

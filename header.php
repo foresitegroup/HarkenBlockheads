@@ -46,7 +46,7 @@ function email($address, $name="") {
       });
     </script>
   </head>
-  <body>
+  <body<?php if (isset($BodyClass)) echo " class=\"" . $BodyClass . "\""; ?>>
     
     <?php if (!isset($PageTitle)) { ?>
     <div class="home-banner">
@@ -84,8 +84,7 @@ function email($address, $name="") {
     <div class="menu">
       <div class="site-width">
         <div class="menu-logo">
-          <a href="<?php echo $TopDir; ?>."><img src="<?php echo $TopDir; ?>images/logo-menu.png" alt=""></a>
-          <a href="https://twitter.com/hashtag/harkenblockheads">#HARKENBLOCKHEADS</a>
+          <a href="<?php echo $TopDir; ?>."><img src="<?php echo $TopDir; ?>images/logo-menu.png" alt=""> #HARKENBLOCKHEADS</a>
         </div>
         
         <input type="checkbox" id="show-menu" role="button">

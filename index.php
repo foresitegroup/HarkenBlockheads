@@ -1,4 +1,5 @@
 <?php
+$BodyClass = "line";
 $SocialTitle = "#HARKENBLOCKHEADS";
 include "header.php";
 ?>
@@ -8,11 +9,12 @@ include "header.php";
   
   <?php
   $posts = get_posts('posts_per_page=3&offset=1&order=DESC&orderby=date');
+  $sr = 1;
   foreach ($posts as $post) :
     setup_postdata( $post );
     $TheImage = VidOrImg();
     ?>
-    <a href="<?php the_permalink(); ?>" class="post">
+    <a href="<?php the_permalink(); ?>" class="post sr<?php echo $sr; ?>">
       <div class="image"<?php if ($TheImage != "") echo ' style="background-image: url(' . $TheImage . ');"'; ?>></div>
 
       <h3>
@@ -30,7 +32,10 @@ include "header.php";
 
       <?php echo get_the_excerpt(); ?>
     </a>
-  <?php endforeach; ?>
+    <?php
+    $sr++;
+  endforeach;
+  ?>
 
   <a href="feed" class="button">MORE</a>
 </div>
@@ -91,5 +96,23 @@ include "header.php";
     <a href="events.php" class="more">+ MORE EVENTS</a>
   </div>
 </div>
+
+<script type="text/javascript" src="inc/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    window.sr = ScrollReveal();
+    var customAni = { distance: 0, duration: 0, opacity: 1, scale: 1, viewFactor: 0, reset: true }
+
+    sr.reveal('.sr1', { origin: 'left' });
+    sr.reveal('.sr2', { origin: 'bottom', delay: 200 });
+    sr.reveal('.sr3', { origin: 'right', delay: 400 });
+
+    sr.reveal('.footer-contact A', {
+      beforeReveal: function (el) { el.classList.add('pulse'); },
+      beforeReset: function (el) { el.classList.remove('pulse'); },
+      customAni
+    });
+  });
+</script>
 
 <?php include "footer.php"; ?>

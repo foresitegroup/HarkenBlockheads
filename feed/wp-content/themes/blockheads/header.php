@@ -16,6 +16,7 @@ if (!is_single()) :
   $PageTitle = "Discover";
   $Description = "";
   $Keywords = "";
+  $BodyClass = "line";
   $SocialTitle = "Follow Us";
   $SocialClass = "sht-join";
 else :
