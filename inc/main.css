@@ -421,10 +421,6 @@ FORM input[type=radio]:checked + label:after {
   height: 70px;
 }
 
-.home-posts {
-  /*text-align: center;*/
-}
-
 .home-posts A.header:link,
 .home-posts A.header:visited {
   color: rgba(237,255,244,0.1);
@@ -445,11 +441,8 @@ FORM input[type=radio]:checked + label:after {
 
 .home-posts .post {
   display: inline-block;
-/*  display: block;
-  float: left;*/
   vertical-align: top;
   width: 31%;
-  /*padding: 0.5em 0.7375% 3em;*/
   padding: 1em 1.16%;
   margin: 0 -2px 3em -2px;
   text-align: left;
@@ -467,7 +460,6 @@ FORM input[type=radio]:checked + label:after {
 
 .home-posts A.post:hover,
 .home-posts A.post:active {
-  /*background: #444444;*/
   color: #EC1B23;
   text-decoration: underline;
 }
