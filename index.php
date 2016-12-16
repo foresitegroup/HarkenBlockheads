@@ -32,12 +32,20 @@ include "header.php";
 
       <?php echo get_the_excerpt(); ?>
     </a>
+<<<<<<< HEAD
     <?php
     $sr++;
   endforeach;
   ?>
 
   <a href="feed" class="button">MORE</a>
+=======
+  <?php endforeach; ?>
+  
+  <div class="centered">
+    <a href="feed" class="button">MORE</a>
+  </div>
+>>>>>>> origin/master
 </div>
 
 <!-- <div class="home-poll">

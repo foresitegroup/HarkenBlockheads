@@ -45,19 +45,22 @@ $TopDir = substr( home_url(), 0, strrpos( home_url(), '/')+1);
 	if (!is_single()) :
 	?>
   <div style="clear: both;"></div>
-	<a href="#" id="loadmore">LOAD MORE</a>
-	<script type="text/javascript">
-	  $(function () {
-		  $(".post").slice(0, 9).show();
-		  $("#loadmore").on('click', function (e) {
-		    e.preventDefault();
-		    $(".post:hidden").slice(0, 9).slideDown();
-		    if ($(".post:hidden").length == 0) {
-		      $("#load").fadeOut('slow');
-		    }
-		  });
-		});
-	</script>
+
+  <div class="centered">
+		<a href="#" id="loadmore">LOAD MORE</a>
+		<script type="text/javascript">
+		  $(function () {
+			  $(".post").slice(0, 9).show();
+			  $("#loadmore").on('click', function (e) {
+			    e.preventDefault();
+			    $(".post:hidden").slice(0, 9).slideDown();
+			    if ($(".post:hidden").length == 0) {
+			      $("#load").fadeOut('slow');
+			    }
+			  });
+			});
+		</script>
+	</div>
   <?php endif; ?>
 </div><!-- .content-area -->
 
