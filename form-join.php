@@ -16,6 +16,34 @@ if ($_POST['confirmationCAP'] == "") {
       $_POST[md5('country' . $_POST['ip'] . $salt . $_POST['timestamp'])] != ""
      )
   {
+    //Add to database
+    include_once "inc/dbconfig.php";
+    $mysqli->query("INSERT INTO `join` (
+                  firstname,
+                  lastname,
+                  age,
+                  email,
+                  address,
+                  address2,
+                  city,
+                  state,
+                  zip,
+                  country
+                  ) VALUES (
+                  '" . $mysqli->real_escape_string($_POST[md5('firstname' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('lastname' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('age' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('address' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('address2' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('city' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('state' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('zip' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('country' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "'
+                  )");
+    $mysqli->close();
+
+    // Send email
     $Subject = "Harken Blockheads Sign-Up";
     $SendTo = "blockheads@harken.com";
     $Headers = "From: Join Form <joinform@harken.com>\r\n";
