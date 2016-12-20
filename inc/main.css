@@ -254,7 +254,7 @@ FORM input[type=radio]:checked + label:after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.4);
 }
 
 .home-banner .site-width {
@@ -300,6 +300,12 @@ FORM input[type=radio]:checked + label:after {
   font-size: 80px;
   line-height: 1.15em;
   text-transform: uppercase;
+}
+
+@media only screen and (max-height: 800px) {
+  .home-banner .home-banner-right H1 {
+    font-size: 9vh;
+  }
 }
 
 .home-banner .home-banner-right A:link,
@@ -1639,6 +1645,16 @@ A#loadmore:active {
     height: auto;
   }
 
+  .home-banner .home-banner-right H1 {
+    font-size: 8.5vw;
+  }
+
+  @media only screen and (max-height: 800px) {
+    .home-banner .home-banner-right H1 {
+      font-size: 8vh;
+    }
+  }
+
   .home-event .event {
     font-size: 24px;
   }
@@ -1753,6 +1769,12 @@ A#loadmore:active {
     transform: none;
     height: calc(100vh - 384px);
     margin: 0 auto;
+  }
+
+  @media only screen and (max-height: 800px) {
+    .home-banner .home-banner-right H1 {
+      font-size: 6.5vh;
+    }
   }
 
   .home-banner .home-banner-right > DIV {

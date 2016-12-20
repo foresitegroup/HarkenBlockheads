@@ -37,7 +37,7 @@ include "../header.php";
 	</div>
 
   <?php
-  if (get_post_meta(get_the_ID(), 'fv_video_embed', true)) :
+  if (is_single() && get_post_meta(get_the_ID(), 'fv_video_embed', true)) :
     $fv = FeedVideo(get_post_meta(get_the_ID(), 'fv_video_embed', true));
     ?>
     <div class="site-width">

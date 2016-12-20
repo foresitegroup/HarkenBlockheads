@@ -55,8 +55,16 @@ function email($address, $name="") {
       $posts = get_posts('posts_per_page=1&order=DESC&orderby=date');
       foreach ($posts as $post) :
         setup_postdata($post);
+
+        if (get_post_meta(get_the_ID(), 'fv_video_embed', true)) {
+          // echo "IT'S A VIDEO<br><br><br>";
+          $fv = FeedVideo(get_post_meta(get_the_ID(), 'fv_video_embed', true));
+          $FeedImage = $fv[1];
+        }
+
+        if (get_post_thumbnail_id() != "") $FeedImage = wp_get_attachment_url(get_post_thumbnail_id());
       ?>
-      <div class="image"<?php if (get_post_thumbnail_id() != "") echo "style=\"background-image: url(" . wp_get_attachment_url(get_post_thumbnail_id()) . ");\""; ?>></div>
+      <div class="image"<?php if ($FeedImage != "") echo "style=\"background-image: url(" . $FeedImage . ");\""; ?>></div>
 
       <div class="site-width">
         <div class="home-banner-left">
