@@ -15,6 +15,7 @@ if ($_POST['confirmationCAP'] == "") {
     $SendTo = "blockheads@harken.com";
     $Headers = "From: Contact Form <contactform@harken.com>\r\n";
     $Headers .= "Reply-To: " . $_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\r\n";
+    $Headers .= "Cc: hays.formella@harken.com\r\n";
     $Headers .= "Bcc: mark@foresitegrp.com\r\n";
 
     $Message = "Message from " . $_POST[md5('firstname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " " . $_POST[md5('lastname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " (" . $_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])] . ")";

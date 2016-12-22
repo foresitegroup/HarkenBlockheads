@@ -48,6 +48,7 @@ if ($_POST['confirmationCAP'] == "") {
     $SendTo = "blockheads@harken.com";
     $Headers = "From: Join Form <joinform@harken.com>\r\n";
     $Headers .= "Reply-To: " . $_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\r\n";
+    $Headers .= "Cc: hays.formella@harken.com\r\n";
     $Headers .= "Bcc: mark@foresitegrp.com\r\n";
 
     $Message = "Sign-up from " . $_POST[md5('firstname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " " . $_POST[md5('lastname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " (" . $_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])] . ")";
@@ -67,7 +68,7 @@ if ($_POST['confirmationCAP'] == "") {
   
     mail($SendTo, $Subject, $Message, $Headers);
     
-    $feedback = "<strong>You have been signed up!</strong> Thank you for your interest. You will be contacted shortly.";
+    $feedback = "<strong>You have been signed up!</strong> Thank you for your interest. We will reply within 3 business days.";
     
     if (!empty($_REQUEST['src'])) {
       header("HTTP/1.0 200 OK");

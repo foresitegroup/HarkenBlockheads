@@ -81,6 +81,11 @@ TEXTAREA {
   margin-bottom: 2em;
 }
 
+INPUT:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #111111 inset !important;
+  -webkit-text-fill-color: #FFFFFF;
+}
+
 TEXTAREA {
   border: 1px solid #464646;
   padding: 0.9em 1em;
@@ -623,8 +628,8 @@ FORM input[type=radio]:checked + label:after {
   width: 60%;
   font-family: 'Work Sans', sans-serif;
   font-weight: 900;
-  font-size: 72px;
-  line-height: 1.1em;
+  font-size: 64px;
+  line-height: 1.3em;
   text-decoration: underline;
   text-transform: uppercase;
   padding-bottom: 0.2em;

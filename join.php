@@ -13,7 +13,7 @@ include "header.php";
 
   <div class="join-form-header cf">
     <div class="join-form-header-left">
-      Fill out the form &amp; receive your FREE Blockhead member kit.
+      Fill out the form &amp; receive your FREE Blockhead member kit. 13 years and younger, you will need permission from your parent or guardian to join.
     </div>
 
     <div class="join-form-header-right">
@@ -27,7 +27,7 @@ include "header.php";
       var formMessages = $('#join-form-messages');
       $(form).submit(function(event) {
         event.preventDefault();
-        
+
         function formValidation() {
           if ($('#firstname').val() === '') { alert('First name required.'); $('#firstname').focus(); return false; }
           if ($('#lastname').val() === '') { alert('Last name required.'); $('#lastname').focus(); return false; }
@@ -40,7 +40,7 @@ include "header.php";
           if ($('#country').val() === '') { alert('Country required.'); $('#country').focus(); return false; }
           return true;
         }
-        
+
         if (formValidation()) {
           var formData = $(form).serialize();
           formData += '&src=ajax';
@@ -66,7 +66,7 @@ include "header.php";
           });
         }
       });
-      
+
       $('#r-terms').click(function(){
         $('#submit').prop("disabled", !this.checked);
       });
@@ -124,7 +124,7 @@ include "header.php";
 
       <input type="hidden" name="ip" value="<?php echo $ip; ?>">
       <input type="hidden" name="timestamp" value="<?php echo $timestamp; ?>">
-      
+
       <input type="submit" name="submit" value="SIGN UP" id="submit" disabled>
 
       <div id="join-form-messages"><?php echo $feedback; ?></div>
