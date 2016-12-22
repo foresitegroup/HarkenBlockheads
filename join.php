@@ -1,5 +1,5 @@
 <?php
-$PageTitle = "Join The Fleet";
+$PageTitle = "Join Now";
 $SocialTitle = "Follow Us";
 $SocialClass = "sht-join";
 include "header.php";
@@ -8,7 +8,7 @@ include "header.php";
 <div class="site-width join">
   <h1 class="pagetitle"><?php echo $PageTitle; ?></h1>
 
-  Why join? <span class="redtext">Harken Blockheads is free and earns you free stuff right away!</span> Sign up and we'll send you a Blockheads kit including decals, a flat whistle, Carbo block magnet, and your unique Blockhead membership card. Down the road, we'll be sending members exclusive emails with sailing news, contests, discount promotions, regatta highlights, and more! Embrace your Blockheadedness and join today!<br>
+  Why join? Two reasons: <span class="redtext">1. You will become a better sailor.  2. Harken Blockheads is free and earns you free stuff right away!</span> Sign up and we'll send you a Blockheads kit including decals, a flat whistle, Carbo block magnet, and your unique Blockhead membership card. Down the road, we'll be sending members exclusive emails with sailing news, contests, discount promotions, regatta highlights, and more! Embrace your Blockheadedness and join today!<br>
   <br>
 
   <div class="join-form-header cf">
