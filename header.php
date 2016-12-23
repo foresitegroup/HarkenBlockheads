@@ -102,10 +102,10 @@ function email($address, $name="") {
           <li><a href="<?php echo $TopDir; ?>feed">FEED.</a></li>
           <li><a href="<?php echo $TopDir; ?>events.php">EVENTS.</a></li>
           <li class="menu-social">
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/harkenblockheads"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/playlist?list=PLVKzKD5m_w-UnpQCMFmcQxMbvPVztFtqI"><i class="fa fa-youtube" aria-hidden="true"></i></a>
           </li>
         </ul>
       </div>
