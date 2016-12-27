@@ -37,16 +37,18 @@ foreach ($gcal['VEVENT'] as $row) {
   } else {
     $genddate = strtotime($row['DTEND']);
   }
-
-  $events[] = array(
-    'startdate' => $gstartdate,
-    'enddate' => $genddate,
-    'title' => $row['SUMMARY'],
-    'location' => $row['LOCATION'],
-    'details' => $row['DESCRIPTION'],
-    'image' => '',
-    'id' => $row['UID']
-  );
+  
+  if ($genddate >= time()) {
+    $events[] = array(
+      'startdate' => $gstartdate,
+      'enddate' => $genddate,
+      'title' => $row['SUMMARY'],
+      'location' => $row['LOCATION'],
+      'details' => $row['DESCRIPTION'],
+      'image' => '',
+      'id' => $row['UID']
+    );
+  }
 }
 
 // Sort the two different data sources together
