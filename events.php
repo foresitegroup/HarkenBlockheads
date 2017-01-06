@@ -51,6 +51,21 @@ foreach ($gcal['VEVENT'] as $row) {
   }
 }
 
+// No upcoming events? Just list the last one
+if (empty($events)) {
+  $result = $mysqli->query("SELECT * FROM events ORDER BY enddate DESC LIMIT 1");
+  $row = $result->fetch_array(MYSQLI_ASSOC);
+  $events[] = array(
+    'startdate' => $row['startdate'],
+    'enddate' => $row['enddate'],
+    'title' => $row['title'],
+    'location' => $row['location'],
+    'details' => $row['details'],
+    'image' => $row['image'],
+    'id' => $row['id']
+  );
+}
+
 // Sort the two different data sources together
 foreach ($events as $key => $row) { $startdate[$key] = $row['startdate']; }
 array_multisort($startdate, SORT_ASC, $events);
