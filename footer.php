@@ -3,74 +3,26 @@
       <div class="social-header-title<?php if (isset($SocialClass)) echo " " . $SocialClass; ?>"><?php echo $SocialTitle; ?></div>
       <div class="site-width">
         <div class="social-header-left">
-          <a href="https://twitter.com/hashtag/harkenblockheads">#HARKENBLOCKHEADS</a>
-          <a href="https://twitter.com/hashtag/harken">#HARKEN</a>
+          <a href="https://www.instagram.com/explore/tags/harkenblockheads">#HARKENBLOCKHEADS</a>
+          <a href="https://www.instagram.com/explore/tags/harken">#HARKEN</a>
         </div>
 
         <div class="social-header-right">
           <a href="https://www.facebook.com/Harken-Blockheads-1297811663614506/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
           <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-          <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <!-- <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a> -->
           <a href="https://www.youtube.com/playlist?list=PLVKzKD5m_w-UnpQCMFmcQxMbvPVztFtqI"><i class="fa fa-youtube" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
 
-    <?php
-    require_once("inc/instafeed.php");
-    require_once("inc/TweetPHP/stuff.php");
-    ?>
-
     <div class="social-tiles cf">
-      <div class="social instagram" id="instafeed-1"></div>
-
-      <div class="social twitter">
-        <div class="content">
-          <?php echo $TweetPHP->autolink($tweet_array[0]['text']); ?>
-        </div>
-
-        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[0]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-      </div>
-
-      <div class="social instagram" id="instafeed-2"></div>
-
-      <div class="social twitter">
-        <div class="content">
-          <?php echo $TweetPHP->autolink($tweet_array[1]['text']); ?>
-        </div>
-
-        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[1]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-      </div>
-
-      <div class="social instagram" id="instafeed-3"></div>
-
-      <div class="social twitter">
-        <div class="content">
-          <?php echo $TweetPHP->autolink($tweet_array[2]['text']); ?>
-        </div>
-
-        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[2]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-      </div>
-
-      <div class="social instagram" id="instafeed-4"></div>
-
-      <div class="social twitter">
-        <div class="content">
-          <?php echo $TweetPHP->autolink($tweet_array[3]['text']); ?>
-        </div>
-
-        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[3]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-      </div>
-
-      <div class="social instagram" id="instafeed-5"></div>
-
-      <div class="social twitter">
-        <div class="content">
-          <?php echo $TweetPHP->autolink($tweet_array[4]['text']); ?>
-        </div>
-
-        <a href="https://twitter.com/harkenblockhead/status/<?php echo $tweet_array[4]['id']; ?>" class="tweet-link">@BLOCKHEADS</i></a>
-      </div>
+      <?php
+      require_once("inc/instafeed.php");
+      for ($i=1; $i <= 10; $i++) {
+        echo "<a href=\"https://www.instagram.com/harkenblockhead\" class=\"social instagram\" id=\"instafeed-" . $i . "\"></a>\n";
+      }
+      ?>
     </div>
     <?php } ?>
 
@@ -98,7 +50,7 @@
         <div class="bh-footer-right">
           <a href="https://www.facebook.com/Harken-Blockheads-1297811663614506/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
           <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-          <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <!-- <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a> -->
           <a href="https://www.youtube.com/playlist?list=PLVKzKD5m_w-UnpQCMFmcQxMbvPVztFtqI"><i class="fa fa-youtube" aria-hidden="true"></i></a>
         </div>
 
