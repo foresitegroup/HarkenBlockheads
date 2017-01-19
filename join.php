@@ -107,7 +107,7 @@ include "header.php";
 
       <input type="text" name="<?php echo md5("state" . $ip . $salt . $timestamp); ?>" id="state" placeholder="State">
 
-      <input type="text" name="<?php echo md5("zip" . $ip . $salt . $timestamp); ?>" id="zip" placeholder="Zip">
+      <input type="text" name="<?php echo md5("zip" . $ip . $salt . $timestamp); ?>" id="zip" placeholder="Zip / Postal">
 
       <input type="text" name="<?php echo md5("country" . $ip . $salt . $timestamp); ?>" id="country" placeholder="Country">
 
@@ -115,7 +115,8 @@ include "header.php";
 
       <div class="centered">
         <input type="checkbox" name="terms" value="" id="r-terms">
-        <label for="r-terms">I agree to the <a href="terms.php">Terms &amp; Services</a></label>
+        <label for="r-terms">I agree to the <a href="terms.php">Terms &amp; Services</a></label><br>
+        Blockheads is currently not shipping outside of the United States.
       </div>
 
       <input type="hidden" name="referrer" value="join.php">
