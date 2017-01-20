@@ -442,6 +442,7 @@ FORM input[type=radio]:checked + label:after {
   line-height: 1em;
   font-weight: 800;
   font-size: 8vw;
+  text-align: center;
 }
 
 .home-posts A.header:hover,

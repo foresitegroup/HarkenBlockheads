@@ -5,7 +5,7 @@ include "header.php";
 ?>
 
 <div class="home-posts">
-  <a href="https://twitter.com/hashtag/harkenblockheads" class="header">#HARKENBLOCKHEADS</a>
+  <a href="https://www.instagram.com/explore/tags/harkenblockheads/" class="header">#HARKENBLOCKHEADS</a>
   
   <?php
   $posts = get_posts('posts_per_page=3&offset=1&order=DESC&orderby=date');
