@@ -16,7 +16,8 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     'location' => $row['location'],
     'details' => $row['details'],
     'image' => $row['image'],
-    'id' => $row['id']
+    'id' => $row['id'],
+    'detailslink' => $row['detailslink']
   );
 }
 
@@ -46,7 +47,8 @@ foreach ($gcal['VEVENT'] as $row) {
       'location' => $row['LOCATION'],
       'details' => $row['DESCRIPTION'],
       'image' => '',
-      'id' => $row['UID']
+      'id' => $row['UID'],
+      'detailslink' => ''
     );
   }
 }
@@ -62,7 +64,8 @@ if (empty($events)) {
     'location' => $row['location'],
     'details' => $row['details'],
     'image' => $row['image'],
-    'id' => $row['id']
+    'id' => $row['id'],
+    'detailslink' => $row['detailslink']
   );
 }
 
@@ -92,8 +95,10 @@ array_multisort($startdate, SORT_ASC, $events);
       echo "</div>\n";
       ?>
       <div class="events-featured-title"><?php echo $events[0]['title']; ?></div>
-
+      
+      <?php if ($events[0]['detailslink'] != "no") { ?>
       <a href="event.php?<?php echo $events[0]['id']; ?>" class="button">VIEW EVENT</a>
+      <?php } ?>
     </div>
   </div>
 </div>
@@ -125,7 +130,9 @@ array_multisort($startdate, SORT_ASC, $events);
         <td class="events-location"><?php echo $row['location']; ?></td>
 
         <td class="events-details">
+          <?php if ($row['detailslink'] != "no") { ?>
           <a href="event.php?<?php echo $row['id']; ?>">DETAILS <i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+          <?php } ?>
         </td>
       </tr>
       <?php

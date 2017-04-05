@@ -32,6 +32,12 @@ include "header.php";
         
         <input type="text" name="eventlink" placeholder="Event Link">
 
+        Show details link? &nbsp;
+        <input type="radio" name="detailslink" value="yes" id="dly"> <label for="dly">Yes</label>
+        &nbsp; &nbsp;
+        <input type="radio" name="detailslink" value="no" id="dln" checked> <label for="dln">No</label>
+        <br><br>
+
         <input type="submit" name="submit" value="SUBMIT" id="submit">
 
         <div style="clear: both;"></div>

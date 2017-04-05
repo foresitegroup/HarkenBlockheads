@@ -30,7 +30,8 @@ switch ($_GET['a']) {
                   location,
                   details,
                   image,
-                  eventlink
+                  eventlink,
+                  detailslink
                   ) VALUES(
                   '" . $startdate . "',
                   '" . $enddate . "',
@@ -38,7 +39,8 @@ switch ($_GET['a']) {
                   '" . $mysqli->real_escape_string($_POST['location']) . "',
                   '" . $mysqli->real_escape_string($_POST['details']) . "',
                   '" . $mysqli->real_escape_string($_POST['image']) . "',
-                  '" . $mysqli->real_escape_string($_POST['eventlink']) . "'
+                  '" . $mysqli->real_escape_string($_POST['eventlink']) . "',
+                  '" . $_POST['detailslink'] . "'
                   )");
     break;
   case "edit":
@@ -49,7 +51,8 @@ switch ($_GET['a']) {
                   location = '" . $mysqli->real_escape_string($_POST['location']) . "',
                   details = '" . $mysqli->real_escape_string($_POST['details']) . "',
                   image = '" . $mysqli->real_escape_string($_POST['image']) . "',
-                  eventlink = '" . $mysqli->real_escape_string($_POST['eventlink']) . "'
+                  eventlink = '" . $mysqli->real_escape_string($_POST['eventlink']) . "',
+                  detailslink = '" . $_POST['detailslink'] . "'
                   WHERE id = '" . $_POST['id'] . "'");
     break;
   case "delete":

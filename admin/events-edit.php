@@ -35,6 +35,12 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
         
         <input type="text" name="eventlink" placeholder="Event Link"<?php if ($row['eventlink'] != "") echo "value=\"" . $row['eventlink'] . "\""; ?>>
 
+        Show details link? &nbsp;
+        <input type="radio" name="detailslink" value="yes" id="dly"<?php if ($row['detailslink'] == "yes") echo " checked"; ?>> <label for="dly">Yes</label>
+        &nbsp; &nbsp;
+        <input type="radio" name="detailslink" value="no" id="dln"<?php if ($row['detailslink'] == "no") echo " checked"; ?>> <label for="dln">No</label>
+        <br><br>
+
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 
         <input type="submit" name="submit" value="UPDATE"  style="display: block; margin: 0 auto;">
