@@ -1636,11 +1636,160 @@ A#loadmore:active {
   animation-name: pulse
 }
 
+.contest {
+  background: #FFFFFF;
+  color: #000000;
+  min-height: 940px;
+  position: relative;
+}
+
+.contest .contest-image {
+  position: absolute;
+  top: 0;
+  right: 53%;
+  z-index: 1;
+}
+
+.contest .site-width {
+  position: relative;
+  z-index: 4;
+}
+
+.contest H1 {
+  margin: 0;
+  text-align: right;
+  font-weight: 800;
+  font-size: 190px;
+  line-height: 120px;
+  letter-spacing: 0.14em;
+  position: relative;
+  left: 0.14em;
+}
+
+.contest H2 {
+  float: right;
+  margin: 0.4em 0 0.2em;
+  width: 690px;
+  text-align: center;
+  color: #ED1B35;
+  font-weight: 800;
+  font-size: 110px;
+  line-height: 1em;
+}
+
+.contest H4 {
+  margin: 0 0 0.5em;
+  text-align: right;
+  font-weight: 800;
+  font-size: 69px;
+  line-height: 1em;
+  letter-spacing: 0.14em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.contest .contest-content {
+  float: right;
+  width: 50%;
+  font-weight: 800;
+  line-height: 2em;
+}
+
+.contest .contest-content H3 {
+  margin: 0 0 0.5em;
+  font-weight: 800;
+  font-size: 58px;
+  line-height: 1em;
+}
+
+.contest .contest-content A:link,
+.contest .contest-content A:visited {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.contest .contest-content A:hover,
+.contest .contest-content A:active {
+  color: #ED1B35;
+  text-decoration: underline;
+}
+
+.contest .contest-content .redtext {
+  margin: 1.5em 0 3.5em;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.4em;
+}
+
+.contest .contest-content .redtext A:link,
+.contest .contest-content .redtext A:visited {
+  color: #ED1B35;
+}
+
+.contest .contest-content .redtext A:hover,
+.contest .contest-content .redtext A:active {
+  color: #000000;
+}
+
+#contest-form INPUT[type="text"],
+#contest-form INPUT[type="email"] {
+  border: 0;
+  padding: 1em 2em;
+  background: #000000;
+  color: #ED1B35;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 2em;
+  letter-spacing: 0.3em;
+}
+
+#contest-form INPUT::-webkit-input-placeholder { color: #ED1B35; opacity: 1; }
+#contest-form INPUT:-moz-placeholder { color: #ED1B35; opacity: 1; } /* FF 4-18 */
+#contest-form INPUT::-moz-placeholder { color: #ED1B35; opacity: 1; } /* FF 19+ */
+#contest-form INPUT:-ms-input-placeholder { color: #ED1B35; opacity: 1; } /* IE 10+ */
+
+#contest-form INPUT:focus::-webkit-input-placeholder { color: transparent; }
+#contest-form INPUT:focus:-moz-placeholder { color: transparent; } /* FF 4-18 */
+#contest-form INPUT:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
+#contest-form INPUT:focus:-ms-input-placeholder { color: transparent; } /* IE 10+ */
+
+#contest-form INPUT[type="submit"] {
+  border: 5px solid #000000;
+  padding: 1em 1.8em 0.9em 2em;
+  border-radius: 0;
+  color: #000000;
+  font-size: 14px;
+  display: inline-block;
+}
+
+#contest-form INPUT[type="submit"]:hover {
+  background: transparent;
+  color: #EC1B23;
+  border-color: #EC1B23;
+}
+
+#contest-form-messages {
+  padding: 1em 0;
+  height: 1em;
+  line-height: 1em;
+  color: #EC1B23;
+}
+
+@media only screen and (max-width: 1070px) {
+  .contest H1 { left: 0; }
+}
 
 @media only screen and (max-width: 1024px) {
   .site-width {
     width: 96%;
   }
+
+  .contest H4 { font-size: 6.5vw; }
+}
+
+@media only screen and (max-width: 990px) {
+  .contest H1 { font-size: 180px; line-height: 115px; }
+  .contest H2 { font-size: 110px; }
+  .contest .contest-content H3 { font-size: 5.5vw; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -1736,6 +1885,9 @@ A#loadmore:active {
   .contact H1.pagetitle {
     font-size: 12vw;
   }
+
+  .contest H1 { font-size: 145px; line-height: 90px; }
+  .contest H2 { font-size: 90px; width: 75%; }
 }
 
 @media only screen and (max-width: 768px) {
@@ -1986,6 +2138,8 @@ A#loadmore:active {
     float: none;
     width: 100%;
   }
+
+  .contest .contest-image { max-width: 80%; height: auto; top: 100px; right: 46%; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -2161,6 +2315,35 @@ A#loadmore:active {
   .event-single-content .event-single-title {
     font-size: 53px;
   }
+
+  .contest {
+    min-height: 0;
+    padding: 3em 0 0.5em;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  }
+
+  .contest:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    background: url(../images/red-ratchet.jpg) no-repeat center center;
+    background-size: contain;
+    opacity: 0.5;
+  }
+
+  .contest .contest-image { display: none; }
+
+  .contest H1 { font-size: 23vw; line-height: 1em; text-align: left; }
+  .contest H2 { font-size: 21vw; float: none; width: 100%; margin: 0; text-align: left; }
+  .contest H4 { font-size: 6.3vw; text-align: left; }
+
+  .contest .contest-content { float: none; width: 100%; }
+
+  .contest .contest-content H3 { font-size: 11vw; margin: 0.3em 0; }
 }
 
 @media only screen and (max-width: 390px) {

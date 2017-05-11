@@ -6,7 +6,7 @@ include "header.php";
 
 <div class="home-posts">
   <a href="https://www.instagram.com/explore/tags/harkenblockheads/" class="header">#HARKENBLOCKHEADS</a>
-  
+
   <?php
   $posts = get_posts('posts_per_page=3&offset=1&order=DESC&orderby=date');
   $sr = 1;
@@ -36,7 +36,7 @@ include "header.php";
     $sr++;
   endforeach;
   ?>
-  
+
   <div class="centered">
     <a href="feed" class="button">MORE</a>
   </div>
@@ -46,6 +46,109 @@ include "header.php";
   POLL GOES HERE<br>
   I need excruciating details on how this will work.
 </div> -->
+
+<?php date_default_timezone_set('America/Chicago'); ?>
+<?php if (strtotime("now") >= strtotime("15 May 2017 9:00am")) { ?>
+<div class="contest">
+  <img src="images/red-ratchet.jpg" alt="" class="contest-image">
+
+  <div class="site-width">
+    <h1>ENTER</h1>
+    <h2>TO WIN:</h2>
+    <!-- <h4>CONGRATULATIONS TO</h4> -->
+
+    <div style="clear: both;"></div>
+
+    <div class="contest-content">
+      <h3>A RED RATCHET!</h3>
+
+      Harken is celebrating 50 years with a splash of red on our Carbo Ratchet blocks. Enter your name and email address for a chance to win one of these special edition 57mm Red Ratchet blocks. Submission closes at midnight CDT on Thursday, May 25th. FIVE winners will be announced on the Harken Blockheads <a href="https://www.facebook.com/Harken-Blockheads-1297811663614506/">Facebook page</a> at 1:00PM CDT on May 26th.
+
+      <div class="redtext">Entry only available to residents of the USA. <a href="contest-rules.php" rel="nofollow">See Full Contest Rules Here</a>.</div>
+
+      <?php if (strtotime("now") <= strtotime("25 May 2017 11:59pm")) { ?>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          var form = $('#contest-form');
+          var formMessages = $('#contest-form-messages');
+          $(form).submit(function(event) {
+            event.preventDefault();
+
+            function formValidation() {
+              if ($('#name').val() === '') { alert('First and Last name required.'); $('#name').focus(); return false; }
+              if ($('#email').val() === '') { alert('Email address required.'); $('#email').focus(); return false; }
+              return true;
+            }
+
+            if (formValidation()) {
+              var formData = $(form).serialize();
+              formData += '&src=ajax';
+
+              $.ajax({
+                type: 'POST',
+                url: $(form).attr('action'),
+                data: formData
+              })
+              .done(function(response) {
+                $(formMessages).html(response);
+
+                $(form).find('input:text').val('');
+                $('#email').val(''); // Grrr!
+              })
+              .fail(function(data) {
+                if (data.responseText !== '') {
+                  $(formMessages).html(data.responseText);
+                } else {
+                  $(formMessages).text('Oops! An error occured and your message could not be sent.');
+                }
+              });
+            }
+          });
+        });
+      </script>
+
+      <?php
+      // Settings for randomizing form field names
+      $ip = $_SERVER['REMOTE_ADDR'];
+      $timestamp = time();
+      $salt = "BlockheadsContestForm";
+      ?>
+
+      <noscript>
+      <?php
+      $feedback = (!empty($_SESSION['feedback'])) ? $_SESSION['feedback'] : "";
+      unset($_SESSION['feedback']);
+      ?>
+      </noscript>
+
+      <form action="form-contest.php" method="POST" id="contest-form">
+        <div>
+          <input type="text" name="<?php echo md5("name" . $ip . $salt . $timestamp); ?>" id="name" placeholder="FIRST & LAST NAME">
+
+          <input type="email" name="<?php echo md5("email" . $ip . $salt . $timestamp); ?>" id="email" placeholder="EMAIL ADDRESS">
+
+          <input type="hidden" name="referrer" value="index.php">
+
+          <input type="text" name="confirmationCAP" style="display: none;">
+
+          <input type="hidden" name="ip" value="<?php echo $ip; ?>">
+          <input type="hidden" name="timestamp" value="<?php echo $timestamp; ?>">
+
+          <input type="submit" name="submit" value="SUBMIT">
+
+          <div id="contest-form-messages"><?php echo $feedback; ?></div>
+        </div>
+      </form>
+      <?php } else { ?>
+      Sorry, entries have closed &mdash; check back at 1:00 PM CDT on Friday, May 26th to see who won.
+      <?php } ?>
+    </div>
+
+    <div style="clear: both;"></div>
+
+  </div>
+</div>
+<?php } ?>
 
 <div class="home-event">
   <?php
@@ -59,7 +162,7 @@ include "header.php";
   if (mysqli_num_rows($result) == 0) $result = $mysqli->query("SELECT * FROM events ORDER BY enddate DESC LIMIT 1");
 
   $row = $result->fetch_array(MYSQLI_ASSOC);
-  
+
   $TheDate = '<div class="event-month">' . date("F", $row['startdate']) . '</div>';
   $TheDate .= '<div class="event-date">' . date("j", $row['startdate']);
 
