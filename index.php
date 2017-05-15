@@ -49,7 +49,7 @@ include "header.php";
 
 <?php date_default_timezone_set('America/Chicago'); ?>
 <?php if (strtotime("now") >= strtotime("16 May 2017 9:00am")) { ?>
-<div class="contest">
+<div class="contest" id="giveaway">
   <img src="images/red-ratchet.jpg" alt="" class="contest-image">
 
   <div class="site-width">
