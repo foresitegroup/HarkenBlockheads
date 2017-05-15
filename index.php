@@ -48,7 +48,7 @@ include "header.php";
 </div> -->
 
 <?php date_default_timezone_set('America/Chicago'); ?>
-<?php if (strtotime("now") >= strtotime("15 May 2017 9:00am")) { ?>
+<?php if (strtotime("now") >= strtotime("16 May 2017 9:00am")) { ?>
 <div class="contest">
   <img src="images/red-ratchet.jpg" alt="" class="contest-image">
 
@@ -62,7 +62,7 @@ include "header.php";
     <div class="contest-content">
       <h3>A RED RATCHET!</h3>
 
-      Harken is celebrating 50 years with a splash of red on our Carbo Ratchet blocks. Enter your name and email address for a chance to win one of these special edition 57mm Red Ratchet blocks. Submission closes at midnight CDT on Thursday, May 25th. FIVE winners will be announced on the Harken Blockheads <a href="https://www.facebook.com/Harken-Blockheads-1297811663614506/">Facebook page</a> at 1:00PM CDT on May 26th.
+      Harken is celebrating 50 years with a splash of red on our Carbo Ratchet blocks. Enter your name and email address for a chance to win a 57 mm Carbo Ratchet block and redefine control! Submission closes at midnight CDT on Thursday, May 25th. FIVE winners will be announced on the <a href="https://www.facebook.com/HarkenBlockheads/">Harken Blockheads Facebook page</a> at 1:00 pm CDT on Friday, May 26th.
 
       <div class="redtext">Entry only available to residents of the USA. <a href="contest-rules.php" rel="nofollow">See Full Contest Rules Here</a>.</div>
 
