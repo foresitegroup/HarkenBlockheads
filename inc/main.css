@@ -2316,26 +2316,9 @@ A#loadmore:active {
     font-size: 53px;
   }
 
-  .contest {
-    min-height: 0;
-    padding: 3em 0 0.5em;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-  }
+  .contest { padding: 3em 0 360px; }
 
-  .contest:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    height: 100%;
-    background: url(../images/red-ratchet.jpg) no-repeat center center;
-    background-size: contain;
-    opacity: 0.5;
-  }
-
-  .contest .contest-image { display: none; }
+  .contest .contest-image { top: auto; right: 50%; bottom: 1em; transform: translateX(50%); }
 
   .contest H1 { font-size: 23vw; line-height: 1em; text-align: left; }
   .contest H2 { font-size: 21vw; float: none; width: 100%; margin: 0; text-align: left; }
