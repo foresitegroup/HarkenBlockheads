@@ -13,7 +13,7 @@ include "header.php";
 
   <div class="join-form-header cf">
     <div class="join-form-header-left">
-      Fill out the form &amp; receive your FREE Blockhead member kit. 13 years and younger, you will need permission from your parent or guardian to join.
+      Fill out the form &amp; receive your FREE Blockhead member kit. 13 years and younger, you will need permission from your parent or guardian to join. Blockheads member kits are available to sailors aged 24 years and younger.
     </div>
 
     <div class="join-form-header-right">
