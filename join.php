@@ -112,6 +112,23 @@ include "header.php";
       <input type="text" name="<?php echo md5("country" . $ip . $salt . $timestamp); ?>" id="country" placeholder="Country">
 
       <div style="clear: both;"></div>
+      
+      <?php date_default_timezone_set('America/Chicago'); ?>
+      <?php if (strtotime("now") <= strtotime("14 July 2017 3:00pm")) { ?>
+      <div class="centered contest-fields">
+        <input type="checkbox" name="contest" value="yes" id="r-contest"<?php if ($_SERVER['QUERY_STRING'] == "award") echo " checked"; ?>>
+        <label for="r-contest">I am registering for the First Blockhead to the Island Award</label>
+
+        <div class="contest-reveal">
+          <input type="text" name="membership-number" id="membership-number" placeholder="Blockheads Membership Number">
+          <div id="membership-number-note">Found on the back of your Blockheads membership card, not required</div>
+
+          <input type="text" name="boat-name" id="boat-name" placeholder="Boat Name">
+
+          <input type="text" name="race-division" id="race-division" placeholder="Race Division">
+        </div>
+      </div>
+      <?php } ?>
 
       <div class="centered">
         <input type="checkbox" name="terms" value="" id="r-terms">

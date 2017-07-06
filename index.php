@@ -42,110 +42,22 @@ include "header.php";
   </div>
 </div>
 
-<!-- <div class="home-poll">
-  POLL GOES HERE<br>
-  I need excruciating details on how this will work.
-</div> -->
-
 <?php date_default_timezone_set('America/Chicago'); ?>
-<?php if (strtotime("now") >= strtotime("16 May 2017 9:00am")) { ?>
-<div class="contest" id="giveaway">
-  <img src="images/red-ratchet.jpg" alt="" class="contest-image">
-
+<?php if (strtotime("now") <= strtotime("14 July 2017 3:00pm")) { ?>
+<div id="contest">
   <div class="site-width">
-    <h1>ENTER</h1>
-    <h2>TO WIN:</h2>
-    <!-- <h4>CONGRATULATIONS TO</h4> -->
+    <h2>Will You Be The Fastest Blockhead To Mackinac Island?</h2>
 
-    <div style="clear: both;"></div>
+    <img src="images/mackinac-award.jpg" alt="">
 
-    <div class="contest-content">
-      <h3>A RED RATCHET!</h3>
+    <div class="text">
+      <h3>Register for the First Blockhead to the Island Award</h3>
 
-      Harken is celebrating 50 years with a splash of red on our Carbo Ratchet blocks. Enter your name and email address for a chance to win a 57 mm Carbo Ratchet block and redefine control! Submission closes at midnight CDT on Thursday, May 25th. FIVE winners will be announced on the <a href="https://www.facebook.com/HarkenBlockheads/">Harken Blockheads Facebook page</a> at 1:00 pm CDT on Friday, May 26th.
+      New for the 109th Chicago Yacht Club Race to Mackinac&reg;, an exclusive award will be given out to the first Blockhead to reach the island. You must be a member of Blockheads before the race begins in order to be eligible for the award. Sign up for your free membership and let us know which boat you are racing on. We ask that current Blockheads fill out the same form and include your member ID number, if possible, and boat info. The award will be presented at the party on Tuesday, July 18th on Mackinac Island. Sail fast!
+      <br>
 
-      <div class="redtext">Entry only available to residents of the USA. <a href="contest-rules.php" rel="nofollow">See Full Contest Rules Here</a>.</div>
-
-      <?php if (strtotime("now") <= strtotime("25 May 2017 11:59pm")) { ?>
-      <script type="text/javascript">
-        $(document).ready(function() {
-          var form = $('#contest-form');
-          var formMessages = $('#contest-form-messages');
-          $(form).submit(function(event) {
-            event.preventDefault();
-
-            function formValidation() {
-              if ($('#name').val() === '') { alert('First and Last name required.'); $('#name').focus(); return false; }
-              if ($('#email').val() === '') { alert('Email address required.'); $('#email').focus(); return false; }
-              return true;
-            }
-
-            if (formValidation()) {
-              var formData = $(form).serialize();
-              formData += '&src=ajax';
-
-              $.ajax({
-                type: 'POST',
-                url: $(form).attr('action'),
-                data: formData
-              })
-              .done(function(response) {
-                $(formMessages).html(response);
-
-                $(form).find('input:text').val('');
-                $('#email').val(''); // Grrr!
-              })
-              .fail(function(data) {
-                if (data.responseText !== '') {
-                  $(formMessages).html(data.responseText);
-                } else {
-                  $(formMessages).text('Oops! An error occured and your message could not be sent.');
-                }
-              });
-            }
-          });
-        });
-      </script>
-
-      <?php
-      // Settings for randomizing form field names
-      $ip = $_SERVER['REMOTE_ADDR'];
-      $timestamp = time();
-      $salt = "BlockheadsContestForm";
-      ?>
-
-      <noscript>
-      <?php
-      $feedback = (!empty($_SESSION['feedback'])) ? $_SESSION['feedback'] : "";
-      unset($_SESSION['feedback']);
-      ?>
-      </noscript>
-
-      <form action="form-contest.php" method="POST" id="contest-form">
-        <div>
-          <input type="text" name="<?php echo md5("name" . $ip . $salt . $timestamp); ?>" id="name" placeholder="FIRST & LAST NAME">
-
-          <input type="email" name="<?php echo md5("email" . $ip . $salt . $timestamp); ?>" id="email" placeholder="EMAIL ADDRESS">
-
-          <input type="hidden" name="referrer" value="index.php">
-
-          <input type="text" name="confirmationCAP" style="display: none;">
-
-          <input type="hidden" name="ip" value="<?php echo $ip; ?>">
-          <input type="hidden" name="timestamp" value="<?php echo $timestamp; ?>">
-
-          <input type="submit" name="submit" value="SUBMIT">
-
-          <div id="contest-form-messages"><?php echo $feedback; ?></div>
-        </div>
-      </form>
-      <?php } else { ?>
-      Sorry, entries have closed &mdash; check back at 1:00 PM CDT on Friday, May 26th to see who won.
-      <?php } ?>
+      <a href="join.php?award" class="button">SIGN UP</a>
     </div>
-
-    <div style="clear: both;"></div>
-
   </div>
 </div>
 <?php } ?>

@@ -44,11 +44,18 @@ if ($_POST['confirmationCAP'] == "") {
     $mysqli->close();
 
     // Send email
-    $Subject = "Harken Blockheads Sign-Up";
-    $SendTo = "blockheads@harken.com";
     $Headers = "From: Join Form <joinform@harken.com>\r\n";
     $Headers .= "Reply-To: " . $_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\r\n";
-    $Headers .= "Cc: hays.formella@harken.com\r\n";
+    
+    if (isset($_POST['contest'])) {
+      $Subject = "First Blockhead to the Island Award Sign-Up";
+      $SendTo = "marketing.intern@harken.com";
+    } else {
+      $Subject = "Harken Blockheads Sign-Up";
+      $SendTo = "blockheads@harken.com";
+      $Headers .= "Cc: hays.formella@harken.com\r\n";
+    }
+
     $Headers .= "Bcc: mark@foresitegrp.com\r\n";
 
     $Message = "Sign-up from " . $_POST[md5('firstname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " " . $_POST[md5('lastname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " (" . $_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])] . ")";

@@ -192,7 +192,7 @@ function FeedVideo($url) {
   if (strpos($url, 'youtu') > 0) {
     $pattern = "/(?:[?&]v=|\/embed\/|\/1\/|\/v\/|https:\/\/(?:www\.)?youtu\.be\/)([^&\n?#]+)/";
     preg_match($pattern, $url, $matches);
-    $TheVideo = "http://www.youtube.com/embed/" . $matches[1] . "?autoplay=1&rel=0&showinfo=0";
+    $TheVideo = "https://www.youtube.com/embed/" . $matches[1] . "?autoplay=1&rel=0&showinfo=0";
     $TheImage = "https://img.youtube.com/vi/" . $matches[1] . "/maxresdefault.jpg";
   }
 
