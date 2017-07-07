@@ -38,6 +38,18 @@ include "header.php";
           if ($('#state').val() === '') { alert('State required.'); $('#state').focus(); return false; }
           if ($('#zip').val() === '') { alert('Zip required.'); $('#zip').focus(); return false; }
           if ($('#country').val() === '') { alert('Country required.'); $('#country').focus(); return false; }
+
+          if ($('#r-contest').is(':checked') && $('#boat-name').val() === '') {
+            alert('Boat name is required');
+            $('#boat-name').focus();
+            return false;
+          }
+          if ($('#r-contest').is(':checked') && $('#race-division').val() === '') {
+            alert('Race division is required');
+            $('#race-division').focus();
+            return false;
+          }
+
           return true;
         }
 
