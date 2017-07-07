@@ -70,6 +70,14 @@ if ($_POST['confirmationCAP'] == "") {
     $Message .= "\n" . $_POST[md5('city' . $_POST['ip'] . $salt . $_POST['timestamp'])] . ", " . $_POST[md5('state' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " " . $_POST[md5('zip' . $_POST['ip'] . $salt . $_POST['timestamp'])];
 
     $Message .= "\n" . $_POST[md5('country' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+    
+    // CONTEST
+    if ($_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
+    $Message .= "\nBlockheads Membership Number: " . $_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+    if ($_POST[md5('boat-name' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
+    $Message .= "\nBoat Name: " . $_POST[md5('boat-name' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+    if ($_POST[md5('race-division' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
+    $Message .= "\nRace Division: " . $_POST[md5('race-division' . $_POST['ip'] . $salt . $_POST['timestamp'])];
 
     $Message = stripslashes($Message);
   
