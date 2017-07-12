@@ -1,10 +1,10 @@
 <?php
 include("../inc/dbconfig.php");
 
-$result = $mysqli->query("SELECT firstname,lastname,age,email,address,address2,city,state,zip,country FROM `join` ORDER BY lastname ASC");
+$result = $mysqli->query("SELECT firstname,lastname,age,email,address,address2,city,state,zip,country,contest FROM `join` ORDER BY lastname ASC");
 
 // Create header row
-$csv_output = "First Name,Last Name,Age,Email,Address,Address 2,City,State,Zip Code,Country";
+$csv_output = "First Name,Last Name,Age,Email,Address,Address 2,City,State,Zip Code,Country,Contest";
 
 $data = "";
 
@@ -62,6 +62,7 @@ $message .= "--".$uid."--";
 
 // Send the mail
 mail("hays.formella@harken.com", "Join Database Export", $message, $header);
+// mail("lippert@gmail.com", "Join Database Export", $message, $header);
 
 // All done, delete the file
 unlink($filename);
