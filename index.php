@@ -43,7 +43,7 @@ include "header.php";
 </div>
 
 <?php date_default_timezone_set('America/Chicago'); ?>
-<?php if (strtotime("now") <= strtotime("14 July 2017 3:00pm")) { ?>
+<?php if (strtotime("now") <= strtotime("15 July 2017 2:00pm")) { ?>
 <div id="contest">
   <div class="site-width">
     <h2>Will You Be The Fastest Blockhead To Mackinac Island?</h2>

@@ -16,6 +16,12 @@ if ($_POST['confirmationCAP'] == "") {
       $_POST[md5('country' . $_POST['ip'] . $salt . $_POST['timestamp'])] != ""
      )
   {
+    $Contest = "";
+    date_default_timezone_set('America/Chicago');
+    if (strtotime("now") <= strtotime("15 July 2017 2:00pm") && isset($_POST['contest'])) {
+      $Contest = "Blockheads Membership Number: " . $_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\nBoat Name: " . $_POST[md5('boat-name' . $_POST['ip'] . $salt . $_POST['timestamp'])] . "\nRace Division: " . $_POST[md5('race-division' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+    }
+
     //Add to database
     include_once "inc/dbconfig.php";
     $mysqli->query("INSERT INTO `join` (
@@ -28,7 +34,8 @@ if ($_POST['confirmationCAP'] == "") {
                   city,
                   state,
                   zip,
-                  country
+                  country,
+                  contest
                   ) VALUES (
                   '" . $mysqli->real_escape_string($_POST[md5('firstname' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
                   '" . $mysqli->real_escape_string($_POST[md5('lastname' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
@@ -39,7 +46,8 @@ if ($_POST['confirmationCAP'] == "") {
                   '" . $mysqli->real_escape_string($_POST[md5('city' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
                   '" . $mysqli->real_escape_string($_POST[md5('state' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
                   '" . $mysqli->real_escape_string($_POST[md5('zip' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
-                  '" . $mysqli->real_escape_string($_POST[md5('country' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "'
+                  '" . $mysqli->real_escape_string($_POST[md5('country' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
+                  '" . $Contest . "'
                   )");
     $mysqli->close();
 
@@ -72,6 +80,7 @@ if ($_POST['confirmationCAP'] == "") {
     $Message .= "\n" . $_POST[md5('country' . $_POST['ip'] . $salt . $_POST['timestamp'])];
     
     // CONTEST
+    $Message .= "\n";
     if ($_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
     $Message .= "\nBlockheads Membership Number: " . $_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])];
     if ($_POST[md5('boat-name' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
