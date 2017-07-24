@@ -92,7 +92,7 @@ if ($_POST['confirmationCAP'] == "") {
   
     mail($SendTo, $Subject, $Message, $Headers);
     
-    $feedback = "<strong>You have been signed up!</strong> Thank you for your interest. We will reply within 3 business days.";
+    $feedback = "<strong>You have been signed up!</strong> Thank you for joining Harken Blockheads. Your membership kit is on its way and you will begin receiving the monthly Blockheads Bulletin newsletter.";
     
     if (!empty($_REQUEST['src'])) {
       header("HTTP/1.0 200 OK");
