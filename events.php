@@ -54,19 +54,31 @@ foreach ($gcal['VEVENT'] as $row) {
 }
 
 // No upcoming events? Just list the last one
+$upcoming = "";
 if (empty($events)) {
+  $upcoming = "no";
+
   $result = $mysqli->query("SELECT * FROM events ORDER BY enddate DESC LIMIT 1");
-  $row = $result->fetch_array(MYSQLI_ASSOC);
-  $events[] = array(
-    'startdate' => $row['startdate'],
-    'enddate' => $row['enddate'],
-    'title' => $row['title'],
-    'location' => $row['location'],
-    'details' => $row['details'],
-    'image' => $row['image'],
-    'id' => $row['id'],
-    'detailslink' => $row['detailslink']
-  );
+
+  if (mysqli_num_rows($result) > 0) {
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+    $events[] = array(
+      'startdate' => $row['startdate'],
+      'enddate' => $row['enddate'],
+      'title' => $row['title'],
+      'location' => $row['location'],
+      'details' => $row['details'],
+      'image' => $row['image'],
+      'id' => $row['id'],
+      'detailslink' => $row['detailslink']
+    );
+  } else {
+    $events[] = array(
+      'startdate' => 'none',
+      'title' => '',
+      'detailslink' => 'no'
+    );
+  }
 }
 
 // Sort the two different data sources together
@@ -86,13 +98,17 @@ array_multisort($startdate, SORT_ASC, $events);
     <div class="events-featured-content">
       <h4>FEATURED</h4>
       <?php
-      echo "<div class=\"events-featured-date\">" . date("M j", $events[0]['startdate']);
-      if ($events[0]['startdate'] != $events[0]['enddate']) {
-        if (($events[0]['startdate']+86400) <= $events[0]['enddate']) echo "-";
-        if (date("M", $events[0]['startdate']) != date("M", $events[0]['enddate'])) echo date("M", $events[0]['enddate']) . " ";
-        if (date("j", $events[0]['startdate']) != date("j", $events[0]['enddate'])) echo date("j", $events[0]['enddate']);
+      if ($events[0]['startdate'] != "none") {
+        echo "<div class=\"events-featured-date\">" . date("M j", $events[0]['startdate']);
+        if ($events[0]['startdate'] != $events[0]['enddate']) {
+          if (($events[0]['startdate']+86400) <= $events[0]['enddate']) echo "-";
+          if (date("M", $events[0]['startdate']) != date("M", $events[0]['enddate'])) echo date("M", $events[0]['enddate']) . " ";
+          if (date("j", $events[0]['startdate']) != date("j", $events[0]['enddate'])) echo date("j", $events[0]['enddate']);
+        }
+        echo "</div>\n";
+      } else {
+        echo "<div class=\"events-featured-date\">No upcoming events</div>";
       }
-      echo "</div>\n";
       ?>
       <div class="events-featured-title"><?php echo $events[0]['title']; ?></div>
       
@@ -103,42 +119,44 @@ array_multisort($startdate, SORT_ASC, $events);
   </div>
 </div>
 
-<div class="site-width events">
-  <h3>UPCOMING</h3>
-  
-  <table cellspacing="0" cellpadding="0" class="events-list">
-    <?php
-    $TheYear = "";
-
-    foreach ($events as $row) {
-      if ($TheYear != date("Y", $row['startdate'])) {
-        $TheYear = date("Y", $row['startdate']);
-        echo "<tr><td colspan=\"4\" class=\"events-year\">" . $TheYear . "</td></tr>";
-      }
-      
-      echo "<tr>";
-        echo "<td class=\"events-date\">" . date("M j", $row['startdate']);
-        if ($row['startdate'] != $row['enddate']) {
-          if (($row['startdate']+86400) <= $row['enddate']) echo "-";
-          if (date("M", $row['startdate']) != date("M", $row['enddate'])) echo date("M", $row['enddate']) . " ";
-          if (date("j", $row['startdate']) != date("j", $row['enddate'])) echo date("j", $row['enddate']);
-        }
-        echo "</td>";
-        ?>
-        <td class="events-title"><?php echo $row['title']; ?></td>
-
-        <td class="events-location"><?php echo $row['location']; ?></td>
-
-        <td class="events-details">
-          <?php if ($row['detailslink'] != "no") { ?>
-          <a href="event.php?<?php echo $row['id']; ?>">DETAILS <i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
-          <?php } ?>
-        </td>
-      </tr>
+<?php if ($upcoming == "") { ?>
+  <div class="site-width events">
+    <h3>UPCOMING</h3>
+    
+    <table cellspacing="0" cellpadding="0" class="events-list">
       <?php
-    }
-    ?>
-  </table>
-</div>
+      $TheYear = "";
+
+      foreach ($events as $row) {
+        if ($TheYear != date("Y", $row['startdate'])) {
+          $TheYear = date("Y", $row['startdate']);
+          echo "<tr><td colspan=\"4\" class=\"events-year\">" . $TheYear . "</td></tr>";
+        }
+        
+        echo "<tr>";
+          echo "<td class=\"events-date\">" . date("M j", $row['startdate']);
+          if ($row['startdate'] != $row['enddate']) {
+            if (($row['startdate']+86400) <= $row['enddate']) echo "-";
+            if (date("M", $row['startdate']) != date("M", $row['enddate'])) echo date("M", $row['enddate']) . " ";
+            if (date("j", $row['startdate']) != date("j", $row['enddate'])) echo date("j", $row['enddate']);
+          }
+          echo "</td>";
+          ?>
+          <td class="events-title"><?php echo $row['title']; ?></td>
+
+          <td class="events-location"><?php echo $row['location']; ?></td>
+
+          <td class="events-details">
+            <?php if ($row['detailslink'] != "no") { ?>
+            <a href="event.php?<?php echo $row['id']; ?>">DETAILS <i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+            <?php } ?>
+          </td>
+        </tr>
+        <?php
+      }
+      ?>
+    </table>
+  </div>
+<?php } ?>
 
 <?php include "footer.php"; ?>
