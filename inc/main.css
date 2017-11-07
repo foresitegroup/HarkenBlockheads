@@ -1233,6 +1233,15 @@ A#loadmore:active {
   margin-right: 4%;
 }
 
+#join-form.events-join #firstname,
+#join-form.events-join #lastname {
+  width: 48%;
+}
+
+#join-form.events-join #lastname {
+  float: right; margin-right: 0;
+}
+
 #join-form #age {
   float: right;
   width: 8%;
@@ -1254,6 +1263,9 @@ A#loadmore:active {
 #join-form #country {
   margin-right: 0;
 }
+
+#join-form #parent_name { margin-bottom: 0.5em; }
+#join-form #r-consent + LABEL { font-size: 13px; line-height: 1.3em; }
 
 #join-form .centered {
   margin: 4em 0;
@@ -2236,8 +2248,8 @@ A#loadmore:active {
     width: 40%;
   }
   
-  #join-form #firstname,
-  #join-form #lastname,
+  #join-form #firstname, #join-form.events-join #firstname,
+  #join-form #lastname, #join-form.events-join #lastname,
   #join-form #age,
   #join-form #city,
   #join-form #state,
