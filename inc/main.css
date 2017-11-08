@@ -545,7 +545,6 @@ FORM input[type=radio]:checked + label:after {
   font-weight: 800;
   font-size: 14px;
   letter-spacing: 2px;
-  padding: 6em 0 5em;
   position: relative;
 }
 
@@ -569,6 +568,8 @@ FORM input[type=radio]:checked + label:after {
   height: 100%;
   background-color: rgba(0,0,0,0.5);
 }
+
+.home-event .site-width { padding: 6em 0 5em; }
 
 .home-event .header {
   padding-left: calc(2em + 12px);
