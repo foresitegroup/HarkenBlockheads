@@ -9,6 +9,23 @@ function email($address, $name="") {
   if ($name == "") $name = $email;
   echo "<a href=\"&#109;&#97;&#105;&#108;&#116;&#111;&#58;$email\">$name</a>";
 }
+
+if (!isset($langpath)) $langpath = ""; // For Wordpress
+
+if (isset($_REQUEST['lang']) && (is_file($langpath . "language/" . $_REQUEST['lang'] . ".ini") == true)) {
+  setcookie("HBlang", $_REQUEST['lang'], strtotime("+1 year"), "/");
+  $language = $_REQUEST['lang'];
+
+  $loc = (!(empty($_SERVER['HTTP_REFERER']))) ? $_SERVER['HTTP_REFERER'] : $_SERVER['PHP_SELF'];
+  header("Location: " . $loc);
+} else {
+  $language = (isset($_COOKIE['HBlang'])) ? $_COOKIE['HBlang'] : "english";
+}
+
+global $lang; // For Wordpress
+$lang = parse_ini_file($langpath . "language/" . $language . ".ini");
+
+if (isset($PageTitleLang)) $PageTitle = $lang[$PageTitleLang];
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +73,7 @@ function email($address, $name="") {
       ga('send', 'pageview');
     </script>
   </head>
-  <body<?php if (isset($BodyClass)) echo " class=\"" . $BodyClass . "\""; ?>>
+  <body class="<?php echo $language; if (isset($BodyClass)) echo " " . $BodyClass; ?>">
     
     <?php if (!isset($PageTitle)) { ?>
     <div class="home-banner">
@@ -67,7 +84,6 @@ function email($address, $name="") {
         setup_postdata($post);
 
         if (get_post_meta(get_the_ID(), 'fv_video_embed', true)) {
-          // echo "IT'S A VIDEO<br><br><br>";
           $fv = FeedVideo(get_post_meta(get_the_ID(), 'fv_video_embed', true));
           $FeedImage = $fv[1];
         }
@@ -83,13 +99,13 @@ function email($address, $name="") {
 
         <div class="home-banner-right">
           <div>
-            <h3>LATEST:</h3>
+            <h3><?php echo $lang['LATEST']; ?>:</h3>
 
             <h1><?php the_title(); ?></h1>
 
-            <a href="<?php the_permalink(); ?>" class="button">READ</a>
+            <a href="<?php the_permalink(); ?>" class="button"><?php echo $lang['READ']; ?></a>
 
-            <a href="feed" class="more">SEE MORE <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+            <a href="feed" class="more"><?php echo $lang['SEE_MORE']; ?> <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -108,14 +124,25 @@ function email($address, $name="") {
         <input type="checkbox" id="show-menu" role="button">
         <label for="show-menu" id="menu-toggle"></label>
         <ul>
-          <li><a href="<?php echo $TopDir; ?>join.php">JOIN.</a></li>
-          <li><a href="<?php echo $TopDir; ?>feed">FEED.</a></li>
-          <li><a href="<?php echo $TopDir; ?>events.php">EVENTS.</a></li>
+          <li><a href="<?php echo $TopDir; ?>join.php"><?php echo $lang['JOIN']; ?>.</a></li>
+          <li><a href="<?php echo $TopDir; ?>feed"><?php echo $lang['FEED']; ?>.</a></li>
+          <li><a href="<?php echo $TopDir; ?>events.php"><?php echo $lang['EVENTS']; ?>.</a></li>
           <li class="menu-social">
             <a href="https://www.facebook.com/Harken-Blockheads-1297811663614506/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             <!-- <a href="https://twitter.com/harkenblockhead"><i class="fa fa-twitter" aria-hidden="true"></i></a> -->
             <a href="https://www.youtube.com/playlist?list=PLVKzKD5m_w-UnpQCMFmcQxMbvPVztFtqI"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+          </li>
+
+          <li>
+            <form name="Language" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="language">
+              <div>
+                <select name="lang" onchange="document.Language.submit()">
+                  <option value="english"<?php if ($language == "english") echo " selected"; ?>>English</option>
+                  <option value="polish"<?php if ($language == "polish") echo " selected"; ?>>Polski</option>
+                </select>
+              </div>
+            </form>
           </li>
         </ul>
       </div>

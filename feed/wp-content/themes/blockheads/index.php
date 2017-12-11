@@ -47,7 +47,7 @@ $TopDir = substr( home_url(), 0, strrpos( home_url(), '/')+1);
   <div style="clear: both;"></div>
 
   <div class="centered">
-		<a href="#" id="loadmore">LOAD MORE</a>
+		<a href="#" id="loadmore"><?php echo $lang['LOAD_MORE']; ?></a>
 		<script type="text/javascript">
 		  $(function () {
 			  $(".post").slice(0, 9).show();

@@ -27,7 +27,7 @@
     <?php } ?>
 
     <div class="footer-contact">
-      <a href="<?php echo $TopDir; ?>contact.php">CONTACT</a>
+      <a href="<?php echo $TopDir; ?>contact.php"><?php echo $lang['CONTACT']; ?></a>
     </div>
 
     <div class="prefooter">
@@ -35,16 +35,16 @@
         <img src="<?php echo $TopDir; ?>images/logo-prefooter.png" alt=""><br>
         <br>
 
-        What exactly is a Blockhead? If you are totally obsessed with how to rig and sail your boat, you might already be one! Join the community of Blockheads to learn more about the sport, engage with others and share sailing experiences. This site serves as the hub for Blockheads globally, where you can discover how to join, media, tips and tricks, contests, and events. This program is all about YOU and we want to hear from everyone! Not seeing something? Your feedback is crucial, feel free to shoot us a comment or message.
+        <?php echo $lang['BLOCKHEAD']; ?>
       </div>
     </div>
 
     <div class="bh-footer">
       <div class="site-width">
         <div class="bh-footer-left">
-          <a href="<?php echo $TopDir; ?>join.php">JOIN</a>
-          <a href="<?php echo $TopDir; ?>contact.php">CONTACT</a>
-          <a href="<?php echo $TopDir; ?>terms.php">TERMS</a>
+          <a href="<?php echo $TopDir; ?>join.php"><?php echo $lang['JOIN']; ?></a>
+          <a href="<?php echo $TopDir; ?>contact.php"><?php echo $lang['CONTACT']; ?></a>
+          <a href="<?php echo $TopDir; ?>terms.php"><?php echo $lang['TERMS']; ?></a>
         </div>
 
         <div class="bh-footer-right">

@@ -1,5 +1,5 @@
 <?php
-$PageTitle = "Join Now";
+$PageTitleLang = "JOIN_TITLE";
 $SocialTitle = "Follow Us";
 $SocialClass = "sht-join";
 include "header.php";
@@ -8,12 +8,12 @@ include "header.php";
 <div class="site-width join">
   <h1 class="pagetitle"><?php echo $PageTitle; ?></h1>
 
-  Why join? Two reasons: <span class="redtext">1. You will become a better sailor.  2. Harken Blockheads is free and earns you free stuff right away!</span> Sign up and we'll send you a Blockheads kit including decals, a flat whistle, Carbo block magnet, and your unique Blockhead membership card. Down the road, we'll be sending members exclusive emails with sailing news, contests, discount promotions, regatta highlights, and more! Embrace your Blockheadedness and join today!<br>
+  <?php echo $lang['WHY_JOIN']; ?><br>
   <br>
 
   <div class="join-form-header cf">
     <div class="join-form-header-left">
-      Fill out the form &amp; receive your FREE Blockhead member kit. 13 years and younger, you will need permission from your parent or guardian to join. Blockheads member kits are available to sailors aged 24 years and younger.
+      <?php echo $lang['FILL_FORM']; ?>
     </div>
 
     <div class="join-form-header-right">
@@ -82,6 +82,13 @@ include "header.php";
       $('#r-terms').click(function(){
         $('#submit').prop("disabled", !this.checked);
       });
+
+      $('#age').blur(function() {
+        if (($('#age').val() != "") && ($('#age').val() < 13)) {
+          $('#join-form :input').prop("disabled", true);
+          $('#join-form > DIV').addClass("tooyoung");
+        }
+      });
     });
   </script>
 
@@ -101,6 +108,10 @@ include "header.php";
 
   <form action="form-join.php" method="POST" id="join-form">
     <div>
+      <div class="parent-popup">
+        Sailors under the age of 13 must verify their parent or guardian's consent before joining Blockheads. Please download the <a href="#">parental consent form</a>. Thank you.
+      </div>
+
       <input type="text" name="<?php echo md5("firstname" . $ip . $salt . $timestamp); ?>" id="firstname" placeholder="First Name">
 
       <input type="text" name="<?php echo md5("lastname" . $ip . $salt . $timestamp); ?>" id="lastname" placeholder="Last Name">
@@ -124,7 +135,7 @@ include "header.php";
       <input type="text" name="<?php echo md5("country" . $ip . $salt . $timestamp); ?>" id="country" placeholder="Country">
 
       <div style="clear: both;"></div>
-      
+
       <?php date_default_timezone_set('America/Chicago'); ?>
       <?php if (strtotime("now") <= strtotime("15 July 2017 2:00pm")) { ?>
       <div class="centered contest-fields">

@@ -10,10 +10,11 @@
  */
 
 $TopDir = substr( home_url(), 0, strrpos( home_url(), '/')+1);
+$langpath = ($_SERVER['SERVER_NAME'] == "localhost") ? "/Users/lippert/Sites/HarkenBlockheads/" : "/home/foresitegrp/webapps/blockheads/";
 
 if (!is_single()) :
   $HeaderClass = "banner-feed-index";
-  $PageTitle = "Discover";
+  $PageTitleLang = "FEED_TITLE";
   $Description = "";
   $Keywords = "";
   $BodyClass = "line";

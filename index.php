@@ -38,7 +38,7 @@ include "header.php";
   ?>
 
   <div class="centered">
-    <a href="feed" class="button">MORE</a>
+    <a href="feed" class="button"><?php echo $lang['MORE']; ?></a>
   </div>
 </div>
 

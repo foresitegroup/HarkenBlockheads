@@ -1,5 +1,5 @@
 <?php
-$PageTitle = "Events";
+$PageTitleLang = "EVENTS_TITLE";
 $SocialTitle = "#HARKENBLOCKHEADS";
 include "header.php";
 
@@ -22,36 +22,36 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 }
 
 // ...then tap into the Google Calendar
-include "inc/iCalEasyReader.php";
-$ical = new iCalEasyReader();
-$gcal = $ical->load(file_get_contents("https://calendar.google.com/calendar/ical/c322etugp1dcbvu8jc5ltdm4pc@group.calendar.google.com/public/basic.ics"));
+// include "inc/iCalEasyReader.php";
+// $ical = new iCalEasyReader();
+// $gcal = $ical->load(file_get_contents("https://calendar.google.com/calendar/ical/c322etugp1dcbvu8jc5ltdm4pc@group.calendar.google.com/public/basic.ics"));
 
-foreach ($gcal['VEVENT'] as $row) {
-  if (is_array($row['DTSTART'])) {
-    $gstartdate = strtotime($row['DTSTART']['value'] . " midnight");
-  } else {
-    $gstartdate = strtotime($row['DTSTART']);
-  }
+// foreach ($gcal['VEVENT'] as $grow) {
+//   if (is_array($grow['DTSTART'])) {
+//     $gstartdate = strtotime($grow['DTSTART']['value'] . " midnight");
+//   } else {
+//     $gstartdate = strtotime($grow['DTSTART']);
+//   }
 
-  if (is_array($row['DTEND'])) {
-    $genddate = strtotime($row['DTEND']['value'] . " midnight yesterday");
-  } else {
-    $genddate = strtotime($row['DTEND']);
-  }
+//   if (is_array($grow['DTEND'])) {
+//     $genddate = strtotime($grow['DTEND']['value'] . " midnight yesterday");
+//   } else {
+//     $genddate = strtotime($grow['DTEND']);
+//   }
   
-  if ($genddate >= time()) {
-    $events[] = array(
-      'startdate' => $gstartdate,
-      'enddate' => $genddate,
-      'title' => $row['SUMMARY'],
-      'location' => $row['LOCATION'],
-      'details' => $row['DESCRIPTION'],
-      'image' => '',
-      'id' => $row['UID'],
-      'detailslink' => ''
-    );
-  }
-}
+//   if ($genddate >= time()) {
+//     $events[] = array(
+//       'startdate' => $gstartdate,
+//       'enddate' => $genddate,
+//       'title' => $grow['SUMMARY'],
+//       'location' => $grow['LOCATION'],
+//       'details' => $grow['DESCRIPTION'],
+//       'image' => '',
+//       'id' => $grow['UID'],
+//       'detailslink' => ''
+//     );
+//   }
+// }
 
 // No upcoming events? Just list the last one
 $upcoming = "";
@@ -96,7 +96,7 @@ array_multisort($startdate, SORT_ASC, $events);
 
   <div class="site-width">
     <div class="events-featured-content">
-      <h4>FEATURED</h4>
+      <h4><?php echo $lang['FEATURED']; ?></h4>
       <?php
       if ($events[0]['startdate'] != "none") {
         echo "<div class=\"events-featured-date\">" . date("M j", $events[0]['startdate']);
@@ -121,7 +121,7 @@ array_multisort($startdate, SORT_ASC, $events);
 
 <?php if ($upcoming == "") { ?>
   <div class="site-width events">
-    <h3>UPCOMING</h3>
+    <h3><?php echo $lang['UPCOMING']; ?></h3>
     
     <table cellspacing="0" cellpadding="0" class="events-list">
       <?php

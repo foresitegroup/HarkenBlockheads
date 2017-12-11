@@ -10,6 +10,7 @@
  */
 
 $TopDir = substr( home_url(), 0, strrpos( home_url(), '/')+1);
+global $lang;
 
 if (!is_single()) :
   $SocialTitle = "Follow Us";
