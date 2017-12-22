@@ -20,26 +20,46 @@ $TopDir = substr( home_url(), 0, strrpos( home_url(), '/')+1);
 ?>
 
 <div class="home-posts">
-	<?php if ( have_posts() ) : ?>
+	<?php
+	if (!is_single()) :
+		if ($lang['LANGUAGE'] == "English") {
+			$args = array(
+				'meta_query' => array('relation' => 'OR',
+					array(
+						'key' => 'language',
+						'value' => array('All', 'English'),
+						'compare' => 'IN'
+					),
+					array('key' => 'language', 'compare' => 'NOT EXISTS')
+				)
+			);
+		} else {
+			$args = array('meta_key' => 'language', 'meta_value' => array('All', $lang['LANGUAGE']));
+		}
+	  
+		$the_query = new WP_Query($args);
 
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
+		if ( $the_query->have_posts() ) :
+			while ( $the_query->have_posts() ) : $the_query->the_post();
+				get_template_part( 'content', get_post_format($post_id) );
+			endwhile;
 
-			/*
-			 * Include the Post-Format-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-			 */
-			get_template_part( 'content', get_post_format() );
+		// If no content, include the "No posts found" template.
+		else :
+			get_template_part( 'content', 'none' );
+		endif;
 
-		// End the loop.
-		endwhile;
-
-	// If no content, include the "No posts found" template.
+		wp_reset_query();
 	else :
-		get_template_part( 'content', 'none' );
+		if ( have_posts() ) :
+			while ( have_posts() ) : the_post();
+				get_template_part( 'content', get_post_format($post_id) );
+			endwhile;
 
+		// If no content, include the "No posts found" template.
+		else :
+			get_template_part( 'content', 'none' );
+		endif;
 	endif;
 
 	if (!is_single()) :
@@ -55,9 +75,10 @@ $TopDir = substr( home_url(), 0, strrpos( home_url(), '/')+1);
 			    e.preventDefault();
 			    $(".post:hidden").slice(0, 9).slideDown();
 			    if ($(".post:hidden").length == 0) {
-			      $("#load").fadeOut('slow');
+			      $("#loadmore").fadeOut('slow');
 			    }
 			  });
+			  if (<?php echo $the_query->post_count; ?> <= 9) $("#loadmore").fadeOut('fast');
 			});
 		</script>
 	</div>

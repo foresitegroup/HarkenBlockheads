@@ -26,7 +26,9 @@ else :
       'category__in' => $cats,
       // 'tag__in' => $tags,
       'post__not_in' => array($post->ID),
-      'posts_per_page'=>4 // Number of related posts to display.
+      'posts_per_page'=>4, // Number of related posts to display.
+      'meta_key' => 'language',
+      'meta_value' => array('All', $lang['LANGUAGE'])
     );
     
     $my_query = new wp_query($args);

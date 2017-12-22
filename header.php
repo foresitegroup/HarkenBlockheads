@@ -79,10 +79,25 @@ if (isset($PageTitleLang)) $PageTitle = $lang[$PageTitleLang];
     <div class="home-banner">
       <?php
       require('feed/wp-blog-header.php');
-      $posts = get_posts('posts_per_page=1&order=DESC&orderby=date');
-      foreach ($posts as $post) :
-        setup_postdata($post);
+      global $wpdb;
 
+      if ($lang['LANGUAGE'] == "English") {
+        $args = array(
+          'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC',
+          'meta_query' => array('relation' => 'OR',
+            array('key' => 'language', 'value' => array('All', 'English'), 'compare' => 'IN'),
+            array('key' => 'language', 'compare' => 'NOT EXISTS')
+          )
+        );
+      } else {
+        $args = array(
+          'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC',
+          'meta_key' => 'language', 'meta_value' => array('All', $lang['LANGUAGE'])
+        );
+      }
+
+      $hero_query = new WP_Query($args);
+      while ($hero_query->have_posts() ) : $hero_query->the_post();
         if (get_post_meta(get_the_ID(), 'fv_video_embed', true)) {
           $fv = FeedVideo(get_post_meta(get_the_ID(), 'fv_video_embed', true));
           $FeedImage = $fv[1];
@@ -109,7 +124,7 @@ if (isset($PageTitleLang)) $PageTitle = $lang[$PageTitleLang];
           </div>
         </div>
       </div>
-      <?php endforeach; ?>
+      <?php endwhile; ?>
     </div>
     <?php } ?>
     

@@ -8,10 +8,23 @@ include "header.php";
   <a href="https://www.instagram.com/explore/tags/harkenblockheads/" class="header">#HARKENBLOCKHEADS</a>
 
   <?php
-  $posts = get_posts('posts_per_page=3&offset=1&order=DESC&orderby=date');
+  if ($lang['LANGUAGE'] == "English") {
+    $args = array(
+      'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'offset' => 1,
+      'meta_query' => array('relation' => 'OR',
+        array('key' => 'language', 'value' => array('All', 'English'), 'compare' => 'IN'),
+        array('key' => 'language', 'compare' => 'NOT EXISTS')
+      )
+    );
+  } else {
+    $args = array(
+      'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'offset' => 1,
+      'meta_key' => 'language', 'meta_value' => array('All', $lang['LANGUAGE'])
+    );
+  }
   $sr = 1;
-  foreach ($posts as $post) :
-    setup_postdata( $post );
+  $posts_query = new WP_Query($args);
+    while ($posts_query->have_posts() ) : $posts_query->the_post();
     $TheImage = VidOrImg();
     ?>
     <a href="<?php the_permalink(); ?>" class="post sr<?php echo $sr; ?>">
@@ -34,7 +47,7 @@ include "header.php";
     </a>
     <?php
     $sr++;
-  endforeach;
+  endwhile;
   ?>
 
   <div class="centered">

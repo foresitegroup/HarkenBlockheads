@@ -60,12 +60,14 @@ H2 {
 INPUT[type="text"],
 INPUT[type="email"],
 INPUT[type="password"],
-TEXTAREA {
+TEXTAREA,
+SELECT {
   border: 0;
   border-bottom: 1px solid #464646;
   box-sizing: border-box;
   width: 100%;
-  padding: 0.1em 0;
+  height: 2.5em;
+  /*padding: 0.1em 0;*/
   background: transparent;
   color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
@@ -120,6 +122,12 @@ TEXTAREA:focus::-webkit-input-placeholder { color: transparent; }
 TEXTAREA:focus:-moz-placeholder { color: transparent; } /* FF 4-18 */
 TEXTAREA:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
 TEXTAREA:focus:-ms-input-placeholder { color: transparent; } /* IE 10+ */
+
+SELECT {
+  background: #121212 url(../images/background.jpg);
+  -webkit-appearance: menulist;
+  cursor: pointer;
+}
 
 INPUT[type="submit"] {
   border: 0;
@@ -242,7 +250,11 @@ FORM input[type=radio]:checked + label:after {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   font-size: 14px;
-  cursor: pointer;
+  background: #ED1B35;
+}
+
+#language SELECT OPTION {
+  background: #ED1B35;
 }
 
 .home-banner {
@@ -1362,6 +1374,7 @@ A#loadmore:active {
 #join-form INPUT[type="submit"] {
   padding: 1em 4em;
   margin: 4em auto 1em;
+  text-transform: uppercase;
 }
 
 #join-form INPUT[type="submit"][disabled],

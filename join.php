@@ -109,30 +109,39 @@ include "header.php";
   <form action="form-join.php" method="POST" id="join-form">
     <div>
       <div class="parent-popup">
-        Sailors under the age of 13 must verify their parent or guardian's consent before joining Blockheads. Please download the <a href="#">parental consent form</a>. Thank you.
+        <?php echo $lang['POP_UP'];?>
       </div>
 
-      <input type="text" name="<?php echo md5("firstname" . $ip . $salt . $timestamp); ?>" id="firstname" placeholder="First Name">
+      <input type="text" name="<?php echo md5("firstname" . $ip . $salt . $timestamp); ?>" id="firstname" placeholder="<?php echo $lang['FIRST_NAME']; ?>">
 
-      <input type="text" name="<?php echo md5("lastname" . $ip . $salt . $timestamp); ?>" id="lastname" placeholder="Last Name">
+      <input type="text" name="<?php echo md5("lastname" . $ip . $salt . $timestamp); ?>" id="lastname" placeholder="<?php echo $lang['LAST_NAME']; ?>">
 
-      <input type="text" name="<?php echo md5("age" . $ip . $salt . $timestamp); ?>" id="age" placeholder="Age">
+      <input type="text" name="<?php echo md5("age" . $ip . $salt . $timestamp); ?>" id="age" placeholder="<?php echo $lang['AGE']; ?>">
 
       <div style="clear: both;"></div>
 
-      <input type="email" name="<?php echo md5("email" . $ip . $salt . $timestamp); ?>" id="email" placeholder="Email Address">
+      <input type="email" name="<?php echo md5("email" . $ip . $salt . $timestamp); ?>" id="email" placeholder="<?php echo $lang['EMAIL']; ?>">
 
-      <input type="text" name="<?php echo md5("address" . $ip . $salt . $timestamp); ?>" id="address" placeholder="Address">
+      <input type="text" name="<?php echo md5("address" . $ip . $salt . $timestamp); ?>" id="address" placeholder="<?php echo $lang['ADDRESS']; ?>">
 
-      <input type="text" name="<?php echo md5("address2" . $ip . $salt . $timestamp); ?>" id="address2" placeholder="Apartment/Unit/Suite (optional)">
+      <input type="text" name="<?php echo md5("address2" . $ip . $salt . $timestamp); ?>" id="address2" placeholder="<?php echo $lang['ADDRESS2']; ?>">
 
-      <input type="text" name="<?php echo md5("city" . $ip . $salt . $timestamp); ?>" id="city" placeholder="City">
+      <input type="text" name="<?php echo md5("city" . $ip . $salt . $timestamp); ?>" id="city" placeholder="<?php echo $lang['CITY']; ?>">
 
-      <input type="text" name="<?php echo md5("state" . $ip . $salt . $timestamp); ?>" id="state" placeholder="State">
+      <input type="text" name="<?php echo md5("state" . $ip . $salt . $timestamp); ?>" id="state" placeholder="<?php echo $lang['STATE']; ?>">
 
-      <input type="text" name="<?php echo md5("zip" . $ip . $salt . $timestamp); ?>" id="zip" placeholder="Zip / Postal">
+      <input type="text" name="<?php echo md5("zip" . $ip . $salt . $timestamp); ?>" id="zip" placeholder="<?php echo $lang['ZIP']; ?>">
 
-      <input type="text" name="<?php echo md5("country" . $ip . $salt . $timestamp); ?>" id="country" placeholder="Country">
+      <!-- <input type="text" name="<?php //echo md5("country" . $ip . $salt . $timestamp); ?>" id="country" placeholder="Country"> -->
+
+      <select name="country" id="country">
+        <option value=""><?php echo $lang['COUNTRY']; ?></option>
+        <option value="Australia">Australia</option>
+        <option value="Canada">Canada</option>
+        <option value="Poland">Poland</option>
+        <option value="South Africa">South Africa</option>
+        <option value="United States">United States</option>
+      </select>
 
       <div style="clear: both;"></div>
 
@@ -155,8 +164,7 @@ include "header.php";
 
       <div class="centered">
         <input type="checkbox" name="terms" value="" id="r-terms">
-        <label for="r-terms">I agree to the <a href="terms.php">Terms &amp; Services</a></label><br>
-        Blockheads is currently not shipping outside of the United States.
+        <label for="r-terms"><?php echo $lang['JOIN_TERMS']; ?></label>
       </div>
 
       <input type="hidden" name="referrer" value="join.php">
@@ -166,7 +174,7 @@ include "header.php";
       <input type="hidden" name="ip" value="<?php echo $ip; ?>">
       <input type="hidden" name="timestamp" value="<?php echo $timestamp; ?>">
 
-      <input type="submit" name="submit" value="SIGN UP" id="submit" disabled>
+      <input type="submit" name="submit" value="<?php echo $lang['SIGN_UP']; ?>" id="submit" disabled>
 
       <div id="join-form-messages"><?php echo $feedback; ?></div>
     </div>

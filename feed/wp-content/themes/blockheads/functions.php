@@ -224,4 +224,12 @@ function VidOrImg() {
 
   return $TheImage;
 }
+
+
+add_action('admin_head', 'foresite_css');
+function foresite_css() {
+  echo '<style>
+    #acf-language .label { display: none; }
+  </style>';
+}
 ?>
