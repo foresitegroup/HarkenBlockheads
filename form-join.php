@@ -69,6 +69,7 @@ if ($_POST['confirmationCAP'] == "") {
     if ($_POST['country'] == "Canada") $SendTo = "eosborn@transatmarine.com";
     if ($_POST['country'] == "South Africa") $SendTo = "lars@harken.co.za";
     if ($_POST['country'] == "Poland") $SendTo = "Zofia.Truchanowicz@harken.pl";
+    if ($_POST['country'] == "United Kingdom") $SendTo = "Fi.edwards@harken.co.uk";
 
     $Subject = "Harken Blockheads Sign-Up";
     $Headers .= "Cc: hays.formella@harken.com\r\n";
