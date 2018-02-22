@@ -69,7 +69,7 @@ if ($_POST['confirmationCAP'] == "") {
     if ($_POST['country'] == "Canada") $SendTo = "eosborn@transatmarine.com";
     if ($_POST['country'] == "South Africa") $SendTo = "lars@harken.co.za";
     if ($_POST['country'] == "Poland") $SendTo = "Zofia.Truchanowicz@harken.pl";
-    if ($_POST['country'] == "United Kingdom") $SendTo = "Fi.edwards@harken.co.uk";
+    if ($_POST['country'] == "United Kingdom") $SendTo = "blockheads@harken.co.uk";
 
     $Subject = "Harken Blockheads Sign-Up";
     $Headers .= "Cc: hays.formella@harken.com\r\n";
@@ -99,7 +99,7 @@ if ($_POST['confirmationCAP'] == "") {
 
     $Message = stripslashes($Message);
   
-    // mail($SendTo, $Subject, $Message, $Headers);
+    mail($SendTo, $Subject, $Message, $Headers);
     
     $feedback = "<strong>You have been signed up!</strong> Thank you for joining Harken Blockheads. Your membership kit is on its way and you will begin receiving the monthly Blockheads Bulletin newsletter.";
     
