@@ -56,20 +56,39 @@ include "header.php";
 </div>
 
 <?php date_default_timezone_set('America/Chicago'); ?>
-<?php if (strtotime("now") <= strtotime("15 July 2017 2:00pm")) { ?>
-<div id="contest">
-  <div class="site-width">
-    <h2>Will You Be The Fastest Blockhead To Mackinac Island?</h2>
+<?php if (strtotime("now") <= strtotime("19 April 2018 11:59:59pm")) { ?>
+<div id="sweepstakes">
+  <div id="sweepstakes-image"></div>
 
-    <img src="images/mackinac-award.jpg" alt="">
+  <div class="site-width">
+    <h1>Enter</h1>
+    <h2>Now</h2>
+
+    <div style="clear: both;"></div>
 
     <div class="text">
-      <h3>Register for the First Blockhead to the Island Award</h3>
+      <h3>Volvo Ocean Race Newport VIP Experience Sweepstakes</h3>
 
-      New for the 109th Chicago Yacht Club Race to Mackinac&reg;, an exclusive award will be given out to the first Blockhead to reach the island. You must be a member of Blockheads before the race begins in order to be eligible for the award. Sign up for your free membership and let us know which boat you are racing on. We ask that current Blockheads fill out the same form and include your member ID number, if possible, and boat info. The award will be presented at the party on Tuesday, July 18th on Mackinac Island. Sail fast!
+      Join the Harken team in Newport during the Volvo Ocean Race stopover for an all-access experience.
       <br>
 
-      <a href="join.php?award" class="button">SIGN UP</a>
+      <a href="sweepstakes.php" class="button">Enter Sweepstakes</a>
+    </div>
+  </div>
+</div>
+<?php } else { ?>
+<div id="sweepstakes">
+  <div id="sweepstakes-image"></div>
+
+  <div class="site-width">
+    <div class="text">
+      <br><br>
+
+      <h3>Volvo Ocean Race Newport VIP Experience Sweepstakes</h3>
+
+      Sorry, the entry period for this sweepstakes has closed. Winners will be announced on Friday, April 20th at 12:00 PM CST through the Harken Blockheads <a href="https://www.facebook.com/Harken-Blockheads-1297811663614506/">Facebook</a> and <a href="https://www.instagram.com/harkenblockhead">Instagram</a> pages. Join the Blockheads program <a href="join.php">here</a> to receive news and alerts for future contests and promotions. Thank you!<br>
+      <br>
+      <br>
     </div>
   </div>
 </div>
@@ -87,7 +106,7 @@ include "header.php";
 
   // If there are no upcoming events just display the last event
   if (mysqli_num_rows($result) == 0) $result = $mysqli->query("SELECT * FROM events ORDER BY enddate DESC LIMIT 1");
-  
+
   if (mysqli_num_rows($result) > 0) {
     $row = $result->fetch_array(MYSQLI_ASSOC);
 
