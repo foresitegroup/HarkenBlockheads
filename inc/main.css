@@ -171,6 +171,7 @@ FORM LABEL {
   position: relative;
   padding-left: 1.5em;
   margin: 0.3em 0;
+  line-height: 1.32em;
 }
 
 FORM INPUT[type=checkbox],
@@ -760,6 +761,12 @@ FORM input[type=radio]:checked + label:after {
   bottom: 0.8em;
   font-size: 24px;
   color: #CFD1D2;
+}
+
+.social.instagram {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .social.instagram:after {
@@ -1767,69 +1774,89 @@ A#loadmore:active {
   animation-name: pulse
 }
 
-#contest {
+#sweepstakes {
   background: #FFFFFF;
   color: #000000;
-  padding: 4em 0;
+  position: relative;
 }
 
-#contest H2 {
-  margin: 0 0 0.5em;
+#sweepstakes #sweepstakes-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 47%;
+  height: 100%;
+  background: url(../images/sweepstakes.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+#sweepstakes H1 {
+  margin: 0 0 0 0.7em;
   font-weight: 800;
-  font-size: 78px;
-  line-height: 1em;
-  letter-spacing: 0.05em;
+  font-size: 190px;
+  line-height: 0.6em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  position: relative;
+  z-index: 3;
+  display: inline-block;
 }
 
-#contest IMG {
-  float: left;
-  width: 42%;
-  height: auto;
-}
-
-#contest .text {
-  float: right;
-  width: 51%;
-  font-weight: 800;
-  line-height: 2em;
-}
-
-#contest .text H3 {
-  margin: 0 0 0.8em;
+#sweepstakes H2 {
+  margin: 0 0 0.35em;
   color: #ED1B35;
   font-weight: 800;
-  font-size: 27px;
-  line-height: 1.2em;
+  font-size: 150px;
+  line-height: 0.55em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  float: right;
+  position: relative;
+  z-index: 3;
+}
+
+#sweepstakes H3 {
+  margin: 0 0 0.75em;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1em;
   text-transform: uppercase;
 }
 
-#contest .text A.button:link,
-#contest .text A.button:visited {
+#sweepstakes .text {
+  float: right;
+  width: 50%;
+}
+
+#sweepstakes A.button:link,
+#sweepstakes A.button:visited {
   color: #EC1B23;
   border: 5px solid #EC1B23;
   text-decoration: none;
+  font-weight: 800;
   font-size: 18px;
   line-height: 1em;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.2em;
   padding: 0.7em 1em 0.7em 1.4em;
   display: inline-block;
-  margin-top: 3em;
+  margin: 2em 0;
+  text-transform: uppercase;
 }
 
-#contest .text A.button:hover,
-#contest .text A.button:active {
+#sweepstakes A.button:hover,
+#sweepstakes A.button:active {
   color: #000000;
   border-color: #000000;
 }
 
+
 @media only screen and (max-width: 1024px) {
   .site-width { width: 96%; }
-
-  #contest H2 { font-size: 7.4vw; }
 }
 
 @media only screen and (max-width: 900px) {
+  #sweepstakes H1 { margin: 0; }
+
   .join-form-header-left {
     position: static;
     -webkit-transform: none;
@@ -1875,6 +1902,9 @@ A#loadmore:active {
   .home-event .event .event-right {
     font-size: 66px;
   }
+
+  #sweepstakes H1 { font-size: 22.5vw; }
+  #sweepstakes H2 { font-size: 18.75vw; }
 
   .social-header .social-header-left {
     position: absolute;
@@ -1933,8 +1963,9 @@ A#loadmore:active {
   }
 }
 
-@media only screen and (max-width: 768px) {
-  /* Tablet */
+@media only screen and (max-width: 700px) {
+  #sweepstakes A.button:link,
+  #sweepstakes A.button:visited { font-size: 2.7vw; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -2070,6 +2101,30 @@ A#loadmore:active {
     top: 3em;
     right: calc(2% + 2em + 12px);
   }
+
+  #sweepstakes #sweepstakes-image {
+    position: static;
+    width: 100%;
+    background-position: top center;
+  }
+
+  #sweepstakes #sweepstakes-image:before {
+    content: "";
+    display: block;
+    padding-top: 50%;
+  }
+
+  #sweepstakes H1 { font-size: 24vw; }
+
+  #sweepstakes H3 { font-size: 5.8vw; }
+
+  #sweepstakes .text {
+    float: none;
+    width: 100%;
+  }
+
+  #sweepstakes A.button:link,
+  #sweepstakes A.button:visited { font-size: 3.5vw; }
 
   .social {
     width: 50%;

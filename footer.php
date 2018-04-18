@@ -18,9 +18,15 @@
 
     <div class="social-tiles cf">
       <?php
-      require_once("inc/instafeed.php");
-      for ($i=1; $i <= 10; $i++) {
-        echo "<a href=\"https://www.instagram.com/harkenblockhead\" class=\"social instagram\" id=\"instafeed-" . $i . "\"></a>\n";
+      $count = 1;
+      $json = json_decode(file_get_contents('https://apinsta.herokuapp.com/u/harkenblockhead'));
+      foreach ($json->graphql->user->edge_owner_to_timeline_media->edges as $key => $value) {
+        if ($count <= 10) {
+          echo '<a href="'.'https://www.instagram.com/p/'.$value->node->shortcode.'" style="background-image: url('.$value->node->thumbnail_src.');" class="social instagram"></a>';
+        } else {
+          break;
+        }
+        $count++;
       }
       ?>
     </div>
