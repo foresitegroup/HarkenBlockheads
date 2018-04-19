@@ -41,6 +41,8 @@ if (isset($PageTitleLang)) $PageTitle = $lang[$PageTitleLang];
     <meta name="keywords" content="">
     <meta name="author" content="Foresite Group">
 
+    <?php if(function_exists('wp_head')) wp_head(); ?>
+
     <meta name="viewport" content="width=device-width">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Work+Sans:900" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -1128,20 +1128,18 @@ A#loadmore:active {
   text-decoration: none;
 }
 
-.ssba {
+.share-buttons {
+  margin: 5em 0 1em;
   color: #ED1B35;
   font-weight: 800;
   font-size: 20px;
   letter-spacing: 0.5em;
-  margin: 5em 0 1em;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-.ssba IMG {
-  display: none;
-}
-
-.ssba A:link,
-.ssba A:visited {
+.share-buttons A:link,
+.share-buttons A:visited {
   color: #DCDDDE;
   text-decoration: none;
   display: inline-block;
@@ -1150,19 +1148,19 @@ A#loadmore:active {
   font-size: 24px;
   line-height: 1em;
   font-family: "FontAwesome";
-  margin: 1.9em 0.5em 0;
+  margin: 1em 0.25em 0;
 }
 
-.ssba A:hover,
-.ssba A:active {
+.share-buttons A:hover,
+.share-buttons A:active {
   color: #FFFFFF;
   text-decoration: none;
 }
 
-.ssba .ssba_facebook_share:after { content: "\f09a"; }
-.ssba .ssba_twitter_share:after { content: "\f099"; }
-.ssba .ssba_google_share:after { content: "\f0d5"; }
-.ssba .ssba_email_share:after { content: "\f003"; }
+.share-buttons .facebook:after { content: "\f09a"; }
+.share-buttons .twitter:after { content: "\f099"; }
+.share-buttons .google:after { content: "\f0d5"; }
+.share-buttons .email:after { content: "\f003"; }
 
 .post-rec {
   text-align: center;
