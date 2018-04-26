@@ -57,7 +57,7 @@ include "header.php";
 
 <?php date_default_timezone_set('America/Chicago'); ?>
 <?php if (strtotime("now") <= strtotime("19 April 2018 11:59:59pm")) { ?>
-<div id="sweepstakes">
+<!-- <div id="sweepstakes">
   <div id="sweepstakes-image"></div>
 
   <div class="site-width">
@@ -75,9 +75,9 @@ include "header.php";
       <a href="sweepstakes.php" class="button">Enter Sweepstakes</a>
     </div>
   </div>
-</div>
+</div> -->
 <?php } else { ?>
-<div id="sweepstakes">
+<!-- <div id="sweepstakes">
   <div id="sweepstakes-image"></div>
 
   <div class="site-width">
@@ -91,7 +91,7 @@ include "header.php";
       <br>
     </div>
   </div>
-</div>
+</div> -->
 <?php } ?>
 
 <div class="home-event">
