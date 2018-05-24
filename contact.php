@@ -1,5 +1,6 @@
 <?php
-$PageTitle = "Contact Us";
+// $PageTitle = "Contact Us";
+$PageTitleLang = "CONTACT_TITLE";
 $SocialTitle = "Follow Us";
 $SocialClass = "sht-contact";
 include "header.php";
@@ -8,7 +9,7 @@ include "header.php";
 <div class="site-width contact">
   <h1 class="pagetitle"><?php echo $PageTitle; ?></h1>
 
-  We want to hear from you! Use this form to send Harken feedback, questions, or just a good joke. You can also email us at <?php email("blockheads@harken.com") ?> and we will get back to you promptly.<br>
+  <?php echo $lang['CONTACT_TEXT']; ?><br>
   <br>
 
   <script type="text/javascript">
@@ -70,21 +71,21 @@ include "header.php";
 
   <form action="form-contact.php" method="POST" id="contact-form">
     <div>
-      <input type="text" name="<?php echo md5("firstname" . $ip . $salt . $timestamp); ?>" id="firstname" placeholder="First Name">
+      <input type="text" name="<?php echo md5("firstname" . $ip . $salt . $timestamp); ?>" id="firstname" placeholder="<?php echo $lang['FIRST_NAME']; ?>">
 
-      <input type="text" name="<?php echo md5("lastname" . $ip . $salt . $timestamp); ?>" id="lastname" placeholder="Last Name">
+      <input type="text" name="<?php echo md5("lastname" . $ip . $salt . $timestamp); ?>" id="lastname" placeholder="<?php echo $lang['LAST_NAME']; ?>">
 
       <div style="clear: both;"></div>
 
-      <input type="email" name="<?php echo md5("email" . $ip . $salt . $timestamp); ?>" id="email" placeholder="Email Address">
+      <input type="email" name="<?php echo md5("email" . $ip . $salt . $timestamp); ?>" id="email" placeholder="<?php echo $lang['EMAIL']; ?>">
 
-      <textarea name="<?php echo md5("message" . $ip . $salt . $timestamp); ?>" id="message" placeholder="Message"></textarea>
+      <textarea name="<?php echo md5("message" . $ip . $salt . $timestamp); ?>" id="message" placeholder="<?php echo $lang['MESSAGE']; ?>"></textarea>
 
       <div class="radio">
-        I am a:<br>
-        <input type="radio" name="iama" value="Sailor" id="r-sailor"> <label for="r-sailor">Sailor</label><br>
-        <input type="radio" name="iama" value="Coach/Instructor" id="r-coach-instructor"> <label for="r-coach-instructor">Coach/Instructor</label><br>
-        <input type="radio" name="iama" value="Other" id="r-other"> <label for="r-other">Other</label>
+        <?php echo $lang['I_AM_A']; ?>:<br>
+        <input type="radio" name="iama" value="Sailor" id="r-sailor"> <label for="r-sailor"><?php echo $lang['SAILOR']; ?></label><br>
+        <input type="radio" name="iama" value="Coach/Instructor" id="r-coach-instructor"> <label for="r-coach-instructor"><?php echo $lang['COACH']; ?></label><br>
+        <input type="radio" name="iama" value="Other" id="r-other"> <label for="r-other"><?php echo $lang['OTHER']; ?></label>
       </div>
 
       <input type="hidden" name="referrer" value="contact.php">
@@ -94,7 +95,7 @@ include "header.php";
       <input type="hidden" name="ip" value="<?php echo $ip; ?>">
       <input type="hidden" name="timestamp" value="<?php echo $timestamp; ?>">
 
-      <input type="submit" name="submit" value="SEND MESSAGE">
+      <input type="submit" name="submit" value="<?php echo $lang['SEND_MESSAGE']; ?>">
 
       <div id="contact-form-messages"><?php echo $feedback; ?></div>
     </div>
