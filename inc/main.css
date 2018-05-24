@@ -814,6 +814,20 @@ FORM input[type=radio]:checked + label:after {
   line-height: 1em;
 }
 
+#instafeed { display: flex; flex-wrap: wrap; }
+
+#instafeed A {
+  width: 20%;
+  background-position: center center;
+  background-size: cover;
+}
+
+#instafeed A:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
 .footer-contact {
   padding: 2em 0;
   background: #EBEBEB;
