@@ -56,42 +56,40 @@ include "header.php";
 </div>
 
 <?php date_default_timezone_set('America/Chicago'); ?>
-<?php if (strtotime("now") <= strtotime("19 April 2018 11:59:59pm")) { ?>
-<!-- <div id="sweepstakes">
-  <div id="sweepstakes-image"></div>
-
+<?php if (strtotime("now") <= strtotime("20 July 2018 3:00pm")) { ?>
+<div id="contest">
   <div class="site-width">
-    <h1>Enter</h1>
-    <h2>Now</h2>
+    <h2>Will You Be The Fastest Blockhead To Mackinac Island?</h2>
 
-    <div style="clear: both;"></div>
+    <img src="images/race-to-mac-2017-winner.jpg" alt="">
 
     <div class="text">
-      <h3>Volvo Ocean Race Newport VIP Experience Sweepstakes</h3>
+      <h3>Register for the First Blockhead to the Island Award</h3>
 
-      Join the Harken team in Newport during the Volvo Ocean Race stopover for an all-access experience.
+      The 110th Chicago Yacht Club Race to Mackinac&reg; presents an exclusive award given to the first Blockhead to reach the island. You must be a member of Blockheads before the race begins in order to be eligible for this award. Sign up for your free membership today and let us know which boat you are racing on. Already a member? Fill out the same form, including your member ID number, if possible, and boat info, to be entered for the award. The First Blockhead to the Island Award will be presented at the awards party on Tuesday, July 24, on Mackinac Island. Sail fast!
       <br>
 
-      <a href="sweepstakes.php" class="button">Enter Sweepstakes</a>
+      <a href="join.php?award" class="button">SIGN UP</a>
     </div>
   </div>
-</div> -->
+</div>
 <?php } else { ?>
-<!-- <div id="sweepstakes">
-  <div id="sweepstakes-image"></div>
-
+<div id="contest">
   <div class="site-width">
+    <h2>Will You Be The Fastest Blockhead To Mackinac Island?</h2>
+
+    <img src="images/race-to-mac-2017-winner.jpg" alt="">
+
     <div class="text">
-      <br><br>
+      <h3>Sorry, Entries are Now Closed for the First Blockhead to the Island Award</h3>
 
-      <h3>Volvo Ocean Race Newport VIP Experience Sweepstakes</h3>
+      The 110th Chicago Yacht Club Race to Mackinac&reg; presents an exclusive award given to the first Blockhead to reach the island. The First Blockhead to the Island Award will be presented at the awards party on Tuesday, July 24, on Mackinac Island. Sail fast!
+      <br>
 
-      Sorry, the entry period for this sweepstakes has closed. Winners will be announced on Friday, April 20th at 12:00 PM CST through the Harken Blockheads <a href="https://www.facebook.com/Harken-Blockheads-1297811663614506/">Facebook</a> and <a href="https://www.instagram.com/harkenblockhead">Instagram</a> pages. Join the Blockheads program <a href="join.php">here</a> to receive news and alerts for future contests and promotions. Thank you!<br>
-      <br>
-      <br>
+      <a href="http://yb.tl/chicagomack2018" class="button">TRACK THE FLEET</a>
     </div>
   </div>
-</div> -->
+</div>
 <?php } ?>
 
 <div class="home-event">

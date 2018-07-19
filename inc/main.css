@@ -1786,6 +1786,7 @@ A#loadmore:active {
   animation-name: pulse
 }
 
+#contest,
 #sweepstakes {
   background: #FFFFFF;
   color: #000000;
@@ -1857,6 +1858,58 @@ A#loadmore:active {
 
 #sweepstakes A.button:hover,
 #sweepstakes A.button:active {
+  color: #000000;
+  border-color: #000000;
+}
+
+
+
+#contest H2 {
+  margin: 0 0 0.5em;
+  font-weight: 800;
+  font-size: 78px;
+  line-height: 1em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+#contest IMG {
+  float: left;
+  width: 42%;
+  height: auto;
+}
+
+#contest .text {
+  float: right;
+  width: 51%;
+  font-weight: 800;
+  line-height: 2em;
+}
+
+#contest .text H3 {
+  margin: 0 0 0.8em;
+  color: #ED1B35;
+  font-weight: 800;
+  font-size: 27px;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+#contest .text A.button:link,
+#contest .text A.button:visited {
+  color: #EC1B23;
+  border: 5px solid #EC1B23;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1em;
+  letter-spacing: 0.4em;
+  padding: 0.7em 1em 0.7em 1.4em;
+  display: inline-block;
+  margin-top: 3em;
+}
+
+#contest .text A.button:hover,
+#contest .text A.button:active {
   color: #000000;
   border-color: #000000;
 }

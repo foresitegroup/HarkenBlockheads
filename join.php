@@ -147,10 +147,10 @@ include "header.php";
       <div style="clear: both;"></div>
 
       <?php date_default_timezone_set('America/Chicago'); ?>
-      <?php if (strtotime("now") <= strtotime("15 July 2017 2:00pm")) { ?>
+      <?php if (strtotime("now") <= strtotime("20 July 2018 3:00pm")) { ?>
       <div class="centered contest-fields">
         <input type="checkbox" name="contest" value="yes" id="r-contest"<?php if ($_SERVER['QUERY_STRING'] == "award") echo " checked"; ?>>
-        <label for="r-contest">I am registering for the First Blockhead to the Island Award</label>
+        <label for="r-contest">I am sailing in the 110th Chicago Yacht Club Race to Mackinac and am registering for the First Blockhead to the Island Award</label>
 
         <div class="contest-reveal">
           <input type="text" name="<?php echo md5("membership-number" . $ip . $salt . $timestamp); ?>" id="membership-number" placeholder="Blockheads Membership Number">
