@@ -112,6 +112,8 @@ include "header.php";
         <?php echo $lang['POP_UP'];?>
       </div>
 
+      <input type="text" name="<?php echo md5("promo" . $ip . $salt . $timestamp); ?>" id="promo" placeholder="Special Code (optional)">
+
       <input type="text" name="<?php echo md5("firstname" . $ip . $salt . $timestamp); ?>" id="firstname" placeholder="<?php echo $lang['FIRST_NAME']; ?>">
 
       <input type="text" name="<?php echo md5("lastname" . $ip . $salt . $timestamp); ?>" id="lastname" placeholder="<?php echo $lang['LAST_NAME']; ?>">

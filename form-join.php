@@ -36,6 +36,7 @@ if ($_POST['confirmationCAP'] == "") {
                   state,
                   zip,
                   country,
+                  promo,
                   contest
                   ) VALUES (
                   '" . $mysqli->real_escape_string($_POST[md5('firstname' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
@@ -48,6 +49,7 @@ if ($_POST['confirmationCAP'] == "") {
                   '" . $mysqli->real_escape_string($_POST[md5('state' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
                   '" . $mysqli->real_escape_string($_POST[md5('zip' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
                   '" . $_POST['country'] . "',
+                  '" . $mysqli->real_escape_string($_POST[md5('promo' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
                   '" . $Contest . "'
                   )");
     $mysqli->close();
@@ -87,6 +89,9 @@ if ($_POST['confirmationCAP'] == "") {
     $Message .= "\n" . $_POST[md5('city' . $_POST['ip'] . $salt . $_POST['timestamp'])] . ", " . $_POST[md5('state' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " " . $_POST[md5('zip' . $_POST['ip'] . $salt . $_POST['timestamp'])];
 
     $Message .= "\n" . $_POST['country'];
+
+    if ($_POST[md5('promo' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
+    $Message .= "\nPromo Code: " . $_POST[md5('promo' . $_POST['ip'] . $salt . $_POST['timestamp'])];
     
     // CONTEST
     $Message .= "\n";
