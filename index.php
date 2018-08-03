@@ -57,7 +57,7 @@ include "header.php";
 
 <?php date_default_timezone_set('America/Chicago'); ?>
 <?php if (strtotime("now") <= strtotime("20 July 2018 3:00pm")) { ?>
-<div id="contest">
+<!-- <div id="contest">
   <div class="site-width">
     <h2>Will You Be The Fastest Blockhead To Mackinac Island?</h2>
 
@@ -72,9 +72,9 @@ include "header.php";
       <a href="join.php?award" class="button">SIGN UP</a>
     </div>
   </div>
-</div>
+</div> -->
 <?php } else { ?>
-<div id="contest">
+<!-- <div id="contest">
   <div class="site-width">
     <h2>Will You Be The Fastest Blockhead To Mackinac Island?</h2>
 
@@ -89,7 +89,7 @@ include "header.php";
       <a href="http://yb.tl/chicagomack2018" class="button">TRACK THE FLEET</a>
     </div>
   </div>
-</div>
+</div> -->
 <?php } ?>
 
 <div class="home-event">
