@@ -91,7 +91,7 @@ if ($_POST['confirmationCAP'] == "") {
     $Message .= "\n" . $_POST['country'];
 
     if ($_POST[md5('promo' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
-    $Message .= "\nPromo Code: " . $_POST[md5('promo' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+    $Message .= "\Special Code: " . $_POST[md5('promo' . $_POST['ip'] . $salt . $_POST['timestamp'])];
     
     // CONTEST
     $Message .= "\n";
