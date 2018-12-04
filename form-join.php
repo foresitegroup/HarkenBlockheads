@@ -70,6 +70,7 @@ if ($_POST['confirmationCAP'] == "") {
     // $SendTo = "blockheads@harken.com";
     if ($_POST['country'] == "Australia") $SendTo = "blockheads@harken.com.au";
     if ($_POST['country'] == "Canada") $SendTo = "eosborn@transatmarine.com";
+    if ($_POST['country'] == "Chile") $SendTo = "administracion@windmade.cl";
     if ($_POST['country'] == "South Africa") $SendTo = "lars@harken.co.za";
     if ($_POST['country'] == "Poland") $SendTo = "Zofia.Truchanowicz@harken.pl";
     if ($_POST['country'] == "United Kingdom") $SendTo = "blockheads@harken.co.uk";

@@ -84,6 +84,7 @@ if (empty($events)) {
 // Sort the two different data sources together
 foreach ($events as $key => $row) { $startdate[$key] = $row['startdate']; }
 array_multisort($startdate, SORT_ASC, $events);
+setlocale(LC_TIME, $lang['LOCALE']);
 ?>
 
 <div class="site-width events-header">
@@ -99,21 +100,21 @@ array_multisort($startdate, SORT_ASC, $events);
       <h4><?php echo $lang['FEATURED']; ?></h4>
       <?php
       if ($events[0]['startdate'] != "none") {
-        echo "<div class=\"events-featured-date\">" . date("M j", $events[0]['startdate']);
+        echo "<div class=\"events-featured-date\">" . ucfirst(strftime("%b %e", $events[0]['startdate']));
         if ($events[0]['startdate'] != $events[0]['enddate']) {
           if (($events[0]['startdate']+86400) <= $events[0]['enddate']) echo "-";
-          if (date("M", $events[0]['startdate']) != date("M", $events[0]['enddate'])) echo date("M", $events[0]['enddate']) . " ";
-          if (date("j", $events[0]['startdate']) != date("j", $events[0]['enddate'])) echo date("j", $events[0]['enddate']);
+          if (date("M", $events[0]['startdate']) != date("M", $events[0]['enddate'])) echo ucfirst(strftime("%b", $events[0]['enddate'])) . " ";
+          if (date("j", $events[0]['startdate']) != date("j", $events[0]['enddate'])) echo strftime("%e", $events[0]['enddate']);
         }
         echo "</div>\n";
       } else {
-        echo "<div class=\"events-featured-date\">No upcoming events</div>";
+        echo "<div class=\"events-featured-date\">".$lang['NO_EVENTS']."</div>";
       }
       ?>
       <div class="events-featured-title"><?php echo $events[0]['title']; ?></div>
       
       <?php if ($events[0]['detailslink'] != "no") { ?>
-      <a href="event.php?<?php echo $events[0]['id']; ?>" class="button">VIEW EVENT</a>
+      <a href="event.php?<?php echo $events[0]['id']; ?>" class="button"><?php echo $lang['VIEW_EVENT']; ?></a>
       <?php } ?>
     </div>
   </div>

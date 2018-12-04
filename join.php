@@ -112,7 +112,7 @@ include "header.php";
         <?php echo $lang['POP_UP'];?>
       </div>
 
-      <input type="text" name="<?php echo md5("promo" . $ip . $salt . $timestamp); ?>" id="promo" placeholder="Special Code (optional)">
+      <input type="text" name="<?php echo md5("promo" . $ip . $salt . $timestamp); ?>" id="promo" placeholder="<?php echo $lang['SPECIAL_CODE']; ?>">
 
       <input type="text" name="<?php echo md5("firstname" . $ip . $salt . $timestamp); ?>" id="firstname" placeholder="<?php echo $lang['FIRST_NAME']; ?>">
 
@@ -140,6 +140,7 @@ include "header.php";
         <option value=""><?php echo $lang['COUNTRY']; ?></option>
         <option value="Australia">Australia</option>
         <option value="Canada">Canada</option>
+        <option value="Chile">Chile</option>
         <option value="Poland">Poland</option>
         <option value="South Africa">South Africa</option>
         <option value="United Kingdom">United Kingdom</option>

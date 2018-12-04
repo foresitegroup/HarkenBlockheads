@@ -36,7 +36,8 @@ if (strpos($_SERVER['QUERY_STRING'], "google") !== false) {
   $Eimage = $row['image'];
 }
 
-$PageTitle = "Event | " . $Etitle;
+$PageTitleLang = "EVENT_TITLE";
+$PageTitleLangPlus = " | " . $Etitle;
 $SocialTitle = "#HARKENBLOCKHEADS";
 include "header.php";
 ?>
@@ -48,27 +49,29 @@ include "header.php";
     <div class="event-single-content">
       <div class="event-single-title"><?php echo $Etitle; ?></div>
       
-      <div class="event-single-header">DATE</div>
+      <div class="event-single-header"><?php echo $lang['DATE']; ?></div>
       <?php
-      echo "<div class=\"event-single-date\">" . date("F j", $Estartdate);
+      setlocale(LC_TIME, $lang['LOCALE']);
+
+      echo '<div class="event-single-date">' . ucfirst(strftime("%B %e", $Estartdate));
       if ($Estartdate != $Eenddate) {
         if (date("Y", $Estartdate) != date("Y", $Eenddate)) echo ", " . date("Y", $Estartdate);
         if (($Estartdate+86400) <= $Eenddate) echo "-";
-        if (date("F", $Estartdate) != date("F", $Eenddate)) echo date("F", $Eenddate) . " ";
-        if (date("j", $Estartdate) != date("j", $Eenddate)) echo date("j", $Eenddate);
+        if (date("F", $Estartdate) != date("F", $Eenddate)) echo ucfirst(strftime("%B", $Eenddate)) . " ";
+        if (date("j", $Estartdate) != date("j", $Eenddate)) echo strftime("%e", $Eenddate);
       }
       echo ", " . date("Y", $Eenddate);
       echo "</div>\n";
       ?>
 
-      <div class="event-single-header">TIME</div>
+      <div class="event-single-header"><?php echo $lang['TIME']; ?></div>
       <?php
       echo "<div class=\"event-single-time\">";
       if (date("g:ia", $Estartdate) != "12:00am") {
         echo date("g:ia", $Estartdate);
         if (date("g:ia", $Estartdate) != date("g:ia", $Eenddate)) echo "-" . date("g:ia", $Eenddate);
       } else {
-        echo "All Day Event";
+        echo $lang['ALL_DAY'];
       }
       echo "</div>\n";
       ?>
@@ -80,7 +83,7 @@ include "header.php";
 <div class="site-width event-single-details">
   <?php
   if ($Edetails != "") {
-    echo "<div class=\"event-single-header\">EVENT DETAILS</div>";
+    echo '<div class="event-single-header">'.$lang['DETAILS'].'</div>';
     echo $Edetails;
   }
 
@@ -92,7 +95,7 @@ include "header.php";
       $fullurl = "http://" . $row['eventlink'];
       $displayurl = $row['eventlink'];
     }
-    echo "<br><br>\nFor event information visit <a href=\"" . $fullurl . "\">" . $displayurl . "</a><br>\n";
+    echo "<br><br>\n" . $lang['EVENT_INFO'] . ' <a href="' . $fullurl . '">' . $displayurl . "</a><br>\n";
   }
   ?>
 </div>

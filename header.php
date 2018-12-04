@@ -26,6 +26,7 @@ global $lang; // For Wordpress
 $lang = parse_ini_file($langpath . "language/" . $language . ".ini");
 
 if (isset($PageTitleLang)) $PageTitle = $lang[$PageTitleLang];
+if (isset($PageTitleLangPlus)) $PageTitle .= $PageTitleLangPlus;
 ?>
 <!DOCTYPE html>
 <html>
@@ -156,6 +157,7 @@ if (isset($PageTitleLang)) $PageTitle = $lang[$PageTitleLang];
               <div>
                 <select name="lang" onchange="document.Language.submit()">
                   <option value="english"<?php if ($language == "english") echo " selected"; ?>>English</option>
+                  <option value="spanish"<?php if ($language == "spanish") echo " selected"; ?>>Espa&ntilde;ol</option>
                   <option value="polish"<?php if ($language == "polish") echo " selected"; ?>>Polski</option>
                 </select>
               </div>

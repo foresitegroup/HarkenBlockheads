@@ -1447,6 +1447,7 @@ A#loadmore:active {
   margin-bottom: 0.4em;
 }
 
+.spanish .events-header H1.pagetitle { font-size: 9.5vw; }
 .polish .events-header H1.pagetitle { font-size: 6.5vw; }
 
 .events-featured {
@@ -1681,6 +1682,8 @@ A#loadmore:active {
   font-size: 8.9vw;
   margin-bottom: 0.5em;
 }
+
+.spanish .contact H1.pagetitle { font-size: 7.8vw; }
 
 .social-header-title.sht-contact {
   top: -60px;
@@ -2023,9 +2026,8 @@ A#loadmore:active {
     width: 100%;
   }
 
-  .contact H1.pagetitle {
-    font-size: 12vw;
-  }
+  .contact H1.pagetitle { font-size: 12vw; }
+  .spanish .contact H1.pagetitle { font-size: 10.5vw; }
 }
 
 @media only screen and (max-width: 700px) {

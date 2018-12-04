@@ -106,21 +106,23 @@ include "header.php";
   if (mysqli_num_rows($result) == 0) $result = $mysqli->query("SELECT * FROM events ORDER BY enddate DESC LIMIT 1");
 
   if (mysqli_num_rows($result) > 0) {
+    setlocale(LC_TIME, $lang['LOCALE']);
+
     $row = $result->fetch_array(MYSQLI_ASSOC);
 
-    $TheDate = '<div class="event-month">' . date("F", $row['startdate']) . '</div>';
-    $TheDate .= '<div class="event-date">' . date("j", $row['startdate']);
+    $TheDate = '<div class="event-month">' . strftime("%B", $row['startdate']) . '</div>';
+    $TheDate .= '<div class="event-date">' . strftime("%e", $row['startdate']);
 
     if ($row['startdate'] != $row['enddate']) {
       $TheDate .= "-";
 
-      if (date("F", $row['startdate']) != date("F", $row['enddate'])) {
+      if (strftime("%B", $row['startdate']) != strftime("%B", $row['enddate'])) {
         $TheDate .= '</div>';
-        $TheDate .= '<div class="event-month">' . date("F", $row['enddate']) . '</div>';
+        $TheDate .= '<div class="event-month">' . strftime("%B", $row['enddate']) . '</div>';
         $TheDate .= '<div class="event-date">';
       }
 
-      $TheDate .= date("j", $row['enddate']);
+      $TheDate .= strftime("%e", $row['enddate']);
     }
     $TheDate .= '</div>';
   } else {
@@ -133,13 +135,13 @@ include "header.php";
   <div class="image"<?php if ($row['image'] != "") echo "style=\"background-image: url(images/events/" . $row['image'] . ");\""; ?>></div>
 
   <div class="site-width">
-    <div class="header">NEXT EVENT</div>
+    <div class="header"><?php echo $lang['NEXT_EVENT']; ?></div>
 
     <div class="event">
       <div class="event-left">
         <?php echo $TheDate; ?>
 
-        <a href="event.php?<?php echo $row['id']; ?>" class="button">VIEW EVENT</a>
+        <a href="event.php?<?php echo $row['id']; ?>" class="button"><?php echo $lang['VIEW_EVENT']; ?></a>
       </div>
 
       <div class="event-right">
@@ -149,7 +151,7 @@ include "header.php";
       <div style="clear: both;"></div>
     </div>
 
-    <a href="events.php" class="more">+ MORE EVENTS</a>
+    <a href="events.php" class="more">+ <?php echo $lang['MORE_EVENTS']; ?></a>
   </div>
   <?php } ?>
 </div>
