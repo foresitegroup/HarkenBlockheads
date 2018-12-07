@@ -16,36 +16,16 @@
       </div>
     </div>
     
-    <script type="text/javascript">
-      jQuery(document).ready(function(){
-        var jqxhr = jQuery.ajax("https://apinsta.herokuapp.com/u/harkenblockhead").done(function() {
-        }).fail(function() {
-        }).always(function(data) {
-          items = data.graphql.user.edge_owner_to_timeline_media.edges;
-          jQuery.each(items, function(n, item) {
-            if((n+1) <= 10) {
-              var data_links = '<a href="https://www.instagram.com/p/'+item.node.shortcode+'" style="background-image: url('+item.node.thumbnail_src+');"" target="new"></a>';
-              jQuery("#instafeed").append(data_links);
-            }
-          });
-        });
-      });
+    <!-- BEGIN Instagram Feed Wordpress plugin -->
+    <?php require_once('feed/wp-blog-header.php'); ?>
+    <link rel='stylesheet' href='<?php echo $TopDir; ?>feed/wp-content/plugins/instagram-feed/css/sb-instagram.min.css' type='text/css' media='all' />
+    <?php echo do_shortcode('[instagram-feed]'); ?>
+    <script type='text/javascript'>
+      var sbiajaxurl = "<?php echo $TopDir; ?>feed/wp-admin/admin-ajax.php";
+      var sb_instagram_js_options = {"sb_instagram_at":"","font_method":"svg"};
     </script>
-    <div id="instafeed"></div>
-    <!-- <div class="social-tiles cf"> -->
-      <?php
-      // $count = 1;
-      // $json = json_decode(file_get_contents('https://apinsta.herokuapp.com/u/harkenblockhead'));
-      // foreach ($json->graphql->user->edge_owner_to_timeline_media->edges as $key => $value) {
-      //   if ($count <= 10) {
-      //     echo '<a href="'.'https://www.instagram.com/p/'.$value->node->shortcode.'" style="background-image: url('.$value->node->thumbnail_src.');" class="social instagram"></a>';
-      //   } else {
-      //     break;
-      //   }
-      //   $count++;
-      // }
-      ?>
-    <!-- </div> -->
+    <script type='text/javascript' src='<?php echo $TopDir; ?>feed/wp-content/plugins/instagram-feed/js/sb-instagram.min.js'></script>
+    <!-- END Instagram Feed Wordpress plugin -->
     <?php } ?>
 
     <div class="footer-contact">
