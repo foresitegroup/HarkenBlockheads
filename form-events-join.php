@@ -40,7 +40,7 @@ if ($_POST['confirmationCAP'] == "") {
                   '" . $mysqli->real_escape_string($_POST[md5('zip' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
                   '" . $mysqli->real_escape_string($_POST[md5('country' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
                   '" . $mysqli->real_escape_string($_POST[md5('parent_name' . $_POST['ip'] . $salt . $_POST['timestamp'])]) . "',
-                  '" . $_POST['consent'] . "'
+                  '" . $mysqli->real_escape_string($_POST['consent']) . "'
                   )");
     $mysqli->close();
 
