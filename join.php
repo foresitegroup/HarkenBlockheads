@@ -142,6 +142,7 @@ include "header.php";
         <option value="Canada">Canada</option>
         <option value="Chile">Chile</option>
         <option value="Poland">Poland</option>
+        <option value="Slovenia">Slovenia</option>
         <option value="South Africa">South Africa</option>
         <option value="United Kingdom">United Kingdom</option>
         <option value="United States">United States</option>
