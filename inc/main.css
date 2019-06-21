@@ -415,7 +415,7 @@ FORM input[type=radio]:checked + label:after {
   display: inline-block;
   height: 84px;
   line-height: 84px;
-  margin: 0 2em;
+  margin: 0 1.5em;
 }
 
 .menu.sticky UL LI {
@@ -663,11 +663,12 @@ FORM input[type=radio]:checked + label:after {
   width: 60%;
   font-family: 'Work Sans', sans-serif;
   font-weight: 900;
-  font-size: 64px;
+  font-size: 62px;
   line-height: 1.3em;
   text-decoration: underline;
   text-transform: uppercase;
   padding-bottom: 0.2em;
+  overflow-wrap: break-word;
 }
 
 .home-event A.more:link,
@@ -1917,9 +1918,142 @@ A#loadmore:active {
   border-color: #000000;
 }
 
+.wallpapers { padding-bottom: 50px; }
+
+.wallpapers .pagetitle {
+  margin: 0.5em 0;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 90px;
+  line-height: 1em;
+  letter-spacing: 0.35em;
+}
+
+.wallpaper-text {
+  width: 85%;
+  margin: 0 auto 2em;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.midline, .midline-short {
+  margin: 0 auto;
+  width: 5px;
+  height: 100px;
+  background: #EBEBEB;
+}
+
+.midline-short { height: 50px; }
+
+.wallpaper-section {
+  padding: 35px;
+  background: #363636;
+  color: #EBEBEB;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.wallpaper-section H2 {
+  margin: 0 0 1em;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+  font-size: 250%;
+}
+
+.wps { display: flex; flex-wrap: wrap; }
+
+.wp { width: 25%; padding-bottom: 3em; }
+
+.wp .wp-image {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.wp .wp-image:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.wp H3 {
+  margin: 1em 0 0.5em;
+  color: #9F9F9F;
+  font-weight: 900;
+  font-size: 83.3%;
+  line-height: 1em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.wp .wp-left, .wp .wp-right { float: left; width: 50%; }
+
+.wp A {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.wp A:after {
+  content: "\f138";
+  font-family: 'FontAwesome';
+  margin-left: 0.25em;
+}
+
+#home-wallpapers {
+  padding: 73px 0 1em;
+  background: linear-gradient(transparent 130px, #EC1B23 130px 505px, transparent 505px);
+  font-weight: 700;
+}
+
+#home-wallpapers H1 {
+  margin: 0 0 0.25em;
+  font-weight: 800;
+  font-size: 80px;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+#home-wallpapers A.button:link, #home-wallpapers A.button:visited {
+  display: inline-block;
+  border: 5px solid #151112;
+  padding: 0.9em 1.2em 0.9em 1.5em;
+  color: #151112;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1em;
+  letter-spacing: 0.3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 2em;
+}
+
+#home-wallpapers A.button:hover, #home-wallpapers A.button:active {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+#home-wallpapers IMG {
+  float: right;
+  margin-left: 0.5em;
+  max-width: 63.5%;
+  height: auto;
+}
+
+
+
+
+
 
 @media only screen and (max-width: 1024px) {
   .site-width { width: 96%; }
+
+  .menu UL LI { margin: 0 1.75vw; }
+
+  .wallpapers .pagetitle { font-size: 8.789vw; }
+  .wallpaper-section { font-size: 1.172vw; }
 }
 
 @media only screen and (max-width: 900px) {
@@ -2028,6 +2162,9 @@ A#loadmore:active {
 
   .contact H1.pagetitle { font-size: 12vw; }
   .spanish .contact H1.pagetitle { font-size: 10.5vw; }
+  
+  .wallpaper-section { font-size: 1.500vw; }
+  .wp { width: 33.3%; }
 }
 
 @media only screen and (max-width: 700px) {
@@ -2311,6 +2448,12 @@ A#loadmore:active {
   #contest .text { float: none; width: 100%; }
 
   #contest .text H3 { font-size: 4.5vw; }
+
+  .wallpaper-section { font-size: 2vw; }
+  .wp { width: 50%; }
+
+  #home-wallpapers H1 { font-size: 13.333vw; }
+  #home-wallpapers IMG { float: none; margin-left: 0; max-width: 100%; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -2349,7 +2492,7 @@ A#loadmore:active {
 
   .menu UL {
     padding: 0.7em 0 0;
-    font-size: 40px;
+    font-size: 8.333vw;
     letter-spacing: 0.3em;
   }
 
@@ -2486,6 +2629,9 @@ A#loadmore:active {
   .event-single-content .event-single-title {
     font-size: 53px;
   }
+
+  .wallpaper-section { font-size: 2.917vw; }
+  .wp { width: 100%; }
 }
 
 @media only screen and (max-width: 390px) {

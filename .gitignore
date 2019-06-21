@@ -3,6 +3,7 @@ admin/login.php
 inc/dbconfig.php
 inc/instafeed.php
 inc/TweetPHP
+images/wallpapers/*
 feed/*
 !feed/wp-content/
 feed/wp-content/*

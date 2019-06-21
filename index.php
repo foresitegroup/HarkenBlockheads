@@ -174,4 +174,17 @@ include "header.php";
   });
 </script>
 
+<div id="home-wallpapers">
+  <div class="site-width">
+    <h1>Blockhead Wallpapers</h1>
+    Show your love of sailing and Blockheads by using one of our way cool wallpapers for your phone, tablet or PC.<br>
+    <br>
+    <br>
+
+    <a href="wallpapers.php" class="button">View All Wallpapers</a>
+
+    <img src="images/home-wallpapers.png" alt="">
+  </div>
+</div>
+
 <?php include "footer.php"; ?>
