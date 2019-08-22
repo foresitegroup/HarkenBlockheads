@@ -77,7 +77,7 @@ if ($_POST['confirmationCAP'] == "") {
     if ($_POST['country'] == "United Kingdom") $SendTo = "blockheads@harken.co.uk";
 
     $Headers .= "Cc: hays.formella@harken.com\r\n";
-    $Headers .= "Bcc: mark@foresitegrp.com\r\n";
+    $Headers .= "Bcc: foresitegroupllc@gmail.com\r\n";
 
     $Message = "Sign-up from " . $_POST[md5('firstname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " " . $_POST[md5('lastname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " (" . $_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])] . ")";
 
