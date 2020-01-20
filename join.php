@@ -3,6 +3,7 @@ $PageTitleLang = "JOIN_TITLE";
 $SocialTitle = "Follow Us";
 $SocialClass = "sht-join";
 include "header.php";
+include_once "inc/dbconfig.php";
 ?>
 
 <div class="site-width join">
@@ -179,11 +180,15 @@ include "header.php";
       <input type="hidden" name="ip" value="<?php echo $ip; ?>">
       <input type="hidden" name="timestamp" value="<?php echo $timestamp; ?>">
 
+      <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY; ?>"></div><br>
+
       <input type="submit" name="submit" value="<?php echo $lang['SIGN_UP']; ?>" id="submit" disabled>
 
       <div id="join-form-messages"><?php echo $feedback; ?></div>
     </div>
   </form>
 </div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <?php include "footer.php"; ?>
