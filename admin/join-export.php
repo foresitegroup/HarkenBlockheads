@@ -1,7 +1,7 @@
 <?php
 include("../inc/dbconfig.php");
 
-$result = $mysqli->query("SELECT firstname,lastname,age,email,address,address2,city,state,zip,country,contest FROM `join` ORDER BY lastname ASC");
+$result = $mysqli->query("SELECT firstname,lastname,age,email,address,address2,city,state,zip,country,contest FROM `join` ORDER BY id DESC");
 
 // Create header row
 $csv_output = "First Name,Last Name,Age,Email,Address,Address 2,City,State,Zip Code,Country,Contest";
