@@ -19,7 +19,6 @@ if ( is_single() ) :
 
       <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>&picture=<?php echo $TheImage; ?>" target="new" class="facebook"></a>
       <a href="http://www.twitter.com/share?url=<?php the_permalink(); ?>&text=<?php echo str_replace(' ', '+', the_title('','',false)); ?>" target="new" class="twitter"></a>
-      <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="new" class="google"></a>
       <a href="mailto:?subject=<?php echo str_replace(' ', '%20', the_title('','',false)); ?>&body=<?php the_permalink(); ?>" class="email">
     </div>
 	</div>
