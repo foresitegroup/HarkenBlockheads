@@ -83,6 +83,7 @@ if ($responsekeys->success) {
 
       $Headers .= "Cc: hays.formella@harken.com\r\n";
       $Headers .= "Bcc: foresitegroupllc@gmail.com\r\n";
+      // $SendTo = "marklippert@protonmail.com";
 
       $Message = "Sign-up from " . $_POST[md5('firstname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " " . $_POST[md5('lastname' . $_POST['ip'] . $salt . $_POST['timestamp'])] . " (" . $_POST[md5('email' . $_POST['ip'] . $salt . $_POST['timestamp'])] . ")";
 
@@ -101,13 +102,13 @@ if ($responsekeys->success) {
       $Message .= "\Special Code: " . $_POST[md5('promo' . $_POST['ip'] . $salt . $_POST['timestamp'])];
       
       // CONTEST
-      $Message .= "\n";
-      if ($_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
-      $Message .= "\nBlockheads Membership Number: " . $_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])];
-      if ($_POST[md5('boat-name' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
-      $Message .= "\nBoat Name: " . $_POST[md5('boat-name' . $_POST['ip'] . $salt . $_POST['timestamp'])];
-      if ($_POST[md5('race-division' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
-      $Message .= "\nRace Division: " . $_POST[md5('race-division' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+      // $Message .= "\n";
+      // if ($_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
+      // $Message .= "\nBlockheads Membership Number: " . $_POST[md5('membership-number' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+      // if ($_POST[md5('boat-name' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
+      // $Message .= "\nBoat Name: " . $_POST[md5('boat-name' . $_POST['ip'] . $salt . $_POST['timestamp'])];
+      // if ($_POST[md5('race-division' . $_POST['ip'] . $salt . $_POST['timestamp'])] != "") 
+      // $Message .= "\nRace Division: " . $_POST[md5('race-division' . $_POST['ip'] . $salt . $_POST['timestamp'])];
 
       $Message = stripslashes($Message);
     

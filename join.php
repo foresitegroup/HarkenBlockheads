@@ -69,6 +69,8 @@ include_once "inc/dbconfig.php";
             $(form).find('input:text, textarea').val('');
             $('#email').val(''); // Grrr!
             $(form).find('input:radio, input:checked').removeAttr('checked').removeAttr('selected');
+            $('#form-fields').css('display', 'none');
+            $('#join-form').css('padding-bottom', '6em');
           })
           .fail(function(data) {
             if (data.responseText !== '') {
@@ -108,7 +110,7 @@ include_once "inc/dbconfig.php";
   </noscript>
 
   <form action="form-join.php" method="POST" id="join-form">
-    <div>
+    <div id="form-fields">
       <div class="parent-popup">
         <?php echo $lang['POP_UP'];?>
       </div>
@@ -153,7 +155,7 @@ include_once "inc/dbconfig.php";
 
       <?php date_default_timezone_set('America/Chicago'); ?>
       <?php if (strtotime("now") <= strtotime("20 July 2018 3:00pm")) { ?>
-      <div class="centered contest-fields">
+      <!-- <div class="centered contest-fields">
         <input type="checkbox" name="contest" value="yes" id="r-contest"<?php if ($_SERVER['QUERY_STRING'] == "award") echo " checked"; ?>>
         <label for="r-contest">I am sailing in the 110th Chicago Yacht Club Race to Mackinac and am registering for the First Blockhead to the Island Award</label>
 
@@ -165,7 +167,7 @@ include_once "inc/dbconfig.php";
 
           <input type="text" name="<?php echo md5("race-division" . $ip . $salt . $timestamp); ?>" id="race-division" placeholder="Race Division">
         </div>
-      </div>
+      </div> -->
       <?php } ?>
 
       <div class="centered">
@@ -183,9 +185,9 @@ include_once "inc/dbconfig.php";
       <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY; ?>"></div><br>
 
       <input type="submit" name="submit" value="<?php echo $lang['SIGN_UP']; ?>" id="submit" disabled>
-
-      <div id="join-form-messages"><?php echo $feedback; ?></div>
     </div>
+
+    <div id="join-form-messages"><?php echo $feedback; ?></div>
   </form>
 </div>
 
