@@ -52,6 +52,7 @@
         
         <?php if ($PageTitle != "Login") { ?>
         <ul>
+          <li><a href="join.php">SIGN UPS</a></li>
           <li><a href="events.php">EVENTS</a></li>
         </ul>
         <?php } ?>
