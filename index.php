@@ -1,6 +1,8 @@
 <?php
 $BodyClass = "line";
 $SocialTitle = "#HARKENBLOCKHEADS";
+$OGimage = "og-image.jpg";
+$OGdescription = "What exactly is a Blockhead? If you are totally obsessed with how to rig and sail your boat, you might already be one! Join the community of Blockheads to learn more about the sport, engage with others and share sailing experiences.";
 include "header.php";
 ?>
 
@@ -103,9 +105,9 @@ include "header.php";
   $result = $mysqli->query("SELECT * FROM events WHERE enddate+86400 >= $now ORDER BY startdate ASC LIMIT 1");
 
   // If there are no upcoming events just display the last event
-  if (mysqli_num_rows($result) == 0) $result = $mysqli->query("SELECT * FROM events ORDER BY enddate DESC LIMIT 1");
+  if ($result->num_rows == 0) $result = $mysqli->query("SELECT * FROM events ORDER BY enddate DESC LIMIT 1");
 
-  if (mysqli_num_rows($result) > 0) {
+  if ($result->num_rows > 0) {
     setlocale(LC_TIME, $lang['LOCALE']);
 
     $row = $result->fetch_array(MYSQLI_ASSOC);

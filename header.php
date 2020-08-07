@@ -41,8 +41,19 @@ if (isset($PageTitleLangPlus)) $PageTitle .= $PageTitleLangPlus;
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Foresite Group">
+    
+    <meta property="og:title" content="Harken Blockheads<?php if (isset($PageTitle)) echo " | " . $PageTitle; ?>" />
+    <meta property="twitter:title" content="Harken Blockheads<?php if (isset($PageTitle)) echo " | " . $PageTitle; ?>" />
+    <?php
+    if (isset($OGdescription)) echo "<meta property=\"og:description\" content=\"".$OGdescription."\" />\n";
+    if (isset($OGimage)) {
+      echo "<meta property=\"og:image\" content=\"http://harkenblockheads.com/images/".$OGimage."\" />\n";
+      echo "<meta property='twitter:image' content=\"http://harkenblockheads.com/images/".$OGimage."\" />\n";
+      echo "<meta name=\"twitter:card\" content=\"summary_large_image\" />\n";
+    }
 
-    <?php if(function_exists('wp_head')) wp_head(); ?>
+    if(function_exists('wp_head')) wp_head();
+    ?>
 
     <meta name="viewport" content="width=device-width">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Work+Sans:900" rel="stylesheet">

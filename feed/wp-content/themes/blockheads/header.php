@@ -20,6 +20,8 @@ if (!is_single()) :
   $BodyClass = "line";
   $SocialTitle = "Follow Us";
   $SocialClass = "sht-join";
+  $OGimage = "og-image.jpg";
+  $OGdescription = "News, information, tips, tricks and more!";
 else :
   $HeaderClass = "banner-feed-single";
   $HeaderBackground = wp_get_attachment_url(get_post_thumbnail_id());
