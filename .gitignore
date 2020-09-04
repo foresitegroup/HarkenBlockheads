@@ -9,5 +9,5 @@ feed/*
 feed/wp-content/*
 !feed/wp-content/themes/
 feed/wp-content/themes/*
-!feed/wp-content/themes/blockheads
+!feed/wp-content/themes/blockheads/
 feed/wp-content/themes/blockheads/.DS_Store
