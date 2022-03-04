@@ -57,8 +57,11 @@
         </div>
 
         <div style="clear: both;"></div>
-
-        &copy; <?php echo date("Y"); ?> All rights reserved, Harken Inc.
+        
+        <div style="display: flex; justify-content: space-between;">
+          <div>&copy; <?php echo date("Y"); ?> All rights reserved, Harken Inc.</div>
+          <a href="https://foresitegrp.com" style="color: #333132; text-decoration: none;">WEBSITE BY FORESITE</a>
+        </div>
       </div>
     </div>
 
