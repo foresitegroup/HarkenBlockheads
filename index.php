@@ -13,6 +13,7 @@ include "header.php";
   if ($lang['LANGUAGE'] == "English") {
     $args = array(
       'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'offset' => 1,
+      'ignore_sticky_posts' => true,
       'meta_query' => array('relation' => 'OR',
         array('key' => 'language', 'value' => array('All', 'English'), 'compare' => 'IN'),
         array('key' => 'language', 'compare' => 'NOT EXISTS')
@@ -21,6 +22,7 @@ include "header.php";
   } else {
     $args = array(
       'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'offset' => 1,
+      'ignore_sticky_posts' => true,
       'meta_key' => 'language', 'meta_value' => array('All', $lang['LANGUAGE'])
     );
   }

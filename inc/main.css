@@ -483,6 +483,16 @@ FORM input[type=radio]:checked + label:after {
   text-decoration: none;
 }
 
+.home-posts H2.cat {
+  margin: 0 0 0.25em;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .home-posts .post {
   display: inline-block;
   vertical-align: top;
@@ -564,6 +574,23 @@ FORM input[type=radio]:checked + label:after {
   border: 5px solid #6A6264;
   text-decoration: none;
 }
+
+.home-posts .cat-centered { padding-bottom: 6em; }
+
+.home-posts .cat-centered A.button:link,
+.home-posts .cat-centered A.button:visited { margin: 0; }
+
+.home-posts .cat-centered A.all {
+  text-decoration: none;
+  color: #D7D7D7;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.home-posts .cat-centered A.all:hover { color: #EC1B23; }
 
 .home-poll {
   background: #FFFFFF;

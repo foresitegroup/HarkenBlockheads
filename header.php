@@ -98,6 +98,7 @@ if (isset($PageTitleLangPlus)) $PageTitle .= $PageTitleLangPlus;
       if ($lang['LANGUAGE'] == "English") {
         $args = array(
           'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC',
+          'ignore_sticky_posts' => true,
           'meta_query' => array('relation' => 'OR',
             array('key' => 'language', 'value' => array('All', 'English'), 'compare' => 'IN'),
             array('key' => 'language', 'compare' => 'NOT EXISTS')
@@ -106,6 +107,7 @@ if (isset($PageTitleLangPlus)) $PageTitle .= $PageTitleLangPlus;
       } else {
         $args = array(
           'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC',
+          'ignore_sticky_posts' => true,
           'meta_key' => 'language', 'meta_value' => array('All', $lang['LANGUAGE'])
         );
       }
