@@ -39,6 +39,7 @@ if (strpos($_SERVER['QUERY_STRING'], "google") !== false) {
 $PageTitleLang = "EVENT_TITLE";
 $PageTitleLangPlus = " | " . $Etitle;
 $SocialTitle = "#HARKENBLOCKHEADS";
+$MenuClass = "events";
 include "header.php";
 ?>
 

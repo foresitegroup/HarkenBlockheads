@@ -155,10 +155,10 @@ if (isset($PageTitleLangPlus)) $PageTitle .= $PageTitleLangPlus;
         <input type="checkbox" id="show-menu" role="button">
         <label for="show-menu" id="menu-toggle"></label>
         <ul>
-          <li><a href="<?php echo $TopDir; ?>join.php"><?php echo $lang['JOIN']; ?>.</a></li>
-          <li><a href="<?php echo $TopDir; ?>feed"><?php echo $lang['FEED']; ?>.</a></li>
-          <li><a href="<?php echo $TopDir; ?>events.php"><?php echo $lang['EVENTS']; ?>.</a></li>
-          <li><a href="<?php echo $TopDir; ?>wallpapers.php"><?php echo $lang['WALLPAPERS_TITLE']; ?>.</a></li>
+          <li><a href="<?php echo $TopDir; ?>join.php"<?php if (isset($MenuClass) && $MenuClass == "join") echo ' class="active"'; ?>><?php echo $lang['JOIN']; ?>.</a></li>
+          <li><a href="<?php echo $TopDir; ?>feed"<?php if (isset($MenuClass) && $MenuClass == "feed") echo ' class="active"'; ?>><?php echo $lang['FEED']; ?>.</a></li>
+          <li><a href="<?php echo $TopDir; ?>events.php"<?php if (isset($MenuClass) && $MenuClass == "events") echo ' class="active"'; ?>><?php echo $lang['EVENTS']; ?>.</a></li>
+          <li><a href="<?php echo $TopDir; ?>wallpapers.php"<?php if (isset($MenuClass) && $MenuClass == "wallpapers") echo ' class="active"'; ?>><?php echo $lang['WALLPAPERS_TITLE']; ?>.</a></li>
           <li class="menu-social">
             <a href="https://www.facebook.com/Harken-Blockheads-1297811663614506/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/harkenblockhead"><i class="fa fa-instagram" aria-hidden="true"></i></a>

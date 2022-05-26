@@ -4,6 +4,7 @@ $SocialTitle = "Follow Us";
 $SocialClass = "sht-join";
 $OGimage = "og-image.jpg";
 $OGdescription = "Become a better sailor and get free stuff! Sign up and we'll send you a Blockheads kit including decals, flat whistle, Carbo block magnet and membership card.";
+$MenuClass = "join";
 include "header.php";
 include_once "inc/dbconfig.php";
 ?>

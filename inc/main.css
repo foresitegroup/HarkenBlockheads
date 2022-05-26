@@ -434,7 +434,8 @@ FORM input[type=radio]:checked + label:after {
 }
 
 .menu UL LI A:hover,
-.menu UL LI A:active {
+.menu UL LI A:active,
+.menu UL LI A.active {
   color: #660000;
   text-decoration: none;
 }

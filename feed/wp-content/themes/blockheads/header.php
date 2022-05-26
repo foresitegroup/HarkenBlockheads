@@ -10,7 +10,7 @@
  */
 
 $TopDir = substr( home_url(), 0, strrpos( home_url(), '/')+1);
-$langpath = ($_SERVER['SERVER_NAME'] == "localhost") ? "/Users/lippert/Sites/HarkenBlockheads/" : "/home/foresitegrp/webapps/blockheads/";
+$langpath = ($_SERVER['SERVER_NAME'] == "localhost") ? "/Users/lippert/Sites/HarkenBlockheads/" : "/home/foresite/public_html/harkenblockheads/";
 
 if (!is_single()) :
   $HeaderClass = "banner-feed-index";
@@ -28,6 +28,8 @@ else :
   $PageTitle = get_the_title();
   $TheDate = get_the_date();
 endif;
+
+$MenuClass = "feed";
 
 include "../header.php";
 ?>

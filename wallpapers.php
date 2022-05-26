@@ -1,6 +1,7 @@
 <?php
 $PageTitleLang = "WALLPAPERS_TITLE";
 $SocialTitle = "#HARKENBLOCKHEADS";
+$MenuClass = "wallpapers";
 include "header.php";
 ?>
 

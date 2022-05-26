@@ -1,6 +1,7 @@
 <?php
 $PageTitleLang = "EVENTS_TITLE";
 $SocialTitle = "#HARKENBLOCKHEADS";
+$MenuClass = "events";
 include "header.php";
 
 // Build the events array
