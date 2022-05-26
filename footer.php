@@ -18,13 +18,13 @@
     
     <!-- BEGIN Instagram Feed Wordpress plugin -->
     <?php require_once('feed/wp-blog-header.php'); ?>
-    <link rel='stylesheet' href='<?php echo $TopDir; ?>feed/wp-content/plugins/instagram-feed/css/sb-instagram.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='<?php echo $TopDir; ?>feed/wp-content/plugins/instagram-feed/css/sbi-styles.min.css' media='all' />
     <?php echo do_shortcode('[instagram-feed]'); ?>
     <script type='text/javascript'>
       var sbiajaxurl = "<?php echo $TopDir; ?>feed/wp-admin/admin-ajax.php";
-      var sb_instagram_js_options = {"sb_instagram_at":"","font_method":"svg"};
+      var sb_instagram_js_options = {"font_method":"svg","resized_url":"feed\/wp-content\/uploads\/sb-instagram-feed-images\/","placeholder":"feed\/wp-content\/plugins\/instagram-feed\/img\/placeholder.png","ajax_url":"feed\/wp-admin\/admin-ajax.php"};
     </script>
-    <script type='text/javascript' src='<?php echo $TopDir; ?>feed/wp-content/plugins/instagram-feed/js/sb-instagram.min.js'></script>
+    <script src='<?php echo $TopDir; ?>feed/wp-content/plugins/instagram-feed/js/sbi-scripts.min.js'></script>
     <!-- END Instagram Feed Wordpress plugin -->
     <?php } ?>
 
