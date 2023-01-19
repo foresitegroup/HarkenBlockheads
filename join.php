@@ -118,7 +118,7 @@ include_once "inc/dbconfig.php";
         <?php echo $lang['POP_UP'];?>
       </div>
 
-      <input type="text" name="<?php echo md5("promo" . $ip . $salt . $timestamp); ?>" id="promo" placeholder="<?php echo $lang['SPECIAL_CODE']; ?>">
+      <input type="hidden" name="<?php echo md5("promo" . $ip . $salt . $timestamp); ?>" id="promo" placeholder="<?php echo $lang['SPECIAL_CODE']; ?>">
 
       <input type="text" name="<?php echo md5("firstname" . $ip . $salt . $timestamp); ?>" id="firstname" placeholder="<?php echo $lang['FIRST_NAME']; ?>">
 
