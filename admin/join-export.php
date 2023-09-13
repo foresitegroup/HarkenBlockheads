@@ -61,7 +61,7 @@ $message .= $content.$eol;
 $message .= "--".$uid."--";
 
 // Send the mail
-mail("harkenblockheads@gmail.com", "Join Database Export", $message, $header);
+mail("harkeninc@gmail.com", "Join Database Export", $message, $header);
 // mail("lippert@gmail.com", "Join Database Export", $message, $header);
 
 // All done, delete the file
