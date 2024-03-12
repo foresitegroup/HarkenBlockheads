@@ -147,6 +147,7 @@ include_once "inc/dbconfig.php";
         <option value="Australia">Australia</option>
         <option value="Canada">Canada</option>
         <option value="Chile">Chile</option>
+        <option value="France">France</option>
         <option value="Poland">Poland</option>
         <option value="Slovenia">Slovenia</option>
         <option value="South Africa">South Africa</option>

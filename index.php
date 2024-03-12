@@ -180,12 +180,12 @@ include "header.php";
 
 <div id="home-wallpapers">
   <div class="site-width">
-    <h1>Blockhead Wallpapers</h1>
-    Show your love of sailing and Blockheads by using one of our way cool wallpapers for your phone, tablet or PC.<br>
+    <h1>Blockhead <?php echo $lang['WALLPAPERS_TITLE']; ?></h1>
+    <?php echo $lang['WALLPAPERS_TEXT']; ?><br>
     <br>
     <br>
 
-    <a href="wallpapers.php" class="button">View All Wallpapers</a>
+    <a href="wallpapers.php" class="button"><?php echo $lang['SEE_MORE']; ?> <?php echo $lang['WALLPAPERS_TITLE']; ?></a>
 
     <img src="images/home-wallpapers.png" alt="">
   </div>

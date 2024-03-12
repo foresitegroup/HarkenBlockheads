@@ -76,16 +76,6 @@ if (isset($PageTitleLangPlus)) $PageTitle .= $PageTitleLangPlus;
         $(".swipebox").swipebox({hideBarsDelay : 0});
       });
     </script>
-    
-    <!-- Google Analytics [This will stop working 7/1/23] -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-90627023-1', 'auto');
-      ga('send', 'pageview');
-    </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PSSVQ9Z93P"></script>
@@ -181,6 +171,7 @@ if (isset($PageTitleLangPlus)) $PageTitle .= $PageTitleLangPlus;
                 <select name="lang" onchange="document.Language.submit()">
                   <option value="english"<?php if ($language == "english") echo " selected"; ?>>English</option>
                   <option value="spanish"<?php if ($language == "spanish") echo " selected"; ?>>Espa&ntilde;ol</option>
+                  <option value="french"<?php if ($language == "french") echo " selected"; ?>>Fran&ccedil;ais</option>
                   <option value="polish"<?php if ($language == "polish") echo " selected"; ?>>Polski</option>
                 </select>
               </div>
