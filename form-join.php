@@ -68,7 +68,7 @@ if ($responsekeys->success) {
         $SendTo = "marketing.intern@harken.com";
       } else {
         $Subject = "Harken Blockheads Sign-Up";
-        $SendTo = "blockheads@harken.com";
+        $SendTo = "harkeninc@gmail.com";
       }
       
       // $Subject = "Harken Blockheads Sign-Up";
@@ -81,7 +81,7 @@ if ($responsekeys->success) {
       if ($_POST['country'] == "South Africa") $SendTo = "lars@harken.co.za";
       if ($_POST['country'] == "United Kingdom") $SendTo = "blockheads@harken.co.uk";
 
-      $Headers .= "Cc: hays.formella@harken.com\r\n";
+      // $Headers .= "Cc: hays.formella@harken.com\r\n";
       $Headers .= "Bcc: foresitegroupllc@gmail.com\r\n";
       // $SendTo = "marklippert@protonmail.com";
 
