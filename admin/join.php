@@ -13,7 +13,9 @@ include "header.php";
 </style>
 
 <div class="admin">
-  <h3>Sign Ups</h3><br>
+  <h3>Sign Ups</h3>
+  <a href="join-export.php">Export to CSV</a><br>
+  <br>
 
   <table style="width: 100%;" cellspacing="0">
     <tr style="background: #ED1835;">

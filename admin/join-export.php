@@ -30,40 +30,45 @@ $data = str_replace("\r","",$data);
 // Done with the database
 $result->free();
 
+header("Content-type: application/vnd.ms-excel");
+header("Content-disposition: filename=Join_".date("Ymd-Hi").".csv");
+print $headers."\n".$data;
+exit;
+
 // Create the CSV file
-$filename = "Join_" . date("Ymd-Hi") . ".csv";
-$content = $csv_output."\n".$data;
+// $filename = "Join_" . date("Ymd-Hi") . ".csv";
+// $content = $csv_output."\n".$data;
 
-$fd = fopen ($filename, "w");
-fputs($fd, $content);
-fclose($fd);
+// $fd = fopen ($filename, "w");
+// fputs($fd, $content);
+// fclose($fd);
 
-// Prepare to email the file
-$content = chunk_split(base64_encode($content));
-$uid = md5(uniqid(time()));
-$eol = PHP_EOL;
+// // Prepare to email the file
+// $content = chunk_split(base64_encode($content));
+// $uid = md5(uniqid(time()));
+// $eol = PHP_EOL;
 
-// Basic headers
-$header = "From: Blockheads Database <database@harkenblockheads.com>".$eol;
-$header .= "MIME-Version: 1.0\r\n";
-$header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"";
+// // Basic headers
+// $header = "From: Blockheads Database <database@harkenblockheads.com>".$eol;
+// $header .= "MIME-Version: 1.0\r\n";
+// $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"";
 
-// Put everything else in $message
-$message = "--".$uid.$eol;
-$message .= "Content-Type: text/html; charset=ISO-8859-1".$eol;
-$message .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
-// $message .= "Email text goes here.".$eol;
-$message .= "--".$uid.$eol;
-$message .= "Content-Type: application/csv; name=\"".$filename."\"".$eol;
-$message .= "Content-Transfer-Encoding: base64".$eol;
-$message .= "Content-Disposition: attachment; filename=\"".$filename."\"".$eol;
-$message .= $content.$eol;
-$message .= "--".$uid."--";
+// // Put everything else in $message
+// $message = "--".$uid.$eol;
+// $message .= "Content-Type: text/html; charset=ISO-8859-1".$eol;
+// $message .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
+// // $message .= "Email text goes here.".$eol;
+// $message .= "--".$uid.$eol;
+// $message .= "Content-Type: application/csv; name=\"".$filename."\"".$eol;
+// $message .= "Content-Transfer-Encoding: base64".$eol;
+// $message .= "Content-Disposition: attachment; filename=\"".$filename."\"".$eol;
+// $message .= $content.$eol;
+// $message .= "--".$uid."--";
 
-// Send the mail
-mail("harkeninc@gmail.com", "Join Database Export", $message, $header);
-// mail("lippert@gmail.com", "Join Database Export", $message, $header);
+// // Send the mail
+// mail("harkeninc@gmail.com", "Join Database Export", $message, $header);
+// // mail("lippert@gmail.com", "Join Database Export", $message, $header);
 
-// All done, delete the file
-unlink($filename);
+// // All done, delete the file
+// unlink($filename);
 ?>
