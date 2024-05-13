@@ -350,14 +350,15 @@ FORM input[type=radio]:checked + label:after {
 
 .home-banner .home-banner-right A:hover,
 .home-banner .home-banner-right A:active {
-  color: #141011;
+  color: #ED1B35;
   text-decoration: none;
 }
 
 .home-banner .home-banner-right A.button:link,
 .home-banner .home-banner-right A.button:visited {
-  color: #141011;
-  border: 5px solid #141011;
+  background: #FFFFFF;
+  color: #ED1B35;
+  border: 5px solid #ED1B35;
   text-decoration: none;
   letter-spacing: 0.75em;
   padding: 0.2em 0.3em 0.2em 1em;
@@ -372,6 +373,7 @@ FORM input[type=radio]:checked + label:after {
 
 .home-banner .home-banner-right A.button:hover,
 .home-banner .home-banner-right A.button:active {
+  background: #ED1B35;
   color: #FFFFFF;
   border: 5px solid #FFFFFF;
   text-decoration: none;
