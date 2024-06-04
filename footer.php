@@ -34,7 +34,7 @@
 
     <div class="prefooter">
       <div class="site-width">
-        <img src="<?php echo $TopDir; ?>images/logo-prefooter.png" alt=""><br>
+        <img src="<?php echo $TopDir; ?>images/logo-prefooter.webp" alt="" width="594" height="1000"><br>
         <br>
 
         <?php echo $lang['BLOCKHEAD']; ?>

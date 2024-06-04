@@ -21,7 +21,7 @@ include_once "inc/dbconfig.php";
     </div>
 
     <div class="join-form-header-right">
-      <img src="images/logo-prefooter.png" alt="">
+      <img src="images/logo-prefooter.webp" alt="" width="594" height="1000">
     </div>
   </div>
 

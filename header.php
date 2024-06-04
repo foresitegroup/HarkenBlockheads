@@ -124,7 +124,7 @@ if (isset($PageTitleLangPlus)) $PageTitle .= $PageTitleLangPlus;
 
       <div class="site-width">
         <div class="home-banner-left">
-          <a href="."><img src="images/logo.png" alt=""></a>
+          <a href="."><img src="images/logo.webp" alt="" width="594" height="1000"></a>
         </div>
 
         <div class="home-banner-right">
